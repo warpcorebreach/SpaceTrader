@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,18 +8,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="space.trader.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.FXMLDocumentController">
     <children>
-        <Label fx:id="label" layoutX="24.0" layoutY="26.0" minHeight="16" minWidth="69" text="Welcome to" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+        <Label fx:id="label" layoutX="24.0" layoutY="25.0" minHeight="16" minWidth="69" text="Welcome to">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <ImageView fitHeight="250.0" fitWidth="300.0" layoutX="177.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/SpaceTrader.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="159.0" fitWidth="206.0" layoutX="54.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="500.0" fitWidth="600.0" layoutX="54.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/lasers-money.png" />
          </image>
       </ImageView>
+      <Button layoutX="270.0" layoutY="415.0" mnemonicParsing="false" onAction="#EnterCreationScreen" text="Enter Game" />
     </children>
 </AnchorPane>

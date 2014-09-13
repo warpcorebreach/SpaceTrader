@@ -27,7 +27,11 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
-    
+    @FXML
+    private void EnterCreationScreen(ActionEvent event) {
+        label.setText("Ok. Let's Create Your Character");
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
