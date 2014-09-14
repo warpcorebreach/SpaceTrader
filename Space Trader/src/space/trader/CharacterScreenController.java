@@ -50,6 +50,8 @@ public class CharacterScreenController implements Initializable {
     @FXML
     private ProgressBar bar;
     
+    public player p;
+    
         @FXML
     private void PilotAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {
@@ -98,6 +100,8 @@ public class CharacterScreenController implements Initializable {
             user.clear();
             user.setVisible(false);
             label6.setText("Character Created");
+            p = new player(name.getText(),add,add1,add2,add3,add4);
+            System.out.println(p.getName() + p.getFighter() + p.getEngineer() + p.getInvestor() + p.getTrader() + p.getPilot());
         } else {
             label6.setText("Please Enter a Name");
         }
