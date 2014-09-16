@@ -6,12 +6,18 @@
 
 package space.trader;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
@@ -28,9 +34,14 @@ public class FXMLDocumentController implements Initializable {
         label.setText("Hello World!");
     }
     @FXML
-    private void EnterCreationScreen(ActionEvent event) {
+    private void EnterCreationScreen(ActionEvent event) throws IOException {
         label.setText("Ok. Let's Create Your Character");
-        
+          Node node=(Node) event.getSource();
+         Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("CharacterScreen.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+         stage.show();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
