@@ -105,14 +105,26 @@ public class CharacterScreenController implements Initializable {
     }
 
     @FXML
-    private void Done(ActionEvent event) {
+    private void Done(ActionEvent event) throws IOException {
         if(user.getText() != null && !user.getText().isEmpty()) {
-            name.setText(user.getText());
-            user.clear();
-            user.setVisible(false);
-            label6.setText("Character Created");
-            p = new player(name.getText(),add,add1,add2,add3,add4);
-            System.out.println(p.getName() + p.getFighter() + p.getEngineer() + p.getInvestor() + p.getTrader() + p.getPilot());
+            if((add+add1+add2+add3+add4) < 15) {
+                label6.setText("Please allocate all character points.");
+            } else {
+                name.setText(user.getText());
+                user.clear();
+                user.setVisible(false);
+                label6.setText("Character Created");
+                p = new player(name.getText(),add,add1,add2,add3,add4);
+                System.out.println(p.getName() + p.getFighter() + p.getEngineer() + p.getInvestor() + p.getTrader() + p.getPilot());
+
+                Node node=(Node) event.getSource();
+                Stage stage=(Stage) node.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            
         } else {
             label6.setText("Please Enter a Name");
         }
@@ -127,8 +139,9 @@ public class CharacterScreenController implements Initializable {
     
         stage.setScene(scene);
         
-         stage.show();
+        stage.show();
     }
+    
     /**
      * Initializes the controller class.
      */
