@@ -17,12 +17,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SpaceTrader extends Application {
-    // Create the universe as a List of solar system
+    // Create a new Universe object
     private static Universe gameUniverse = new Universe();
     
     @Override
     public void start(Stage stage) throws Exception {
-        // Loa
+
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
   
         Scene scene = new Scene(root);    
