@@ -18,10 +18,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Duc
- */
 public class SpaceTrader extends Application {
     // Create the universe as a List of solar system
     private ObservableList<SolarSystem> Universe = FXCollections.observableArrayList();
@@ -40,6 +36,7 @@ public class SpaceTrader extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println(SolarSystem.universeGenerate());
         launch(args);
     } 
     

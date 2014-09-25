@@ -58,7 +58,7 @@ public class SolarSystem {
     private TechLevel techLevel;
     private Resources resources;
     /**
-     * Constructor of the solar system
+     * Constructor of a solar system
      */
     public SolarSystem(Name name, int x, int y, TechLevel techLevel, Resources resources) {
         this.name = name;
@@ -107,7 +107,10 @@ public class SolarSystem {
     public Resources getResources() {
         return resources;
     }
-    
+    /**
+     * Create a string representation for the system
+     * @return: The string represent a solar system.
+     */
     @Override
     public String toString() {
         return name.name() + " " + x + " " + y + " " + techLevel.name() + " "
@@ -115,6 +118,7 @@ public class SolarSystem {
     }
     /**
      * Generate an universe with random generated solar systems.
+     * Put it as static so client can used it easier.
      */
     public static ArrayList<SolarSystem> universeGenerate() {
         // Get number of available system nam
