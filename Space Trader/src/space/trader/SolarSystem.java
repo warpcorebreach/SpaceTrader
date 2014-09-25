@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package space.trader;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import java.util.ArrayList;
-import java.util.Random;
 
 
 /**
@@ -107,45 +103,5 @@ public class SolarSystem {
     public Resources getResources() {
         return resources;
     }
-    /**
-     * Create a string representation for the system
-     * @return: The string represent a solar system.
-     */
-    @Override
-    public String toString() {
-        return name.name() + " " + x + " " + y + " " + techLevel.name() + " "
-                + resources.name();
-    }
-    /**
-     * Generate an universe with random generated solar systems.
-     * Put it as static so client can used it easier.
-     */
-    public static ArrayList<SolarSystem> universeGenerate() {
-        // Get number of available system nam
-        int numberOfName = Name.values().length;
-        Random randObject = new Random();
-        // Generate 2 arrayList
-        ArrayList<Integer> numArray = new ArrayList();
-        ArrayList<SolarSystem> universe = new ArrayList();
-        // Generate each planet and add it to the array
-        for (int i = 0; i < 50; i++) {
-            
-            // Generate a random unique universe name
-            
-            int nextNum = randObject.nextInt(numberOfName);
-            while (numArray.contains(nextNum)) {
-                nextNum = randObject.nextInt(numberOfName);
-            }
-            Name systemName = Name.values()[nextNum];
-            // Pick tech level and resources randomly
-            TechLevel systemLevel = TechLevel.values()[randObject.nextInt(8)];
-            Resources systemResources = Resources.values()[randObject
-                                                           .nextInt(13)];
-            numArray.add(nextNum);
-            universe.add(new SolarSystem(systemName, 0, 0, systemLevel,
-                    systemResources));
-
-        }
-        return universe;
-    }
+     
 }
