@@ -8,7 +8,9 @@ package space.trader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -16,13 +18,14 @@ import javafx.fxml.Initializable;
  * @author jd
  */
 public class UniverseScreenController implements Initializable {
-
-    /**
+    @FXML
+    private Label label1;
+    /*
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        label1.setText("Welcome, " + Data.getInstance().getPlayer().getName() + "!");
+    }  
+  
 }
