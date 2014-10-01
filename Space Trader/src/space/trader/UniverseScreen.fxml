@@ -20,5 +20,6 @@
             <Font name="Dyuthi" size="30.0" />
          </font>
       </Label>
+      <Label fx:id="label1" layoutX="75.0" layoutY="353.0" text="Label" textFill="#e3ff2d" />
    </children>
 </AnchorPane>

@@ -115,6 +115,7 @@ public class CharacterScreenController implements Initializable {
                 user.setVisible(false);
                 label6.setText("Character Created");
                 p = new player(name.getText(),add,add1,add2,add3,add4);
+                Data.getInstance().setPlayer(p);
                 System.out.println(p.getName() + p.getFighter() + p.getEngineer() + p.getInvestor() + p.getTrader() + p.getPilot());
 
                 Node node=(Node) event.getSource();
