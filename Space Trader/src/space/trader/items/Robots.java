@@ -14,6 +14,6 @@ import space.trader.SystemStats.Resources;
  */
 public class Robots extends TradeGood {
     public Robots() {
-        super(6, 4, 7, 5000, -150, 100, null, null);
+        super(6, 4, 7, 5000, -150, 100, null, null, "Robots");
     }
 }

@@ -14,7 +14,7 @@ import space.trader.SystemStats.Resources;
 public class Water extends TradeGood {
 
     public Water() {
-        super(0, 0, 2, 30, 3, 4, Resources.LOTSOFWATER, Resources.DESERT);
+        super(0, 0, 2, 30, 3, 4, Resources.LOTSOFWATER, Resources.DESERT, "Water");
     }
     
 }

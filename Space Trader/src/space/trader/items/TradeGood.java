@@ -14,9 +14,10 @@ import space.trader.SystemStats.Resources;
 public abstract class TradeGood {
     protected final int MTLP, MTLU, TTP, basePrice, IPL, var;
     protected final Resources CR, ER;
+    protected final String name;
     
     public TradeGood(int MTLP, int MTLU, int TTP, int basePrice, int IPL, int var,
-                Resources CR, Resources ER) {
+                Resources CR, Resources ER, String name) {
             this.MTLP = MTLP;
             this.MTLU = MTLU;
             this.TTP = TTP;
@@ -25,6 +26,7 @@ public abstract class TradeGood {
             this.var = var;
             this.CR = CR;
             this.ER = ER;
+            this.name = name;
     }
     
     public int getMTLP() {
@@ -57,5 +59,9 @@ public abstract class TradeGood {
 
     public Resources getER() {
         return ER;
+    }
+    
+    public String getName() {
+        return name;
     }
 }

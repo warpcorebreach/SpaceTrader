@@ -34,7 +34,8 @@ public class SpaceTrader extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(gameUniverse);
+        //System.out.println(gameUniverse);
+        gameUniverse.getUniverse().get(0).showMarket();
         launch(args);
     } 
     

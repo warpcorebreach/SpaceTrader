@@ -14,6 +14,6 @@ import space.trader.SystemStats.Resources;
  */
 public class Medicine extends TradeGood {
     public Medicine() {
-        super(4, 1, 6, 650, -20, 10, Resources.LOTSOFHERBS, null);
+        super(4, 1, 6, 650, -20, 10, Resources.LOTSOFHERBS, null, "Medicine");
     }
 }

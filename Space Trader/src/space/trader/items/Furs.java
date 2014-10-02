@@ -14,7 +14,7 @@ import space.trader.SystemStats.Resources;
 public class Furs extends TradeGood {
 
     public Furs() {
-        super(0, 0, 0, 250, 10, 10, Resources.RICHFAUNA, Resources.LIFELESS);
+        super(0, 0, 0, 250, 10, 10, Resources.RICHFAUNA, Resources.LIFELESS, "Furs");
     }
     
 }

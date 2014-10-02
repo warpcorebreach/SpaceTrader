@@ -14,6 +14,6 @@ import space.trader.SystemStats.Resources;
  */
 public class Firearms extends TradeGood {
     public Firearms() {
-        super(3, 1, 5, 1250, -75, 100, Resources.WARLIKE, null);
+        super(3, 1, 5, 1250, -75, 100, Resources.WARLIKE, null, "Firearms");
     }
 }

@@ -125,4 +125,15 @@ public class Market {
                 - good.getMTLP()) + var;
         return price;
     }
+    
+    public String toString() {
+        String out = "";
+        out += sys.getName() + "\n";
+        for (TradeGood good : goodList.keySet()) {
+            out += good.getName() + "\n";
+            out += "Price: " + goodPrices.get(good) + "\n";
+            out += "Availability: " + goodList.get(good) + "\n" + "\n";
+        }
+        return out;
+    }
 }

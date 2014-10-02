@@ -14,6 +14,6 @@ import space.trader.SystemStats.Resources;
  */
 public class Games extends TradeGood {
     public Games() {
-        super(3, 1, 6, 250, -10, 5, Resources.ARTISTIC, null);
+        super(3, 1, 6, 250, -10, 5, Resources.ARTISTIC, null, "Games");
     }
 }

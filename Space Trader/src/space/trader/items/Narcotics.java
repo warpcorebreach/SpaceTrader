@@ -14,6 +14,6 @@ import space.trader.SystemStats.Resources;
  */
 public class Narcotics extends TradeGood {
     public Narcotics() {
-        super(5, 0, 5, 3500, -125, 150, Resources.WEIRDMUSHROOMS, null);
+        super(5, 0, 5, 3500, -125, 150, Resources.WEIRDMUSHROOMS, null, "Narcotics");
     }
 }

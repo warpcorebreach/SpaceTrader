@@ -15,7 +15,7 @@ import space.trader.SystemStats.Resources;
 public class Food extends TradeGood {
 
     public Food() {
-        super(1, 0, 1, 100, 5, 5, Resources.RICHSOIL, Resources.POORSOIL);
+        super(1, 0, 1, 100, 5, 5, Resources.RICHSOIL, Resources.POORSOIL, "Food");
     }
     
 }

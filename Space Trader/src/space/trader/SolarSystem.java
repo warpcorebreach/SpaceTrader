@@ -30,7 +30,11 @@ public class SolarSystem {
         this.y = y;
         this.techLevel = techLevel;
         this.resources = resources;
-        
+    }
+    
+    public void showMarket() {
+        market = new Market(this);
+        System.out.println(market);
     }
     
     /**
@@ -72,5 +76,8 @@ public class SolarSystem {
     public SystemStats.Resources getResources() {
         return resources;
     }
-     
+    
+    public Market getMarket() {
+        return market;
+    }
 }
