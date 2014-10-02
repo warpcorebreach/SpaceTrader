@@ -53,6 +53,9 @@ public class Market {
     }
     
     private void generateGoods() {
+        // Water and Furs can be produced by every planet so we don't need to
+        // compare against the System's TechLevel
+        // only their available quantities will change per System
         goodList.put(new Water(), 10);
         goodList.put(new Furs(), 10);
         
