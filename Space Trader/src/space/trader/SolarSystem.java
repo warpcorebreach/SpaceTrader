@@ -5,6 +5,8 @@
  */
 package space.trader;
 
+import java.util.HashMap;
+
 
 /**
  * A class representing a solar system in the universe
@@ -12,51 +14,17 @@ package space.trader;
  */
 
 public class SolarSystem {
-    /**
-     * An enum to represent available names for the planet
-     */
-    public static enum Name {
-        ACAMAR,ADAHN, ALDEA, ANDEVIAN,ANTEDI,
-        BALOSNEE, BARATAS,BRAX, BRETEL,	BOB_WATER,
-        CALONDIA, CAMPOR, CAPELLE, CARZON, CASTOR, CESTUS, CHERON, COURTENEY,
-        DALED, DAMAST, DAVLOS, DENEB, DENEVA, DEVIDIA, DRAYLON, DUC_TRAN, DREMA,
-        ENDOR, ESMEE, EXO, FERRIS, FESTEN, FOURMI, FROLIX, GEMULON, GUINIFER,
-        HADES, HAMLET, HELENA, HULST, IODINE, IRALIUS,
-        JANUS, JAPORI, JARADA, JASON, JUSTIN_COATES, JD_ARTHUR,
-        KAYLON, KHEFKA, KIRA, KLAATU, KLAESTRON, KORMA, KRAVAT, KRIOS,
-        LAERTES, LARGO, LAVE, LIGON, LOWRY,
-        MAGRAT, MALCORIA, MELINA, MENTAR, MERIK, MINTAKA, MORDAN, MYRTHE,
-        NELVANA, NIX, NYLE, ODET, OG, OMEGA, OMPHALOS, ORIAS, OTHELLO, 
-        PARADE, PENTHARA, PICARD, POLLUX, QUATOR, QIFENG_LI,
-        RAKHAR, RAN, REGULAS, RELVA, RHYMUS, ROCHANI, RUBICUM, RUTIA,
-        SARPEIDON, SEFALLA, SELTRICE, SIGMA, SOL, SOMARI, STAKORON, STYRIS,
-        TALANI, TAMUS, TANTALOS, TANUGA, TARCHANNEN, TEROSA, THERA, TITAN,
-        TORIN, TRIACUS, TURKANA, TYRUS, UMBERLEE, UTOPIA, WEIYU_LI,
-        VADERA, VAGRA, VANDOR, VENTAX, XENON, XERXES, YEW, YOJIMBO, ZALKON
-    }
-    /**
-     * An enum to represent the available resources characteristic of the planet
-     */
-    public static enum Resources {
-    NOSPECIALRESOURCES,  MINERALRICH, MINERALPOOR, DESERT,
-    LOTSOFWATER, RICHSOIL, POORSOIL, RICHFAUNA, LIFELESS,
-    WEIRDMUSHROOMS, LOTSOFHERBS, ARTISTIC, WARLIKE
-}
-    /**
-     * An enum to represent the available resources characteristic of the planet
-     */
-    public static enum TechLevel {
-         PRE_AGRICULTURE, AGRICULTURE, MEDIEVAL, RENAISSANCE,
-         EARLY_INDUSTRIAL, INDUSTRIAL, POST_INDUSTRIAL, HI_TECH
-    }
-    private Name name;
+    
+    private SystemStats.Name name;
+    private SystemStats.TechLevel techLevel;
+    private SystemStats.Resources resources;
     private int x, y;
-    private TechLevel techLevel;
-    private Resources resources;
+    private Market market;
     /**
      * Constructor of a solar system
      */
-    public SolarSystem(Name name, int x, int y, TechLevel techLevel, Resources resources) {
+    public SolarSystem(SystemStats.Name name, int x, int y, SystemStats.TechLevel techLevel,
+            SystemStats.Resources resources) {
         this.name = name;
         this.x = x;
         this.y = y;
@@ -64,6 +32,7 @@ public class SolarSystem {
         this.resources = resources;
         
     }
+    
     /**
      * Create getter for each data in the object
      */
@@ -72,7 +41,7 @@ public class SolarSystem {
      * @return: name
      */
     
-    public Name getName() {
+    public SystemStats.Name getName() {
         return name;
     }
     /**
@@ -93,14 +62,14 @@ public class SolarSystem {
      * Return the techLevel
      * @return : techLevel
      */
-    public TechLevel getTechLevel() {
+    public SystemStats.TechLevel getTechLevel() {
         return techLevel;
     }
     /**
      * Return the available resources
      * @return : resources
      */
-    public Resources getResources() {
+    public SystemStats.Resources getResources() {
         return resources;
     }
      

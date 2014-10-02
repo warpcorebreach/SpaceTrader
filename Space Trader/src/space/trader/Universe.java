@@ -40,7 +40,7 @@ public class Universe {
      */
     private ArrayList<SolarSystem> universeGenerate() {
         // Get number of available system names
-        int numberOfName = SolarSystem.Name.values().length;
+        int numberOfName = SystemStats.Name.values().length;
         Random randObject = new Random();
         // Generate 2 arrayLists
         ArrayList<Integer> numArray = new ArrayList();
@@ -53,11 +53,10 @@ public class Universe {
             while (numArray.contains(nextNum)) {
                 nextNum = randObject.nextInt(numberOfName);
             }
-            SolarSystem.Name systemName = SolarSystem.Name.values()[nextNum];
+            SystemStats.Name systemName = SystemStats.Name.values()[nextNum];
             // Pick tech level and resources randomly
-            SolarSystem.TechLevel systemLevel = SolarSystem.TechLevel.values()[randObject.nextInt(8)];
-            SolarSystem.Resources systemResources = SolarSystem.Resources.values()[randObject
-                                                           .nextInt(13)];
+            SystemStats.TechLevel systemLevel = SystemStats.TechLevel.values()[randObject.nextInt(8)];
+            SystemStats.Resources systemResources = SystemStats.Resources.values()[randObject.nextInt(13)];
             numArray.add(nextNum);
             
             // Generate a random set of x,y coordinates for the current planet,

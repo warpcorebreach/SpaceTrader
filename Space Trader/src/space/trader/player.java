@@ -10,10 +10,10 @@ package space.trader;
  *
  * @author Weiyu
  */
-public class player {
+public class Player {
     private String name;
     private int pilot, fighter, trader, engineer, investor;
-    public player(String name, int p, int f, int t, int e, int i) {
+    public Player(String name, int p, int f, int t, int e, int i) {
         pilot = p;
         fighter = f;
         this.name = name;
