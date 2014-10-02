@@ -7,14 +7,13 @@ package space.trader.items;
 
 import space.trader.SystemStats.Resources;
 
+
 /**
  *
  * @author Justin
  */
-public class Water extends TradeGood {
-
-    public Water() {
-        super(0, 0, 2, 30, 3, 4, Resources.LOTSOFWATER, Resources.DESERT);
+public class Robots extends TradeGood {
+    public Robots() {
+        super(6, 4, 7, 5000, -150, 100, null, null);
     }
-    
 }

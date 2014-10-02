@@ -7,14 +7,13 @@ package space.trader.items;
 
 import space.trader.SystemStats.Resources;
 
+
 /**
  *
  * @author Justin
  */
-public class Water extends TradeGood {
-
-    public Water() {
-        super(0, 0, 2, 30, 3, 4, Resources.LOTSOFWATER, Resources.DESERT);
+public class Medicine extends TradeGood {
+    public Medicine() {
+        super(4, 1, 6, 650, -20, 10, Resources.LOTSOFHERBS, null);
     }
-    
 }

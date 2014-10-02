@@ -11,10 +11,10 @@ import space.trader.SystemStats.Resources;
  *
  * @author Justin
  */
-public class Water extends TradeGood {
+public class Furs extends TradeGood {
 
-    public Water() {
-        super(0, 0, 2, 30, 3, 4, Resources.LOTSOFWATER, Resources.DESERT);
+    public Furs() {
+        super(0, 0, 0, 250, 10, 10, Resources.RICHFAUNA, Resources.LIFELESS);
     }
     
 }

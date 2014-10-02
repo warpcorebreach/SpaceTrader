@@ -25,5 +25,37 @@ public abstract class TradeGood {
             this.var = var;
             this.CR = CR;
             this.ER = ER;
-        }
+    }
+    
+    public int getMTLP() {
+        return MTLP;
+    }
+    
+    public int getMTLU() {
+        return MTLU;
+    }
+
+    public int getTTP() {
+        return TTP;
+    }
+
+    public int getBasePrice() {
+        return basePrice;
+    }
+
+    public int getIPL() {
+        return IPL;
+    }
+
+    public int getVar() {
+        return var;
+    }
+
+    public Resources getCR() {
+        return CR;
+    }
+
+    public Resources getER() {
+        return ER;
+    }
 }
