@@ -5,6 +5,7 @@
  */
 package space.trader;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import space.trader.items.*;
@@ -135,5 +136,33 @@ public class Market {
             out += "Availability: " + goodList.get(good) + "\n" + "\n";
         }
         return out;
+    }
+    
+    public ArrayList <String> getGoods() {
+        ArrayList<String> tgoods = new ArrayList<>();
+     for (TradeGood good : goodList.keySet()) {
+         if(goodList.get(good) != null) {
+             tgoods.add(good.getName());
+     }
+     }
+        return tgoods;
+    }
+    public ArrayList <Integer> getPrices() {
+        ArrayList<Integer> tprices = new ArrayList<>();
+     for (TradeGood good : goodList.keySet()) {
+         if(goodList.get(good) != null) {
+             tprices.add(goodPrices.get(good));
+     }
+     }
+        return tprices;
+    }
+    public ArrayList <Integer> getQuantity() {
+            ArrayList<Integer> tq = new ArrayList<>();
+     for (TradeGood good : goodList.keySet()) {
+         if(goodList.get(good) != null) {
+             tq.add(goodList.get(good));
+     }
+     }
+        return tq;
     }
 }

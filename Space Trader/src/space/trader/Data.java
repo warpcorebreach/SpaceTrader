@@ -39,4 +39,11 @@ public class Data {
     public static void setSolarSystem(SolarSystem s) {
         solarSys = s;
     }
+    private static Market mar;
+    public static void setMarket(Market m) {
+        mar = m;
+    }
+    public static Market getMarket() {
+        return mar;
+    }
 }

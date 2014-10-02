@@ -34,6 +34,7 @@ public class SolarSystem {
     
     public void showMarket() {
         market = new Market(this);
+                Data.getInstance().setMarket(market);
         System.out.println(market);
     }
     

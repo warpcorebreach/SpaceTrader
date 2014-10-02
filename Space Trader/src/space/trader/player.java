@@ -12,7 +12,7 @@ package space.trader;
  */
 public class Player {
     private String name;
-    private int pilot, fighter, trader, engineer, investor;
+    private int pilot, fighter, trader, engineer, investor, cash;
     public Player(String name, int p, int f, int t, int e, int i) {
         pilot = p;
         fighter = f;
@@ -20,6 +20,7 @@ public class Player {
         trader = t;
         engineer = e;
         investor = i;
+        cash = 10000;
     }
     public int getPilot() {
         return pilot;
@@ -38,6 +39,9 @@ public class Player {
     }
     public String getName() {
         return name;
+    }
+    public int getCash() {
+        return cash;
     }
 }
 
