@@ -24,11 +24,11 @@ public class Data {
         return instance;
     }
     
-    private static player currentPlayer;
-    public static player getPlayer() {
+    private static Player currentPlayer;
+    public static Player getPlayer() {
         return currentPlayer;
     }
-    public static void setPlayer(player p) {
+    public static void setPlayer(Player p) {
         currentPlayer = p;
     }
     
