@@ -5,6 +5,7 @@
  */
 
 package space.trader;
+import space.trader.items.*;
 
 /**
  *

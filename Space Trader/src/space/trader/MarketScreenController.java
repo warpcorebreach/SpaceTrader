@@ -31,10 +31,10 @@ import space.trader.items.TradeGood;
 public class MarketScreenController implements Initializable {
 
     @FXML
-    public ArrayList<String> goods = Data.getMarket().getGoods();
+    public ArrayList<String> goodsList = Data.getMarket().getGoods();
     
     @FXML
-    private ArrayList<Integer> prices = Data.getMarket().getPrices();
+    private ArrayList<Integer> pricesList = Data.getMarket().getPrices();
     @FXML
     private ArrayList<Integer> q = Data.getMarket().getQuantity();
     @FXML
@@ -56,7 +56,7 @@ public class MarketScreenController implements Initializable {
     public String selected;
     private Player p = Data.getPlayer();
     @FXML
-    public int c = p.getCash();
+    public int cash = p.getCash();
     @FXML
     private Label label1;
     /**
@@ -65,29 +65,34 @@ public class MarketScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       //  for(int i = 0; i < goods.size)
-    observableList.setAll(prices);
+    observableList.setAll(pricesList);
     listView.setItems(observableList);
-        observableList2.setAll(goods);
+        observableList2.setAll(goodsList);
     listView2.setItems(observableList2);
             observableList3.setAll(q);
     listView3.setItems(observableList3);
     cb.setItems(observableList2);
-    label1.setText("Cash: " + c);
+    label1.setText("Cash: " + cash);
     }
     
     @FXML
     public void selection() {
+        
         selected = (String)cb.getValue();
         System.out.println(selected);
-        for(int i = 0; i < goods.size(); i++) {
-            if(goods.get(i).equals(selected)) {
-                int a = q.get(i);
-                q.set(i, --a);
-                 observableList3.setAll(q);
-                  listView3.setItems(observableList3);
-                  c = c - prices.get(i);
-                  label1.setText("Cash: " + c);
-                  p.setCash(c);
+        for(int i = 0; i < goodsList.size(); i++) {
+            if(goodsList.get(i).equals(selected)) {
+                // Get price and quantity of the good in index
+                int quantity = q.get(i);
+                int price = pricesList.get(i);
+                if ((cash >= price ) && (quantity > 0)) {
+                    q.set(i, --quantity);
+                    observableList3.setAll(q);
+                    listView3.setItems(observableList3);
+                    cash = cash - pricesList.get(i);
+                    label1.setText("Cash: " + cash);
+                    p.setCash(cash);
+                }
             }
         }
     }
