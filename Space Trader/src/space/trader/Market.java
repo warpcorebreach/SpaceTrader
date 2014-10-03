@@ -11,7 +11,8 @@ import java.util.Random;
 import space.trader.items.*;
 
 /**
- *
+ * Represents a Marketplace where goods can be bought and sold.
+ * 
  * @author Justin
  */
 public class Market {
@@ -34,8 +35,16 @@ public class Market {
     Narcotics narcs;
     Robots bots;
     
+    /**
+     * Takes in a SolarSystem object and instantiates TradeGood objects.
+     * 
+     * @param sys The location of the Market
+     */
     public Market(SolarSystem sys) {
+        // maps goods to their availability in the current system
+        // null availability means the good cannot be produced by the system
         goodList = new HashMap<>();
+        // maps goods to their prices in the current system
         goodPrices = new HashMap<>();
         this.sys = sys;
         
@@ -52,6 +61,10 @@ public class Market {
         generatePrices();
     }
     
+    /**
+     * Determine which goods are available in the current System by comparing its
+     * TechLevel to the good's MTLP
+     */
     private void generateGoods() {
         // Water and Furs can be produced by every planet so we don't need to
         // compare against the System's TechLevel
@@ -108,6 +121,9 @@ public class Market {
         }
     }
     
+    /**
+     * Generate prices for goods available in the current System
+     */
     private void generatePrices() {
         for (TradeGood good : goodList.keySet()) {
             if (goodList.get(good) != null) {
@@ -118,7 +134,14 @@ public class Market {
         }
     }
     
-    // (the base price) + (the IPL * (Planet Tech Level - MTLP)) + (variance)
+    /**
+     * Takes in a TradeGood and returns its randomly generated price on the
+     * current System, according to the formula:
+     * (the base price) + (the IPL * (Planet Tech Level - MTLP)) + (variance)
+     * 
+     * @param good The TradeGood to calculate the price for
+     * @return The good's price in the System
+     */
     private int getPrice(TradeGood good) {
         Random r = new Random();
         int var = r.nextInt(good.getVar());
@@ -130,6 +153,9 @@ public class Market {
         return price;
     }
     
+    /**
+     * @return A string representation of the Market.
+     */
     public String toString() {
         String out = "";
         out += sys.getName() + "\n";
@@ -141,6 +167,9 @@ public class Market {
         return out;
     }
     
+    /**
+     * @return An ArrayList of the available goods in the System
+     */
     public ArrayList <String> getGoods() {
         ArrayList<String> tgoods = new ArrayList<>();
      for (TradeGood good : goodList.keySet()) {
@@ -150,6 +179,10 @@ public class Market {
      }
         return tgoods;
     }
+    
+    /**
+     * @return An ArrayList of the prices in the current System
+     */
     public ArrayList <Integer> getPrices() {
         ArrayList<Integer> tprices = new ArrayList<>();
      for (TradeGood good : goodList.keySet()) {
@@ -159,6 +192,10 @@ public class Market {
      }
         return tprices;
     }
+    
+    /**
+     * @return An ArrayList of the quantities of goods available in the system
+     */
     public ArrayList <Integer> getQuantity() {
             ArrayList<Integer> tq = new ArrayList<>();
      for (TradeGood good : goodList.keySet()) {
@@ -168,6 +205,10 @@ public class Market {
      }
         return tq;
     }
+    
+    /**
+     * @return An ArrayList of TradeGoods available in the System
+     */
     public ArrayList<TradeGood> getTradeGoods() {
      ArrayList<TradeGood> tgoods = new ArrayList<>();
      for (TradeGood good : goodList.keySet()) {

@@ -8,7 +8,9 @@ package space.trader.items;
 import space.trader.SystemStats.Resources;
 
 /**
- *
+ * Represents a generic TradeGood object
+ * Contains all the fields and methods a TradeGood should have
+ * 
  * @author Justin
  */
 public abstract class TradeGood {
