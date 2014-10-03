@@ -55,14 +55,15 @@ public class MarketScreenController implements Initializable {
     ChoiceBox cb2; //use this for sale
     @FXML
     public String selected;
-    private Player p = Data.getPlayer();
+    private Player player = Data.getPlayer();
     @FXML
-    public int cash = p.getCash();
+    public int cash = player.getCash();
     @FXML
     private Label label1;
-    public ArrayList<TradeGood> tglist = Data.getMarket().getTradeGoods();
+    public ArrayList<TradeGood> tradeGoodList = Data.getMarket().getTradeGoods();
     @FXML
-    public ArrayList<String> cargo = Data.getPlayer().getShip().getCargoName();
+    public ArrayList<String> cargoNameList = Data.getPlayer().getShip().getCargoName();
+    public ArrayList<TradeGood> shipCargo = Data.getPlayer().getShip().getCargo();
     /**
      * Initializes the controller class.
      */
@@ -77,7 +78,7 @@ public class MarketScreenController implements Initializable {
     listView3.setItems(observableList3);
     cb.setItems(observableList2);
     label1.setText("Cash: " + cash);
-    observableList4.setAll(cargo);
+    observableList4.setAll(cargoNameList);
     cb2.setItems(observableList4);
     }
     
@@ -91,19 +92,22 @@ public class MarketScreenController implements Initializable {
                 // Get price and quantity of the good in index
                 int quantity = quantityList.get(i);
                 int price = pricesList.get(i);
+                // Update the quantity List
                 observableList3.setAll(quantityList);
                 listView3.setItems(observableList3);
                 if ((cash >= price ) && (quantity > 0)) {
+                    // Update the quantity, cash, and print on UI
                     quantityList.set(i, --quantity);
                     
                     cash = cash - pricesList.get(i);
                     label1.setText("Cash: " + cash);
-                    p.setCash(cash);
-                    ArrayList<TradeGood> c = p.getShip().getCargo();
-                    c.add(tglist.get(i));
-                    p.getShip().setCargo(c);
-                    cargo = Data.getPlayer().getShip().getCargoName();
-                    observableList4.setAll(cargo);
+                    player.setCash(cash);
+                    // Update cargo
+                    ArrayList<TradeGood> cargo = player.getShip().getCargo();
+                    cargo.add(tradeGoodList.get(i));
+                    player.getShip().setCargo(cargo);
+                    cargoNameList = Data.getPlayer().getShip().getCargoName();
+                    observableList4.setAll(cargoNameList);
                     cb2.setItems(observableList4);
                 }
             }
@@ -111,6 +115,40 @@ public class MarketScreenController implements Initializable {
     }
     @FXML
     public void sell() {
+        selected = (String)cb.getValue();
+        System.out.println(selected);
+        for(int i = 0; i < goodsList.size(); i++) {
+            if(goodsList.get(i).equals(selected)) {
+                // Get price and quantity of the good in index
+                int quantity = quantityList.get(i);
+                int price = pricesList.get(i);
+                TradeGood good = tradeGoodList.get(i);
+                // Update the quantity List
+                observableList3.setAll(quantityList);
+                listView3.setItems(observableList3);
+                ArrayList<TradeGood> cargo = player.getShip().getCargo();
+                // How to remove the good from the cargo
+                for (int j = 0; j < cargo.size(); j++) {
+                    if (good.getClass() == cargo.get(j).getClass()) {
+                        // Update cargo
+                        cargo.remove(j);
+                        
+                        break;
+                    }
+                }
+                quantityList.set(i, ++quantity);
+                    
+                cash = cash - pricesList.get(i);
+                label1.setText("Cash: " + cash);
+                player.setCash(cash);
+                player.getShip().setCargo(cargo);
+                cargoNameList = Data.getPlayer().getShip().getCargoName();
+                observableList4.setAll(cargoNameList);
+                cb2.setItems(observableList4);
+                
+                
+            }
+        }
         
     }
 
