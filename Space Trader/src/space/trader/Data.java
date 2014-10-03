@@ -25,24 +25,53 @@ public class Data {
     }
     
     private static Player currentPlayer;
+    /**
+     * Getter method for the Player object
+     * @return the player who is currently playing
+     */
     public static Player getPlayer() {
         return currentPlayer;
     }
+    
+    /**
+     * Setter method for the Player object
+     * @param p the player to set as current player
+     */
     public static void setPlayer(Player p) {
         currentPlayer = p;
     }
     
     private static SolarSystem solarSys;
+    
+    /**
+     * Getter method for the current solarystem
+     * @return the solar system you are currently in
+     */
     public static SolarSystem getSolarSystem() {
         return solarSys;
     }
+    
+    /**
+     * setter method for the current solar system
+     * @param s the solarsystem you want to set as the current one
+     */
     public static void setSolarSystem(SolarSystem s) {
         solarSys = s;
     }
     private static Market mar;
+    
+    /**
+     * Setter method for the current market
+     * @param m the market that you want to set as current
+     */
     public static void setMarket(Market m) {
         mar = m;
     }
+    
+    /**
+     * getter method for the current market
+     * @return the market the player is currently at
+     */
     public static Market getMarket() {
         return mar;
     }
