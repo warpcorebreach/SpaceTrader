@@ -93,12 +93,13 @@ public class MarketScreenController implements Initializable {
                 int quantity = quantityList.get(i);
                 int price = pricesList.get(i);
                 // Update the quantity List
-                observableList3.setAll(quantityList);
-                listView3.setItems(observableList3);
+                
                 if ((cash >= price ) && (quantity > 0)) {
                     // Update the quantity, cash, and print on UI
-                    quantityList.set(i, --quantity);
-                    
+                    quantity--;
+                    quantityList.set(i, quantity);
+                    observableList3.setAll(quantityList);
+                listView3.setItems(observableList3);
                     cash = cash - pricesList.get(i);
                     label1.setText("Cash: " + cash);
                     player.setCash(cash);
@@ -121,6 +122,8 @@ public class MarketScreenController implements Initializable {
             if(goodsList.get(i).equals(selected)) {
                 // Get price and quantity of the good in index
                 int quantity = quantityList.get(i);
+                ++quantity;
+                quantityList.set(i, quantity);                
                 int price = pricesList.get(i);
                 TradeGood good = tradeGoodList.get(i);
                 // Update the quantity List
@@ -131,14 +134,12 @@ public class MarketScreenController implements Initializable {
                 for (int j = 0; j < cargo.size(); j++) {
                     if (good.getClass() == cargo.get(j).getClass()) {
                         // Update cargo
-                        cargo.remove(j);
-                        
+                        cargo.remove(j);                        
                         break;
                     }
                 }
-                quantityList.set(i, ++quantity);
                     
-                cash = cash - pricesList.get(i);
+                cash = cash + pricesList.get(i);
                 label1.setText("Cash: " + cash);
                 player.setCash(cash);
                 player.getShip().setCargo(cargo);
