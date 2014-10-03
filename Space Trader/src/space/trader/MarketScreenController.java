@@ -36,7 +36,7 @@ public class MarketScreenController implements Initializable {
     @FXML
     private ArrayList<Integer> pricesList = Data.getMarket().getPrices();
     @FXML
-    private ArrayList<Integer> q = Data.getMarket().getQuantity();
+    private ArrayList<Integer> quantityList = Data.getMarket().getQuantity();
     @FXML
     private TableView<TradeGood> tableGoods = new TableView<TradeGood>();
     @FXML
@@ -69,7 +69,7 @@ public class MarketScreenController implements Initializable {
     listView.setItems(observableList);
         observableList2.setAll(goodsList);
     listView2.setItems(observableList2);
-            observableList3.setAll(q);
+            observableList3.setAll(quantityList);
     listView3.setItems(observableList3);
     cb.setItems(observableList2);
     label1.setText("Cash: " + cash);
@@ -83,18 +83,23 @@ public class MarketScreenController implements Initializable {
         for(int i = 0; i < goodsList.size(); i++) {
             if(goodsList.get(i).equals(selected)) {
                 // Get price and quantity of the good in index
-                int quantity = q.get(i);
+                int quantity = quantityList.get(i);
                 int price = pricesList.get(i);
+                observableList3.setAll(quantityList);
+                listView3.setItems(observableList3);
                 if ((cash >= price ) && (quantity > 0)) {
-                    q.set(i, --quantity);
-                    observableList3.setAll(q);
-                    listView3.setItems(observableList3);
+                    quantityList.set(i, --quantity);
+                    
                     cash = cash - pricesList.get(i);
                     label1.setText("Cash: " + cash);
                     p.setCash(cash);
                 }
             }
         }
+    }
+    @FXML
+    public void sell() {
+        
     }
 
     
