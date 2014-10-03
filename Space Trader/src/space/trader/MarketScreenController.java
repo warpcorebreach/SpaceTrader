@@ -116,7 +116,7 @@ public class MarketScreenController implements Initializable {
     }
     @FXML
     public void sell() {
-        selected = (String)cb.getValue();
+        selected = (String)cb2.getValue();
         System.out.println(selected);
         for(int i = 0; i < goodsList.size(); i++) {
             if(goodsList.get(i).equals(selected)) {
