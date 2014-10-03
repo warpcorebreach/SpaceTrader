@@ -18,7 +18,7 @@
       <ChoiceBox fx:id="cb" layoutX="505.0" layoutY="167.0" onContextMenuRequested="#selection" prefWidth="150.0" />
       <ChoiceBox fx:id="cb2" layoutX="505.0" layoutY="273.0" prefWidth="150.0" />
       <Button layoutX="517.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#selection" text="Purchase" />
-      <Button layoutX="546.0" layoutY="218.0" mnemonicParsing="false" text="Sell" />
+      <Button layoutX="546.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#sell" text="Sell" />
       <Label fx:id="label1" layoutX="78.0" layoutY="18.0" text="Label" />
    </children>
 </AnchorPane>

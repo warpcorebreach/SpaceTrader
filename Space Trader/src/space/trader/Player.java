@@ -5,6 +5,7 @@
  */
 
 package space.trader;
+import java.util.ArrayList;
 import space.trader.items.*;
 
 /**
@@ -14,6 +15,7 @@ import space.trader.items.*;
 public class Player {
     private String name;
     private int pilot, fighter, trader, engineer, investor, cash;
+    private Ship s;
     public Player(String name, int p, int f, int t, int e, int i) {
         pilot = p;
         fighter = f;
@@ -22,6 +24,7 @@ public class Player {
         engineer = e;
         investor = i;
         cash = 10000;
+        s = new Ship();
     }
     public int getPilot() {
         return pilot;
@@ -46,6 +49,9 @@ public class Player {
     }
     public void setCash(int c) {
         cash = c;
+    }
+    public Ship getShip() {
+        return s;
     }
 }
 

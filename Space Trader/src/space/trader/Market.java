@@ -168,4 +168,14 @@ public class Market {
      }
         return tq;
     }
+    public ArrayList<TradeGood> getTradeGoods() {
+     ArrayList<TradeGood> tgoods = new ArrayList<>();
+     for (TradeGood good : goodList.keySet()) {
+         if(goodList.get(good) != null) {
+             tgoods.add(good);
+     }
+     }
+        return tgoods;
+    }
+    
 }

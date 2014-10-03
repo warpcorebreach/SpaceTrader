@@ -48,6 +48,7 @@ public class MarketScreenController implements Initializable {
     ObservableList observableList = FXCollections.observableArrayList();
     ObservableList observableList2 = FXCollections.observableArrayList();
     ObservableList observableList3 = FXCollections.observableArrayList();
+    ObservableList observableList4 = FXCollections.observableArrayList();
     @FXML
     ChoiceBox cb;
     @FXML
@@ -59,6 +60,9 @@ public class MarketScreenController implements Initializable {
     public int cash = p.getCash();
     @FXML
     private Label label1;
+    public ArrayList<TradeGood> tglist = Data.getMarket().getTradeGoods();
+    @FXML
+    public ArrayList<String> cargo = Data.getPlayer().getShip().getCargoName();
     /**
      * Initializes the controller class.
      */
@@ -73,6 +77,8 @@ public class MarketScreenController implements Initializable {
     listView3.setItems(observableList3);
     cb.setItems(observableList2);
     label1.setText("Cash: " + cash);
+    observableList4.setAll(cargo);
+    cb2.setItems(observableList4);
     }
     
     @FXML
@@ -93,6 +99,12 @@ public class MarketScreenController implements Initializable {
                     cash = cash - pricesList.get(i);
                     label1.setText("Cash: " + cash);
                     p.setCash(cash);
+                    ArrayList<TradeGood> c = p.getShip().getCargo();
+                    c.add(tglist.get(i));
+                    p.getShip().setCargo(c);
+                    cargo = Data.getPlayer().getShip().getCargoName();
+                    observableList4.setAll(cargo);
+                    cb2.setItems(observableList4);
                 }
             }
         }
