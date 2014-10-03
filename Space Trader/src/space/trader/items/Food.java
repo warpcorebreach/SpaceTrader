@@ -9,7 +9,7 @@ import space.trader.SystemStats.Resources;
 
 
 /**
- *
+ * Represents a Food object
  * @author Justin
  */
 public class Food extends TradeGood {

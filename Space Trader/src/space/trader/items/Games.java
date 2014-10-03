@@ -9,7 +9,7 @@ import space.trader.SystemStats.Resources;
 
 
 /**
- *
+ * Represents a Games object
  * @author Justin
  */
 public class Games extends TradeGood {

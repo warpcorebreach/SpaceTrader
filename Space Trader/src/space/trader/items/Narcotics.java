@@ -9,7 +9,7 @@ import space.trader.SystemStats.Resources;
 
 
 /**
- *
+ * Represents a Narcotics object
  * @author Justin
  */
 public class Narcotics extends TradeGood {

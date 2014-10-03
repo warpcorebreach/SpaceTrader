@@ -8,7 +8,7 @@ package space.trader.items;
 import space.trader.SystemStats.Resources;
 
 /**
- *
+ * Represents a Fur object
  * @author Justin
  */
 public class Furs extends TradeGood {

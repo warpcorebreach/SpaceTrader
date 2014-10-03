@@ -9,7 +9,7 @@ import space.trader.SystemStats.Resources;
 
 
 /**
- *
+ * Represents an Ore object
  * @author Justin
  */
 public class Ore extends TradeGood {

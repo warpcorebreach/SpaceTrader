@@ -9,7 +9,7 @@ import space.trader.SystemStats.Resources;
 
 
 /**
- *
+ * Represents a FireArms TradeGood
  * @author Justin
  */
 public class Firearms extends TradeGood {

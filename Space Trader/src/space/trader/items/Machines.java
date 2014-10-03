@@ -9,7 +9,7 @@ import space.trader.SystemStats.Resources;
 
 
 /**
- *
+ * Represents a Machine object
  * @author Justin
  */
 public class Machines extends TradeGood {

@@ -8,7 +8,7 @@ package space.trader.items;
 import space.trader.SystemStats.Resources;
 
 /**
- *
+ * Represents a Water object
  * @author Justin
  */
 public class Water extends TradeGood {
