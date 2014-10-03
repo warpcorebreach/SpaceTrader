@@ -69,7 +69,7 @@ public class Data {
     }
     
     /**
-     * getter method for the current market
+     * Getter method for the current market
      * @return the market the player is currently at
      */
     public static Market getMarket() {
