@@ -35,16 +35,16 @@ import space.trader.items.*;
  * @author Weiyu
  */
 public class MarketScreenController implements Initializable {
-
+    // Getting datas from UI
     @FXML
-    public ArrayList<String> goodsList = Data.getMarket().getGoods();
-    
+    public ArrayList<String> goodsList = Data.getMarket().getGoods();    
     @FXML
     private ArrayList<Integer> pricesList = Data.getMarket().getPrices();
     @FXML
     private ArrayList<Integer> quantityList = Data.getMarket().getQuantity();
     @FXML
     private TableView<TradeGood> tableGoods = new TableView<TradeGood>();
+    // Initialize elements in UI
     @FXML
     private ListView priceListView;
     @FXML
@@ -60,6 +60,7 @@ public class MarketScreenController implements Initializable {
     @FXML
     ChoiceBox sellChoiceBox; //use this for sale
     @FXML
+    // Initialize UI unrelated data;
     public String selected;
     private Player player = Data.getPlayer();
     @FXML

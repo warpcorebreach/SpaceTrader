@@ -33,13 +33,16 @@ public class PlanetScreenController implements Initializable {
     private Button EnterUniverseScreen;
     @FXML
     private Button EnterMarketScren;
+    // Non FXMl variables
+    private Player player = Data.getPlayer();
+    private SolarSystem planet = Data.getSolarSystem();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        planetName.setText("Hello Duc");
-        planetCoord.setText("This is the planet coordination");
+        planetName.setText("Name: \n" + "Something");
+        planetCoord.setText("Coordination\n" + "X: " + "Y:  " );
     }
     @FXML
     private void EnterMarketScreen(ActionEvent event) throws IOException {
