@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
@@ -28,8 +29,10 @@ public class PlanetScreenController implements Initializable {
     private Label planetName;
     @FXML
     private Label planetCoord;
-    
-    
+    @FXML
+    private Button EnterUniverseScreen;
+    @FXML
+    private Button EnterMarketScren;
     /**
      * Initializes the controller class.
      */

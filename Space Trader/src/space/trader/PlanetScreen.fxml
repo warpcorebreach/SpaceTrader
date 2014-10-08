@@ -10,7 +10,7 @@
    <children>
       <Label fx:id="planetName" layoutX="81.0" layoutY="50.0" text="planetName" />
       <Label fx:id="planetCoord" layoutX="438.0" layoutY="43.0" text="planetCoord" />
-      <Button layoutX="425.0" layoutY="306.0" mnemonicParsing="false" onAction="#EnterMarketScreen" text="EnterMarketScreen" />
-      <Button layoutX="81.0" layoutY="288.0" mnemonicParsing="false" onAction="#EnterUniverseScreen" text="EnterUniverseScreen" />
+      <Button fx:id="EnterMarketScreen" layoutX="397.0" layoutY="282.0" mnemonicParsing="false" onAction="#EnterMarketScreen" text="Enter the Market" />
+      <Button fx:id="EnterUniverseScreen" layoutX="81.0" layoutY="288.0" mnemonicParsing="false" onAction="#EnterUniverseScreen" text="Back to The Universe" />
    </children>
 </AnchorPane>

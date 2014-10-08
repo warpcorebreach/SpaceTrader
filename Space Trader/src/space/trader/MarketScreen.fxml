@@ -9,16 +9,17 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.MarketScreenController">
    <children>
       <Label layoutX="235.0" layoutY="35.0" text="MarketPlace" />
-      <ListView fx:id="listView2" layoutX="14.0" layoutY="118.0" prefHeight="200.0" prefWidth="168.0" />
-      <ListView fx:id="listView" layoutX="182.0" layoutY="118.0" prefHeight="200.0" prefWidth="168.0" />
+      <ListView fx:id="goodListView" layoutX="14.0" layoutY="118.0" prefHeight="200.0" prefWidth="168.0" />
+      <ListView fx:id="priceListView" layoutX="182.0" layoutY="118.0" prefHeight="200.0" prefWidth="168.0" />
       <Label layoutX="71.0" layoutY="76.0" text="Goods" />
       <Label layoutX="228.0" layoutY="76.0" text="Prices" />
-      <ListView fx:id="listView3" layoutX="350.0" layoutY="118.0" prefHeight="200.0" prefWidth="155.0" />
+      <ListView fx:id="quantityListView" layoutX="350.0" layoutY="118.0" prefHeight="200.0" prefWidth="155.0" />
       <Label layoutX="373.0" layoutY="76.0" text="Quantity" />
-      <ChoiceBox fx:id="cb" layoutX="505.0" layoutY="167.0" onContextMenuRequested="#selection" prefWidth="150.0" />
-      <ChoiceBox fx:id="cb2" layoutX="505.0" layoutY="273.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="buyChoiceBox" layoutX="505.0" layoutY="167.0" onContextMenuRequested="#selection" prefWidth="150.0" />
+      <ChoiceBox fx:id="sellChoiceBox" layoutX="505.0" layoutY="273.0" prefWidth="150.0" />
       <Button layoutX="517.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#selection" text="Purchase" />
       <Button layoutX="546.0" layoutY="218.0" mnemonicParsing="false" onMouseClicked="#sell" text="Sell" />
-      <Label fx:id="label1" layoutX="78.0" layoutY="18.0" text="Label" />
+      <Label fx:id="cashLabel" layoutX="78.0" layoutY="18.0" text="Label" />
+      <Button layoutX="515.0" layoutY="50.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Back To Planet" />
    </children>
 </AnchorPane>
