@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -18,5 +19,6 @@
       <Button fx:id="EnterUniverseScreen" layoutX="55.0" layoutY="341.0" mnemonicParsing="false" onAction="#EnterUniverseScreen" text="Return to Universe" />
       <Label fx:id="planetName" layoutX="60.0" layoutY="33.0" text="planetName" textFill="#e4dd14e3" />
       <Label fx:id="planetCoord" layoutX="482.0" layoutY="35.0" text="planetCoord" textFill="#c3dd1a" />
+      <Label fx:id="fuelLabel" layoutX="27.0" layoutY="291.0" text="Label" textFill="#d63115" />
    </children>
 </AnchorPane>

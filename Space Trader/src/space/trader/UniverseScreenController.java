@@ -32,7 +32,7 @@ public class UniverseScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        label1.setText("Welcome, " + Data.getInstance().getPlayer().getName() + "!");
+        label1.setText("Welcome, " + Data.getInstance().getPlayer().getName() + "!" +" Current Fuel Level is " + Data.getPlayer().getShip().getFuel());
     }  
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {

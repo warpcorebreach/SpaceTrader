@@ -14,8 +14,10 @@ import java.util.ArrayList;
  */
 public class Ship {
     private ArrayList<TradeGood> cargo;
+    private int fuelLevel;
     public Ship() {
         cargo = new ArrayList<>();
+        fuelLevel = 15;
     }
     public ArrayList<TradeGood> getCargo() {
         return cargo;
@@ -31,5 +33,8 @@ public class Ship {
     }
         }
             return cargonames;
+    }
+    public int getFuel() {
+        return fuelLevel;
     }
 }

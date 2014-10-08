@@ -30,6 +30,8 @@ public class PlanetScreenController implements Initializable {
     @FXML
     private Label planetCoord;
     @FXML
+    private Label fuelLabel;
+    @FXML
     private Button EnterUniverseScreen;
     @FXML
     private Button EnterMarketScren;
@@ -43,6 +45,7 @@ public class PlanetScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         planetName.setText("Name: \n" + "something");
         planetCoord.setText("Coordination\n" + "X: " + "Y:  " );
+        fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel() );
     }
     @FXML
     private void EnterMarketScreen(ActionEvent event) throws IOException {
