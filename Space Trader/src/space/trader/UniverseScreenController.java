@@ -27,22 +27,28 @@ import javafx.stage.Stage;
 public class UniverseScreenController implements Initializable {
     @FXML
     private Label label1;
+    private Universe universe;
     /*
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        label1.setText("Welcome, " + Data.getInstance().getPlayer().getName() + "!");
+        universe = Data.getUniverse();
+        label1.setText("Welcome, " + Data.getPlayer().getName() + "!");
     }  
+    
     @FXML
     private void EnterMarketScreen(ActionEvent event) throws IOException {
-      //  label.setText("Ok. Let's Create Your Character");
-          Node node=(Node) event.getSource();
-         Stage stage=(Stage) node.getScene().getWindow();
+        // make a Market for testing purposes
+        // temporary until travel is implemented
+        universe.getUniverse().get(0).makeMarket();
+        
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
-         stage.show();
+        stage.show();
     }
   
 }

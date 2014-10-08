@@ -32,10 +32,9 @@ public class SolarSystem {
         this.resources = resources;
     }
     
-    public void showMarket() {
+    public void makeMarket() {
         market = new Market(this);
-                Data.getInstance().setMarket(market);
-        System.out.println(market);
+        Data.setMarket(market);
     }
     
     /**

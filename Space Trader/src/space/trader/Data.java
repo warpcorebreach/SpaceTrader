@@ -13,7 +13,11 @@ package space.trader;
  * @author JD Arthur
  */
 public class Data {
-    public static Data instance = new Data();
+    private static Data instance = new Data();
+    private static Player currentPlayer;
+    private static SolarSystem solarSys;
+    private static Universe universe;
+    private static Market mar;
     
     /**
      * This returns a static instance of this class so the data remains 
@@ -24,7 +28,14 @@ public class Data {
         return instance;
     }
     
-    private static Player currentPlayer;
+    public static void setUniverse(Universe u) {
+        universe = u;
+    }
+    
+    public static Universe getUniverse() {
+        return universe;
+    }
+    
     /**
      * Getter method for the Player object
      * @return the player who is currently playing
@@ -41,7 +52,6 @@ public class Data {
         currentPlayer = p;
     }
     
-    private static SolarSystem solarSys;
     
     /**
      * Getter method for the current solarystem
@@ -58,7 +68,6 @@ public class Data {
     public static void setSolarSystem(SolarSystem s) {
         solarSys = s;
     }
-    private static Market mar;
     
     /**
      * Setter method for the current market

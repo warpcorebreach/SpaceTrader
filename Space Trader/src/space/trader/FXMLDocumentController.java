@@ -33,12 +33,12 @@ public class FXMLDocumentController implements Initializable {
    private void EnterCreationScreen(ActionEvent event) throws IOException {
       //  label.setText("Ok. Let's Create Your Character");
         
-          Node node=(Node) event.getSource();
-         Stage stage=(Stage) node.getScene().getWindow();
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("CharacterScreen.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
-         stage.show();
+        stage.show();
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

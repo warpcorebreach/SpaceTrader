@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Machines.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Robots.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/Market.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/MarketScreen.fxml</file>
             <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/TradeGood.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Food.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Furs.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Water.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Ore.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Firearms.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Narcotics.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Medicine.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/items/Games.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/MarketScreenController.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/Ship.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/Data.java</file>
         </group>
     </open-files>
 </project-private>

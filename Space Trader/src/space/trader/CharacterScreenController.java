@@ -110,6 +110,10 @@ public class CharacterScreenController implements Initializable {
             if((add+add1+add2+add3+add4) < 15) {
                 label6.setText("Please allocate all character points.");
             } else {
+                // create the game universe
+                Universe u = new Universe();
+                Data.setUniverse(u);
+                
                 name.setText(user.getText());
                 user.clear();
                 user.setVisible(false);

@@ -5,6 +5,8 @@
  */
 package space.trader.items;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import space.trader.SystemStats.Resources;
 
 /**
@@ -18,6 +20,9 @@ public abstract class TradeGood {
     protected final Resources CR, ER;
     protected final String name;
     
+    protected int price, quant;
+    protected SimpleIntegerProperty p_prop, q_prop;
+    
     public TradeGood(int MTLP, int MTLU, int TTP, int basePrice, int IPL, int var,
                 Resources CR, Resources ER, String name) {
             this.MTLP = MTLP;   // min tech level to produce
@@ -29,6 +34,10 @@ public abstract class TradeGood {
             this.CR = CR;
             this.ER = ER;
             this.name = name;
+            
+            price = quant = 0;
+            p_prop = new SimpleIntegerProperty();
+            q_prop = new SimpleIntegerProperty();
     }
     
     /**
@@ -101,5 +110,31 @@ public abstract class TradeGood {
      */
     public String getName() {
         return name;
+    }
+    
+    public int getPrice() {
+        return price;
+    }
+    
+    public int getQuantity() {
+        return quant;
+    }
+    
+    public void setPrice(int p) {
+        price = p;
+        p_prop.setValue(price);
+    }
+    
+    public void setQuantity(int q) {
+        quant = q;
+        q_prop.setValue(quant);
+    }
+    
+    public final IntegerProperty priceProperty() {
+        return p_prop;
+    }
+    
+    public final IntegerProperty quantProperty() {
+        return q_prop;
     }
 }

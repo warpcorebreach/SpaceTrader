@@ -16,12 +16,12 @@ import space.trader.items.*;
  * @author Justin
  */
 public class Market {
-    SolarSystem sys;
+    private SolarSystem sys;
     
     // maps a TradeGood to its available stock on the planet
-    HashMap<TradeGood, Integer> goodList;
+    private HashMap<TradeGood, Integer> goodList;
     // maps a TradeGood to its price on the planet
-    HashMap<TradeGood, Integer> goodPrices;
+    private HashMap<TradeGood, Integer> goodPrices;
     
     // full set of goods available to any Market
     Water water;
@@ -34,6 +34,9 @@ public class Market {
     Machines machines;
     Narcotics narcs;
     Robots bots;
+    
+    private ArrayList<TradeGood> goods;
+    private ArrayList<TradeGood> goodsAvailable;
     
     /**
      * Takes in a SolarSystem object and instantiates TradeGood objects.
@@ -48,6 +51,8 @@ public class Market {
         goodPrices = new HashMap<>();
         this.sys = sys;
         
+        furs = new Furs();
+        water = new Water();
         food = new Food();
         ore = new Ore();
         games = new Games();
@@ -56,6 +61,19 @@ public class Market {
         machines = new Machines();
         narcs = new Narcotics();
         bots = new Robots();
+        
+        goodsAvailable = new ArrayList<>();
+        goods = new ArrayList<>();
+        goods.add(water);
+        goods.add(furs);
+        goods.add(food);
+        goods.add(ore);
+        goods.add(games);
+        goods.add(arms);
+        goods.add(meds);
+        goods.add(machines);
+        goods.add(narcs);
+        goods.add(bots);
         
         generateGoods();
         generatePrices();
@@ -69,55 +87,12 @@ public class Market {
         // Water and Furs can be produced by every planet so we don't need to
         // compare against the System's TechLevel
         // only their available quantities will change per System
-        goodList.put(new Water(), 10);
-        goodList.put(new Furs(), 10);
         
-        if (sys.getTechLevel().getTechNum() >= food.getMTLP()) {
-            goodList.put(food, 10);
-        } else {
-            goodList.put(food, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= ore.getMTLP()) {
-            goodList.put(ore, 10);
-        } else {
-            goodList.put(ore, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= games.getMTLP()) {
-            goodList.put(games, 10);
-        } else {
-            goodList.put(games, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= arms.getMTLP()) {
-            goodList.put(arms, 10);
-        } else {
-            goodList.put(arms, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= meds.getMTLP()) {
-            goodList.put(meds, 10);
-        } else {
-            goodList.put(meds, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= machines.getMTLP()) {
-            goodList.put(machines, 10);
-        } else {
-            goodList.put(machines, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= narcs.getMTLP()) {
-            goodList.put(narcs, 10);
-        } else {
-            goodList.put(narcs, null);
-        }
-        
-        if (sys.getTechLevel().getTechNum() >= bots.getMTLP()) {
-            goodList.put(bots, 10);
-        } else {
-            goodList.put(bots, null);
+        for (TradeGood g : goods) {
+            if (sys.getTechLevel().getTechNum() >= g.getMTLP()) {
+                goodsAvailable.add(g);
+                g.setQuantity(10);
+            }
         }
     }
     
@@ -125,12 +100,8 @@ public class Market {
      * Generate prices for goods available in the current System
      */
     private void generatePrices() {
-        for (TradeGood good : goodList.keySet()) {
-            if (goodList.get(good) != null) {
-                goodPrices.put(good, getPrice(good));
-            } else {
-                goodPrices.put(good, null);
-            }
+        for (TradeGood good : goodsAvailable) {
+            good.setPrice(getPrice(good));
         }
     }
     
@@ -159,10 +130,10 @@ public class Market {
     public String toString() {
         String out = "";
         out += sys.getName() + "\n";
-        for (TradeGood good : goodList.keySet()) {
+        for (TradeGood good : goodsAvailable) {
             out += good.getName() + "\n";
-            out += "Price: " + goodPrices.get(good) + "\n";
-            out += "Availability: " + goodList.get(good) + "\n" + "\n";
+            out += "Price: " + good.getPrice() + "\n";
+            out += "Availability: " + good.getQuantity() + "\n" + "\n";
         }
         return out;
     }
@@ -170,53 +141,24 @@ public class Market {
     /**
      * @return An ArrayList of the available goods in the System
      */
-    public ArrayList <String> getGoods() {
-        ArrayList<String> tgoods = new ArrayList<>();
-     for (TradeGood good : goodList.keySet()) {
-         if(goodList.get(good) != null) {
-             tgoods.add(good.getName());
-     }
-     }
-        return tgoods;
+    public ArrayList<TradeGood> getGoods() {
+        return goodsAvailable;
+    }
+
+    /**
+     * @param good The good to get the price of
+     * @return The price of the inputted good
+     */
+    public int getGoodPrice(TradeGood good) {
+        return good.getPrice();
     }
     
     /**
-     * @return An ArrayList of the prices in the current System
+     * @param good The good to get the quantity of
+     * @return The quantity available of the inputted good
      */
-    public ArrayList <Integer> getPrices() {
-        ArrayList<Integer> tprices = new ArrayList<>();
-     for (TradeGood good : goodList.keySet()) {
-         if(goodList.get(good) != null) {
-             tprices.add(goodPrices.get(good));
-     }
-     }
-        return tprices;
-    }
-    
-    /**
-     * @return An ArrayList of the quantities of goods available in the system
-     */
-    public ArrayList <Integer> getQuantity() {
-            ArrayList<Integer> tq = new ArrayList<>();
-     for (TradeGood good : goodList.keySet()) {
-         if(goodList.get(good) != null) {
-             tq.add(goodList.get(good));
-     }
-     }
-        return tq;
-    }
-    
-    /**
-     * @return An ArrayList of TradeGoods available in the System
-     */
-    public ArrayList<TradeGood> getTradeGoods() {
-     ArrayList<TradeGood> tgoods = new ArrayList<>();
-     for (TradeGood good : goodList.keySet()) {
-         if(goodList.get(good) != null) {
-             tgoods.add(good);
-     }
-     }
-        return tgoods;
+    public int getGoodQuantity(TradeGood good) {
+        return good.getQuantity();
     }
     
 }

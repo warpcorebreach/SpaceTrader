@@ -16,6 +16,8 @@ public class Player {
     private String name;
     private int pilot, fighter, trader, engineer, investor, cash;
     private Ship s;
+    
+    
     public Player(String name, int p, int f, int t, int e, int i) {
         pilot = p;
         fighter = f;

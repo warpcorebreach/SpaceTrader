@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
 import space.trader.items.TradeGood;
 
 /**
@@ -29,94 +30,89 @@ import space.trader.items.TradeGood;
  * @author Weiyu
  */
 public class MarketScreenController implements Initializable {
-
-    @FXML
-    public ArrayList<String> goodsList = Data.getMarket().getGoods();
+    private Market market;
+    private Player player;
+    private int cash;
+    private ArrayList<TradeGood> tradeGoodList;
+    private TradeGood selected;
+    private Ship ship;
+    
+    private ObservableList observableList = FXCollections.observableArrayList();
     
     @FXML
-    private ArrayList<Integer> pricesList = Data.getMarket().getPrices();
-    @FXML
-    private ArrayList<Integer> quantityList = Data.getMarket().getQuantity();
-    @FXML
-    private TableView<TradeGood> tableGoods = new TableView<TradeGood>();
-    @FXML
-    private ListView listView;
-    @FXML
-    private ListView listView2;
-    @FXML
-    private ListView listView3;      
-    ObservableList observableList = FXCollections.observableArrayList();
-    ObservableList observableList2 = FXCollections.observableArrayList();
-    ObservableList observableList3 = FXCollections.observableArrayList();
-    ObservableList observableList4 = FXCollections.observableArrayList();
-    @FXML
-    ChoiceBox cb;
-    @FXML
-    ChoiceBox cb2; //use this for sale
-    @FXML
-    public String selected;
-    private Player player = Data.getPlayer();
-    @FXML
-    public int cash = player.getCash();
+    private Button buy;
     @FXML
     private Label label1;
-    public ArrayList<TradeGood> tradeGoodList = Data.getMarket().getTradeGoods();
     @FXML
-    public ArrayList<String> cargoNameList = Data.getPlayer().getShip().getCargoName();
-    public ArrayList<TradeGood> shipCargo = Data.getPlayer().getShip().getCargo();
+    private TableView<TradeGood> table = new TableView();
+    @FXML
+    private TableColumn goodCol = new TableColumn();
+    @FXML
+    private TableColumn priceCol = new TableColumn();
+    @FXML
+    private TableColumn quantCol = new TableColumn();
+    @FXML
+    private ObservableList<TradeGood> data = FXCollections.observableArrayList();
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      //  for(int i = 0; i < goods.size)
-    observableList.setAll(pricesList);
-    listView.setItems(observableList);
-        observableList2.setAll(goodsList);
-    listView2.setItems(observableList2);
-            observableList3.setAll(quantityList);
-    listView3.setItems(observableList3);
-    cb.setItems(observableList2);
-    label1.setText("Cash: " + cash);
-    observableList4.setAll(cargoNameList);
-    cb2.setItems(observableList4);
+        player = Data.getPlayer();
+        market = Data.getMarket();
+        tradeGoodList = market.getGoods();
+        cash = player.getCash();
+        ship = player.getShip();
+        
+        data.addAll(tradeGoodList);
+        goodCol.setCellValueFactory (
+                new PropertyValueFactory<>("name"));
+        priceCol.setCellValueFactory (
+                new PropertyValueFactory<>("price"));
+        quantCol.setCellValueFactory (
+                new PropertyValueFactory<>("quant"));
+        table.setItems(data);
+        label1.setText("Cash: " + cash);
     }
     
     @FXML
     public void selection() {
-        
-        selected = (String)cb.getValue();
-        System.out.println(selected);
-        for(int i = 0; i < goodsList.size(); i++) {
-            if(goodsList.get(i).equals(selected)) {
-                // Get price and quantity of the good in index
-                int quantity = quantityList.get(i);
-                int price = pricesList.get(i);
-                // Update the quantity List
+        selected = (TradeGood)table.getSelectionModel().getSelectedItem();
+    }
+    
+    @FXML
+    public void purchase() {
+        if (cash - selected.getPrice() < 0) {
+            // out of money error message
+            System.out.println("you don't have enough money");
+        } else if (selected.getQuantity() == 0) {
+            // none available error message
+            System.out.println("market is out");
+        } else {
+            boolean buy = ship.addCargo(selected);
+            if (buy == false) {
+                // cargo full error message
+                System.out.println("not enough cargo space");
+            } else {
+                cash -= selected.getPrice();
+                player.setCash(cash);
+                label1.setText("Cash: " + cash);
+                int q = selected.getQuantity() - 1;
+                selected.setQuantity(q);
                 
-                if ((cash >= price ) && (quantity > 0)) {
-                    // Update the quantity, cash, and print on UI
-                    quantity--;
-                    quantityList.set(i, quantity);
-                    observableList3.setAll(quantityList);
-                listView3.setItems(observableList3);
-                    cash = cash - pricesList.get(i);
-                    label1.setText("Cash: " + cash);
-                    player.setCash(cash);
-                    // Update cargo
-                    ArrayList<TradeGood> cargo = player.getShip().getCargo();
-                    cargo.add(tradeGoodList.get(i));
-                    player.getShip().setCargo(cargo);
-                    cargoNameList = Data.getPlayer().getShip().getCargoName();
-                    observableList4.setAll(cargoNameList);
-                    cb2.setItems(observableList4);
+                System.out.println("==== Cargo ====");
+                for (String s : ship.getCargo().keySet()) {
+                    System.out.println(s + " " + ship.getCargo().get(s));
                 }
+                System.out.println();
             }
         }
     }
+    
+    /*
     @FXML
     public void sell() {
-        selected = (String)cb2.getValue();
         System.out.println(selected);
         for(int i = 0; i < goodsList.size(); i++) {
             if(goodsList.get(i).equals(selected)) {
@@ -127,8 +123,6 @@ public class MarketScreenController implements Initializable {
                 int price = pricesList.get(i);
                 TradeGood good = tradeGoodList.get(i);
                 // Update the quantity List
-                observableList3.setAll(quantityList);
-                listView3.setItems(observableList3);
                 ArrayList<TradeGood> cargo = player.getShip().getCargo();
                 // How to remove the good from the cargo
                 for (int j = 0; j < cargo.size(); j++) {
@@ -144,18 +138,11 @@ public class MarketScreenController implements Initializable {
                 player.setCash(cash);
                 player.getShip().setCargo(cargo);
                 cargoNameList = Data.getPlayer().getShip().getCargoName();
-                observableList4.setAll(cargoNameList);
-                cb2.setItems(observableList4);
                 
                 
             }
         }
-        
     }
-
-    
-
-        
-        
+    */
     
 }
