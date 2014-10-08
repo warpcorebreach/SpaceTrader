@@ -34,18 +34,19 @@ public class UniverseScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         universe = Data.getUniverse();
-        label1.setText("Welcome, " + Data.getPlayer().getName() + "!");
+        label1.setText("Welcome, " + Data.getPlayer().getName() + "!"
+                + " Current Fuel Level is " + Data.getPlayer().getShip().getFuel());
     }  
     
     @FXML
-    private void EnterMarketScreen(ActionEvent event) throws IOException {
+    private void EnterPlanetScreen(ActionEvent event) throws IOException {
         // make a Market for testing purposes
         // temporary until travel is implemented
         universe.getUniverse().get(0).makeMarket();
-        
+
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));/* Exception */
+        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class Ship {
     
-    private int size;
+    private int size, fuel;
     // Ship's cargo is represented by a Map from the name of a good to its
     // quantity in the cargo
     private HashMap<String, Integer> cargo;
@@ -22,6 +22,7 @@ public class Ship {
     
     public Ship() {
         size = 0;
+        fuel = 15;
         cargo = new HashMap<>();
     }
     
@@ -88,5 +89,9 @@ public class Ship {
     public void setCargo(HashMap<String, Integer> c) {
         cargo = c;
     }
-    
+
+    public int getFuel() {
+        return fuel;
+    }
+
 }

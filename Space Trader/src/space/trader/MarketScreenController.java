@@ -7,6 +7,7 @@
 package space.trader;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,11 @@ import javafx.collections.*;
 import javafx.collections.ObservableList;
 import javafx.event.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -47,6 +52,7 @@ public class MarketScreenController implements Initializable {
     private TableView<TradeGood> table = new TableView();
     @FXML
     private TableColumn goodCol = new TableColumn();
+
     @FXML
     private TableColumn priceCol = new TableColumn();
     @FXML
@@ -112,6 +118,16 @@ public class MarketScreenController implements Initializable {
     
     /*
     @FXML
+    private void EnterPlanetScreen(ActionEvent event) throws IOException {
+      //  label.setText("Ok. Let's Create Your Character");
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     public void sell() {
         System.out.println(selected);
         for(int i = 0; i < goodsList.size(); i++) {
@@ -134,7 +150,7 @@ public class MarketScreenController implements Initializable {
                 }
                     
                 cash = cash + pricesList.get(i);
-                label1.setText("Cash: " + cash);
+                cashLabel.setText("Cash: " + cash);
                 player.setCash(cash);
                 player.getShip().setCargo(cargo);
                 cargoNameList = Data.getPlayer().getShip().getCargoName();

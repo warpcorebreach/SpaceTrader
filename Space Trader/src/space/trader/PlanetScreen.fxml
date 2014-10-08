@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.PlanetScreenController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="634.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="3.0">
+         <image>
+            <Image url="@images/earth.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="EnterMarketScreen" layoutX="440.0" layoutY="332.0" mnemonicParsing="false" onAction="#EnterMarketScreen" text="Enter the Market" />
+      <Button fx:id="EnterUniverseScreen" layoutX="55.0" layoutY="341.0" mnemonicParsing="false" onAction="#EnterUniverseScreen" text="Return to Universe" />
+      <Label fx:id="planetName" layoutX="60.0" layoutY="33.0" text="planetName" textFill="#e4dd14e3" />
+      <Label fx:id="planetCoord" layoutX="482.0" layoutY="35.0" text="planetCoord" textFill="#c3dd1a" />
+      <Label fx:id="fuelLabel" layoutX="27.0" layoutY="291.0" text="Label" textFill="#d63115" />
+   </children>
+</AnchorPane>
