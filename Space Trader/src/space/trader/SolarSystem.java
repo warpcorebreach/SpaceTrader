@@ -5,8 +5,6 @@
  */
 package space.trader;
 
-import java.util.HashMap;
-
 
 /**
  * A class representing a solar system in the universe

@@ -5,8 +5,6 @@
  */
 package space.trader.items;
 
-import space.trader.SystemStats.Resources;
-
 
 /**
  * Represents a Robot object

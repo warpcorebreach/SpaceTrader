@@ -6,14 +6,10 @@
 
 package space.trader;
 
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.*;
 import javafx.collections.ObservableList;
 import javafx.event.*;
@@ -24,9 +20,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import space.trader.items.TradeGood;
 
 /**
@@ -116,17 +112,18 @@ public class MarketScreenController implements Initializable {
         }
     }
     
-    /*
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
       //  label.setText("Ok. Let's Create Your Character");
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+    
+    /*
     @FXML
     public void sell() {
         System.out.println(selected);

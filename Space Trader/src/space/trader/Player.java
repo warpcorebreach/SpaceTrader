@@ -5,8 +5,6 @@
  */
 
 package space.trader;
-import java.util.ArrayList;
-import space.trader.items.*;
 
 /**
  *
