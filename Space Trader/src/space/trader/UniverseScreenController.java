@@ -28,6 +28,7 @@ public class UniverseScreenController implements Initializable {
     @FXML
     private Label label1;
     private Universe universe;
+    private SolarSystem currentSys;
     /*
      * Initializes the controller class.
      */
