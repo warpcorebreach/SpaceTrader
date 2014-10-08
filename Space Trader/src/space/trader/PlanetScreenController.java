@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package space.trader;
 
 import java.io.IOException;
@@ -22,27 +21,42 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author jd
+ * @author trananhduc1004
  */
-public class UniverseScreenController implements Initializable {
+public class PlanetScreenController implements Initializable {
     @FXML
-    private Label label1;
-    /*
+    private Label planetName;
+    @FXML
+    private Label planetCoord;
+    
+    
+    /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        label1.setText("Welcome, " + Data.getInstance().getPlayer().getName() + "!");
-    }  
+        planetName.setText("Hello Duc");
+        planetCoord.setText("This is the planet coordination");
+    }
     @FXML
-    private void EnterPlanetScreen(ActionEvent event) throws IOException {
+    private void EnterMarketScreen(ActionEvent event) throws IOException {
       //  label.setText("Ok. Let's Create Your Character");
           Node node=(Node) event.getSource();
          Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));/* Exception */
+        Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
          stage.show();
     }
-  
+    @FXML
+    private void EnterUniverseScreen(ActionEvent event) throws IOException {
+      //  label.setText("Ok. Let's Create Your Character");
+          Node node=(Node) event.getSource();
+         Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+         stage.show();
+    }
+    
 }
