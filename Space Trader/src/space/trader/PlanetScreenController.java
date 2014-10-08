@@ -41,7 +41,7 @@ public class PlanetScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        planetName.setText("Name: \n" + "Something");
+        planetName.setText("Name: \n" + "something");
         planetCoord.setText("Coordination\n" + "X: " + "Y:  " );
     }
     @FXML

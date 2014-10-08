@@ -9,8 +9,8 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.CharacterScreenController">
    <children>
       <TextField fx:id="user" layoutX="14.0" layoutY="85.0" />
-      <Button layoutX="508.0" layoutY="77.0" mnemonicParsing="false" onAction="#Done" text="Done" />
-      <Button layoutX="571.0" layoutY="77.0" mnemonicParsing="false" onAction="#ReturnToMainMenu" text="Cancel" />
+      <Button layoutX="505.0" layoutY="78.0" mnemonicParsing="false" onAction="#Done" text="Done" />
+      <Button layoutX="595.0" layoutY="77.0" mnemonicParsing="false" onAction="#ReturnToMainMenu" text="Cancel" />
       <ProgressBar fx:id="bar" layoutX="324.0" layoutY="85.0" prefHeight="36.0" prefWidth="172.0" progress="0.0" />
       <Button layoutX="324.0" layoutY="142.0" mnemonicParsing="false" onAction="#PilotAdd" text="Add" />
       <Button layoutX="324.0" layoutY="193.0" mnemonicParsing="false" onAction="#FighterAdd" text="Add" />
