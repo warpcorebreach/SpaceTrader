@@ -38,8 +38,6 @@ public class MarketScreenController implements Initializable {
     private TradeGood selected;
     private Ship ship;
     
-    private ObservableList observableList = FXCollections.observableArrayList();
-    
     @FXML
     private Button buy;
     @FXML
@@ -48,7 +46,6 @@ public class MarketScreenController implements Initializable {
     private TableView<TradeGood> table = new TableView();
     @FXML
     private TableColumn goodCol = new TableColumn();
-
     @FXML
     private TableColumn priceCol = new TableColumn();
     @FXML
@@ -66,16 +63,17 @@ public class MarketScreenController implements Initializable {
         tradeGoodList = market.getGoods();
         cash = player.getCash();
         ship = player.getShip();
+        label1.setText("Cash: " + cash);
         
-        data.addAll(tradeGoodList);
         goodCol.setCellValueFactory (
                 new PropertyValueFactory<>("name"));
         priceCol.setCellValueFactory (
                 new PropertyValueFactory<>("price"));
         quantCol.setCellValueFactory (
                 new PropertyValueFactory<>("quant"));
+        
+        data.addAll(tradeGoodList);
         table.setItems(data);
-        label1.setText("Cash: " + cash);
     }
     
     @FXML
@@ -85,6 +83,7 @@ public class MarketScreenController implements Initializable {
     
     @FXML
     public void purchase() {
+        if (selected == null) return;
         if (cash - selected.getPrice() < 0) {
             // out of money error message
             System.out.println("you don't have enough money");
@@ -114,7 +113,6 @@ public class MarketScreenController implements Initializable {
     
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
-      //  label.setText("Ok. Let's Create Your Character");
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));

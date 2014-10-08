@@ -43,9 +43,9 @@ public class PlanetScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        planetName.setText("Name: \n" + "something");
-        planetCoord.setText("Coordination\n" + "X: " + "Y:  " );
-        fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel() );
+        planetName.setText("Name: \n" + planet);
+        planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + "Y:  " + planet.getY());
+        fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel());
     }
     @FXML
     private void EnterMarketScreen(ActionEvent event) throws IOException {

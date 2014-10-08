@@ -5,6 +5,9 @@
  */
 package space.trader;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 
 /**
  * A class representing a solar system in the universe
@@ -13,11 +16,14 @@ package space.trader;
 
 public class SolarSystem {
     
-    private SystemStats.Name name;
-    private SystemStats.TechLevel techLevel;
+    private final SystemStats.Name name;
+    private final SystemStats.TechLevel techLevel;
+    
     private SystemStats.Resources resources;
     private int x, y;
     private Market market;
+    private SimpleStringProperty coords;
+    
     /**
      * Constructor of a solar system
      */
@@ -28,6 +34,9 @@ public class SolarSystem {
         this.y = y;
         this.techLevel = techLevel;
         this.resources = resources;
+        
+        coords = new SimpleStringProperty();
+        coords.setValue(x + "," + y);
     }
     
     public void makeMarket() {
@@ -77,5 +86,13 @@ public class SolarSystem {
     
     public Market getMarket() {
         return market;
+    }
+    
+    public StringProperty coordsProperty() {
+        return coords;
+    }
+    
+    public String toString() {
+        return ""+name;
     }
 }

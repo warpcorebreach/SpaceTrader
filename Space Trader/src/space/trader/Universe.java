@@ -111,7 +111,7 @@ public class Universe {
      * Getter method for the Universe object.
      * @return systems An ArrayList of solar systems in the universe.
      */
-    public ArrayList<SolarSystem> getUniverse() {
+    public ArrayList<SolarSystem> getSystems() {
         return systems;
     }
     
