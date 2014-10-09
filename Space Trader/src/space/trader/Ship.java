@@ -22,7 +22,7 @@ public class Ship {
     
     public Ship() {
         size = 0;
-        fuel = 15;
+        fuel = 50;
         cargo = new HashMap<>();
     }
     

@@ -25,12 +25,7 @@ public class FXMLDocumentController implements Initializable {
     private Label label;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-    @FXML
-   private void EnterCreationScreen(ActionEvent event) throws IOException {
+    private void EnterCreationScreen(ActionEvent event) throws IOException {
       //  label.setText("Ok. Let's Create Your Character");
         
         Node node=(Node) event.getSource();

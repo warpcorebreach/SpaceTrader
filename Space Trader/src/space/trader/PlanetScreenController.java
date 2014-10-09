@@ -44,28 +44,29 @@ public class PlanetScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         planetName.setText("Name: \n" + planet);
-        planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + "Y:  " + planet.getY());
+        planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + " " + "Y:  " + planet.getY());
         fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel());
     }
     @FXML
     private void EnterMarketScreen(ActionEvent event) throws IOException {
-      //  label.setText("Ok. Let's Create Your Character");
-          Node node=(Node) event.getSource();
-         Stage stage=(Stage) node.getScene().getWindow();
+        
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
-         stage.show();
+        stage.show();
     }
+    
     @FXML
     private void EnterUniverseScreen(ActionEvent event) throws IOException {
-      //  label.setText("Ok. Let's Create Your Character");
-          Node node=(Node) event.getSource();
-         Stage stage=(Stage) node.getScene().getWindow();
+        
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
-         stage.show();
+        stage.show();
     }
     
 }

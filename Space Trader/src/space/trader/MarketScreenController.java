@@ -76,11 +76,20 @@ public class MarketScreenController implements Initializable {
         table.setItems(data);
     }
     
+    /**
+     * Stores the currently selected good
+     */
     @FXML
     public void selection() {
         selected = (TradeGood)table.getSelectionModel().getSelectedItem();
     }
     
+    /**
+     * Purchase the selected good from the market and add it to the ship's cargo.
+     * Possible errors: Market is out of the item
+     *                  Player's cargo is full
+     *                  Player does not have enough money
+     */
     @FXML
     public void purchase() {
         if (selected == null) return;
@@ -120,40 +129,5 @@ public class MarketScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
-    /*
-    @FXML
-    public void sell() {
-        System.out.println(selected);
-        for(int i = 0; i < goodsList.size(); i++) {
-            if(goodsList.get(i).equals(selected)) {
-                // Get price and quantity of the good in index
-                int quantity = quantityList.get(i);
-                ++quantity;
-                quantityList.set(i, quantity);                
-                int price = pricesList.get(i);
-                TradeGood good = tradeGoodList.get(i);
-                // Update the quantity List
-                ArrayList<TradeGood> cargo = player.getShip().getCargo();
-                // How to remove the good from the cargo
-                for (int j = 0; j < cargo.size(); j++) {
-                    if (good.getClass() == cargo.get(j).getClass()) {
-                        // Update cargo
-                        cargo.remove(j);                        
-                        break;
-                    }
-                }
-                    
-                cash = cash + pricesList.get(i);
-                cashLabel.setText("Cash: " + cash);
-                player.setCash(cash);
-                player.getShip().setCargo(cargo);
-                cargoNameList = Data.getPlayer().getShip().getCargoName();
-                
-                
-            }
-        }
-    }
-    */
     
 }

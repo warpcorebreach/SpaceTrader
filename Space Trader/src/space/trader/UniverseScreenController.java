@@ -65,10 +65,17 @@ public class UniverseScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        currentLoc = INIT_LOC;
         universe = Data.getUniverse();
         fuel = Data.getPlayer().getShip().getFuel();
         systems = new ArrayList<>();
+        if (Data.getSolarSystem() != null) {
+            currentSys = Data.getSolarSystem();
+            currentLoc = new int[2];
+            currentLoc[0] = currentSys.getX();
+            currentLoc[1] = currentSys.getY();
+        } else {
+            currentLoc = INIT_LOC;
+        }
         
         for (SolarSystem sys : universe.getSystems()) {
             if (getFuelCost(sys) <= fuel) {
@@ -98,6 +105,12 @@ public class UniverseScreenController implements Initializable {
         fuelLevel.setText("Fuel Level: "+fuel);
     }  
     
+    /**
+     * Returns the fuel cost to go a given SolarSystem
+     * Traveling one coordinate "unit" costs one unit of fuel
+     * @param sys the solar system to calculate fuel cost for
+     * @return the fuel cost to travel to the given System
+     */
     private int getFuelCost(SolarSystem sys) {
         int x1 = currentLoc[0];
         int x2 = sys.getX();
@@ -107,6 +120,9 @@ public class UniverseScreenController implements Initializable {
         return (int) Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
     }
     
+    /**
+     * Stores the currently selected SolarSystem
+     */
     @FXML
     public void selection() {
         selected = (SolarSystem)table.getSelectionModel().getSelectedItem();
