@@ -119,7 +119,10 @@ public class MarketScreenController implements Initializable {
             }
         }
     }
-    
+    /**
+     * change screen back to PlanetScreen
+     * @param event when return button is click
+     */
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
@@ -129,7 +132,9 @@ public class MarketScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+    /**
+     * sell items when mouse clicks sell button
+     */
     @FXML
     private void sell() {
         if (selected == null) return;
