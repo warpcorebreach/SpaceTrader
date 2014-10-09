@@ -92,22 +92,6 @@ public class Universe {
     }
     
     /**
-     * Create a string representation for the system
-     * @return: The string represent a solar system.
-     */
-    @Override
-    public String toString() {
-        String universeString = "";
-        for (SolarSystem s : systems) {
-            universeString += "Name: " + s.getName() + "\n" + "X,Y Coords: " + "(" + s.getX()
-                + "," + s.getY() + ")" + "\n" + "Tech Level: " + s.getTechLevel()
-                + "\n" + "Resources: " + s.getResources() + "\n" + "\n";
-        }
-        
-       return universeString;
-    }
-    
-    /**
      * Getter method for the Universe object.
      * @return systems An ArrayList of solar systems in the universe.
      */

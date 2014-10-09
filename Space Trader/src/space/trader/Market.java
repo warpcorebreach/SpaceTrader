@@ -18,11 +18,6 @@ import space.trader.items.*;
 public class Market {
     private SolarSystem sys;
     
-    // maps a TradeGood to its available stock on the planet
-    private HashMap<TradeGood, Integer> goodList;
-    // maps a TradeGood to its price on the planet
-    private HashMap<TradeGood, Integer> goodPrices;
-    
     // full set of goods available to any Market
     Water water;
     Furs furs;
@@ -44,11 +39,6 @@ public class Market {
      * @param sys The location of the Market
      */
     public Market(SolarSystem sys) {
-        // maps goods to their availability in the current system
-        // null availability means the good cannot be produced by the system
-        goodList = new HashMap<>();
-        // maps goods to their prices in the current system
-        goodPrices = new HashMap<>();
         this.sys = sys;
         
         furs = new Furs();
@@ -143,22 +133,6 @@ public class Market {
      */
     public ArrayList<TradeGood> getGoods() {
         return goodsAvailable;
-    }
-
-    /**
-     * @param good The good to get the price of
-     * @return The price of the inputted good
-     */
-    public int getGoodPrice(TradeGood good) {
-        return good.getPrice();
-    }
-    
-    /**
-     * @param good The good to get the quantity of
-     * @return The quantity available of the inputted good
-     */
-    public int getGoodQuantity(TradeGood good) {
-        return good.getQuantity();
     }
     
 }
