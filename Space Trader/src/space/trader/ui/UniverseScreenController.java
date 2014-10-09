@@ -25,7 +25,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
-import space.trader.gameplay.Data;
 import space.trader.location.SolarSystem;
 import space.trader.location.Universe;
 

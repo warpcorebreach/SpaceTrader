@@ -21,8 +21,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
-import space.trader.gameplay.Data;
-import space.trader.gameplay.Player;
 import space.trader.gameplay.Player;
 import space.trader.location.Universe;
 
@@ -125,8 +123,7 @@ public class CharacterScreenController implements Initializable {
                 label6.setText("Character Created");
                 p = new Player(name.getText(),add,add1,add2,add3,add4);
                 Data.setPlayer(p);
-                System.out.println(p.getName() + p.getFighter() + p.getEngineer() + p.getInvestor() + p.getTrader() + p.getPilot());
-
+                
                 Node node=(Node) event.getSource();
                 Stage stage=(Stage) node.getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */

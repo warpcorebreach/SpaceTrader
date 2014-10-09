@@ -26,10 +26,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
-import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
-import space.trader.gameplay.Player;
-import space.trader.gameplay.Ship;
 import space.trader.gameplay.Ship;
 import space.trader.location.Market;
 import space.trader.resources.TradeGood;
@@ -95,6 +92,7 @@ public class MarketScreenController implements Initializable {
     
     /**
      * Purchase the selected good from the market and add it to the ship's cargo.
+     * Prints the ships cargo after the purchase to the console
      * Possible errors: Market is out of the item
      *                  Player's cargo is full
      *                  Player does not have enough money
@@ -139,6 +137,12 @@ public class MarketScreenController implements Initializable {
         stage.show();
     }
     
+    /**
+     * Sell the currently selected good for the price listed in the Market
+     * window. Removes the good from the ship's cargo.
+     * Possible errors: Cargo is empty
+     *                  Cargo does not contain selected good
+     */
     @FXML
     private void sell() {
         if (selected == null) return;
@@ -153,7 +157,7 @@ public class MarketScreenController implements Initializable {
             label1.setText("Cash: " + cash);
             int q = selected.getQuantity() + 1;
             selected.setQuantity(q);
-            System.out.println("Remove Successfully");
+            System.out.println("Remove Successful");
         }
     }   
 

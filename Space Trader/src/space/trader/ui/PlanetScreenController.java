@@ -19,8 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
-import space.trader.gameplay.Data;
-import space.trader.gameplay.Player;
 import space.trader.gameplay.Player;
 import space.trader.location.SolarSystem;
 
@@ -49,7 +47,7 @@ public class PlanetScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         planetName.setText("Name: \n" + planet);
-        planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + " " + "Y:  " + planet.getY());
+        planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + "  " + "Y: " + planet.getY());
         fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel());
     }
     @FXML
