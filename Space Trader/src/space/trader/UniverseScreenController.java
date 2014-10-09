@@ -87,10 +87,15 @@ public class UniverseScreenController implements Initializable {
         table.setItems(data);
         
         playerName.setText("Welcome to the Universe, " + Data.getPlayer().getName());
-        //curSysName.setText(currentSys.toString());
+        if (currentSys == null) {
+            curSysName.setText("In Space");
+            curTechLevel.setText("N/A");
+        } else {
+            curSysName.setText(currentSys.toString());
+            curTechLevel.setText(""+currentSys.getTechLevel());
+        }
         curSysCoords.setText("(" + currentLoc[0] + "," + currentLoc[1] + ")");
         fuelLevel.setText("Fuel Level: "+fuel);
-        //curTechLevel.setText(""+currentSys.getTechLevel());
     }  
     
     private int getFuelCost(SolarSystem sys) {
@@ -112,10 +117,12 @@ public class UniverseScreenController implements Initializable {
         if (selected == null) return;
         Data.setSolarSystem(selected);
         selected.makeMarket();
+        fuel -= getFuelCost(selected);
+        Data.getPlayer().getShip().setFuel(fuel);
        
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));/* Exception */
+        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

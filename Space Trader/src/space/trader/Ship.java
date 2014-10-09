@@ -93,5 +93,9 @@ public class Ship {
     public int getFuel() {
         return fuel;
     }
+    
+    public void setFuel(int f) {
+        fuel = f;
+    }
 
 }
