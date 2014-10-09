@@ -14,6 +14,9 @@ import java.util.HashMap;
  */
 public class Ship {
     
+    private final int INITIAL_X = 25;
+    private final int INITIAL_Y = 75;
+    
     private int size, fuel, x, y;
     // Ship's cargo is represented by a Map from the name of a good to its
     // quantity in the cargo
@@ -21,12 +24,13 @@ public class Ship {
     
     
     public Ship() {
+        x = INITIAL_X;
+        y = INITIAL_Y;
         size = 0;
         fuel = 15;
         cargo = new HashMap<>();
     }
-    
-    
+
     /**
      * Add a TradeGood to the Ship's cargo.
      * Returns true if cargo was successfully added, false otherwise
