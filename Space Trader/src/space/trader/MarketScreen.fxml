@@ -20,6 +20,6 @@
             <TableColumn fx:id="quantCol" editable="false" prefWidth="152.0" text="Quantity" />
         </columns>
       </TableView>
-      <Button layoutX="375.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#EnterPlanetScreen" text="Back To Planet" />
+      <Button layoutX="375.0" layoutY="24.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" onMouseClicked="#EnterPlanetScreen" text="Back To Planet" />
    </children>
 </AnchorPane>
