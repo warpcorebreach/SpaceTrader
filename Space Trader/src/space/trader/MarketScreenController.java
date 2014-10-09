@@ -121,6 +121,23 @@ public class MarketScreenController implements Initializable {
         stage.show();
     }
     
+    @FXML
+    private void sell() {
+        if (selected == null) return;
+        int temp = ship.removeCargo(selected);
+        if (temp == 0) {
+            System.out.println("Cargo is empty");
+        } else if (temp == -1) {
+            System.out.println("Cargo does not contain current TradeGood");
+        } else {
+            cash = cash + selected.getPrice();
+            player.setCash(cash);
+            label1.setText("Cash: " + cash);
+            int q = selected.getQuantity() + 1;
+            selected.setQuantity(q);
+            System.out.println("Remove Successfully");
+        }
+    }   
     /*
     @FXML
     public void sell() {
