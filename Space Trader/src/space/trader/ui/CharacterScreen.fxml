@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.CharacterScreenController">
+   <children>
+      <TextField fx:id="user" layoutX="14.0" layoutY="85.0" />
+      <Button layoutX="505.0" layoutY="78.0" mnemonicParsing="false" onAction="#Done" text="Done" />
+      <Button layoutX="595.0" layoutY="77.0" mnemonicParsing="false" onAction="#ReturnToMainMenu" text="Cancel" />
+      <ProgressBar fx:id="bar" layoutX="324.0" layoutY="85.0" prefHeight="36.0" prefWidth="172.0" progress="0.0" />
+      <Button layoutX="324.0" layoutY="142.0" mnemonicParsing="false" onAction="#PilotAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="193.0" mnemonicParsing="false" onAction="#FighterAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="244.0" mnemonicParsing="false" onAction="#TraderAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="295.0" mnemonicParsing="false" onAction="#EngineerAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="346.0" mnemonicParsing="false" onAction="#InvestorAdd" text="Add" />
+      <Label fx:id="label1" layoutX="410.0" layoutY="150.0" text="0" />
+      <Label fx:id="label2" layoutX="410.0" layoutY="201.0" text="0" />
+      <Label fx:id="label3" layoutX="410.0" layoutY="252.0" text="0" />
+      <Label fx:id="label4" layoutX="410.0" layoutY="303.0" text="0" />
+      <Label fx:id="label5" layoutX="410.0" layoutY="354.0" text="0" />
+      <Label fx:id="label6" layoutX="27.0" layoutY="26.0" prefHeight="35.0" prefWidth="671.0" text="Please Enter Your Name and Selelct Skill Points" />
+      <Label layoutX="23.0" layoutY="150.0" text="Pilot" />
+      <Label layoutX="20.0" layoutY="193.0" text="Fighter" />
+      <Label layoutX="23.0" layoutY="252.0" text="Trader" />
+      <Label layoutX="23.0" layoutY="303.0" text="Engineer" />
+      <Label layoutX="20.0" layoutY="354.0" text="Investor" />
+      <Label fx:id="name" layoutX="35.0" layoutY="93.0" />
+   </children>
+</AnchorPane>
