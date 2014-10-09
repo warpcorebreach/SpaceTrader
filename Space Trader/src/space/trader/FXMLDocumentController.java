@@ -23,7 +23,10 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private Label label;
-    
+    /**
+     * change screen to Character Creation Screen
+     * @param event when button is clicked
+     */
     @FXML
     private void EnterCreationScreen(ActionEvent event) throws IOException {
       //  label.setText("Ok. Let's Create Your Character");

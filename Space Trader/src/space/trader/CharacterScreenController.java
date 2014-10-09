@@ -59,11 +59,18 @@ public class CharacterScreenController implements Initializable {
     public Player p;
     
     Stage prevStage;
-    
+    /**
+     * return to main menu
+     * @param stage previous stage
+     */
     public void setPrevStage(Stage stage){
          this.prevStage = stage;
     }
-        @FXML
+    /**
+     * Add stat to Pilot skill point
+     * @param event when add button is clicked
+     */
+    @FXML
     private void PilotAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {
         add++;
@@ -71,6 +78,10 @@ public class CharacterScreenController implements Initializable {
         bar.setProgress((add+add1+add2+add3+add4)/(double)15);
         }
     }
+    /**
+     * Add stat to Figher skill point
+     * @param event when add button is clicked
+     */
     @FXML
     private void FighterAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {
@@ -79,6 +90,10 @@ public class CharacterScreenController implements Initializable {
          bar.setProgress((add+add1+add2+add3+add4)/(double)15);
         }
     }
+    /**
+     * Add stat to Trader skill point
+     * @param event when add button is clicked
+     */
     @FXML
     private void TraderAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {
@@ -87,6 +102,10 @@ public class CharacterScreenController implements Initializable {
          bar.setProgress((add+add1+add2+add3+add4)/(double)15);
         }
     }
+    /**
+     * Add stat to Engineer skill point
+     * @param event when add button is clicked
+     */
     @FXML
     private void EngineerAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {
@@ -95,6 +114,10 @@ public class CharacterScreenController implements Initializable {
          bar.setProgress((add+add1+add2+add3+add4)/(double)15);
         }
     }
+    /**
+     * Add stat to Investor skill point
+     * @param event when add button is clicked
+     */
     @FXML
     private void InvestorAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {
@@ -103,7 +126,10 @@ public class CharacterScreenController implements Initializable {
          bar.setProgress((add+add1+add2+add3+add4)/(double)15);
         }
     }
-
+    /**
+     * check if stat and name are set and then save it in Player class
+     * @param event when done button is clicked
+     */
     @FXML
     private void Done(ActionEvent event) throws IOException {
         if(user.getText() != null && !user.getText().isEmpty()) {
@@ -134,6 +160,10 @@ public class CharacterScreenController implements Initializable {
             label6.setText("Please Enter a Name");
         }
     }
+    /**
+     * return back to main menu
+     * @param event back button is clicked
+     */
     @FXML
     private void ReturnToMainMenu(ActionEvent event) throws IOException{
          Node node=(Node) event.getSource();

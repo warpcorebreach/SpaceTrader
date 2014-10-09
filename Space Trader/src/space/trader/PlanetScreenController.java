@@ -47,6 +47,10 @@ public class PlanetScreenController implements Initializable {
         planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + " " + "Y:  " + planet.getY());
         fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel());
     }
+    /**
+     * change screen to planet's market screen
+     * @param event when button is clicked
+     */
     @FXML
     private void EnterMarketScreen(ActionEvent event) throws IOException {
         
@@ -58,6 +62,10 @@ public class PlanetScreenController implements Initializable {
         stage.show();
     }
     
+    /**
+     * change screen back to UniverseScreen
+     * @param event when return button is clicked
+     */
     @FXML
     private void EnterUniverseScreen(ActionEvent event) throws IOException {
         
