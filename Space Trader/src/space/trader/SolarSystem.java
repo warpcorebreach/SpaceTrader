@@ -39,6 +39,9 @@ public class SolarSystem {
         coords.setValue(x + "," + y);
     }
     
+    /**
+     * Generates the market for this SolarSystem
+     */
     public void makeMarket() {
         market = new Market(this);
         Data.setMarket(market);
