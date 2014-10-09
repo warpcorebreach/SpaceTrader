@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class Ship {
     
-    private int size, fuel;
+    private int size, fuel, x, y;
     // Ship's cargo is represented by a Map from the name of a good to its
     // quantity in the cargo
     private HashMap<String, Integer> cargo;
@@ -96,6 +96,22 @@ public class Ship {
     
     public void setFuel(int f) {
         fuel = f;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+    
+    public void setY(int y) {
+        this.y = y;
+    }
+    
+    public int getX() {
+        return x;
+    }
+    
+    public int getY() {
+        return x;
     }
 
 }
