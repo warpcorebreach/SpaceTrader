@@ -10,7 +10,7 @@
    <children>
       <Label layoutX="218.0" layoutY="29.0" text="MarketPlace" />
       <Button layoutX="513.0" layoutY="169.0" mnemonicParsing="false" onMouseClicked="#purchase" text="Purchase" />
-      <Button layoutX="513.0" layoutY="222.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Sell" />
+      <Button layoutX="513.0" layoutY="222.0" mnemonicParsing="false" onMouseClicked="#sell" prefHeight="31.0" prefWidth="80.0" text="Sell" />
       <Label fx:id="label1" layoutX="78.0" layoutY="18.0" text="Label" />
       <Separator layoutX="493.0" layoutY="207.0" prefHeight="7.0" prefWidth="119.0" />
       <TableView fx:id="table" layoutX="27.0" layoutY="69.0" onMouseClicked="#selection" prefHeight="305.0" prefWidth="465.0">
