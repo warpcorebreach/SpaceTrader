@@ -9,6 +9,7 @@ package space.trader.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,8 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -41,11 +42,10 @@ public class MarketScreenController implements Initializable {
     private Player player;
     private int cash;
     private ArrayList<TradeGood> tradeGoodList;
+    private ArrayList<String> cargo;
     private TradeGood selected;
     private Ship ship;
     
-    @FXML
-    private Button buy;
     @FXML
     private Label label1;
     @FXML
@@ -58,6 +58,10 @@ public class MarketScreenController implements Initializable {
     private TableColumn quantCol = new TableColumn();
     @FXML
     private ObservableList<TradeGood> data = FXCollections.observableArrayList();
+    @FXML
+    private ObservableList<String> cargoData = FXCollections.observableArrayList();
+    @FXML
+    private ListView<String> cargoDisplay = new ListView<>();
     
     /**
      * Initializes the controller class.
@@ -70,6 +74,7 @@ public class MarketScreenController implements Initializable {
         cash = player.getCash();
         ship = player.getShip();
         label1.setText("Cash: " + cash);
+        cargo = new ArrayList<>();
         
         goodCol.setCellValueFactory (
                 new PropertyValueFactory<>("name"));
@@ -80,6 +85,20 @@ public class MarketScreenController implements Initializable {
         
         data.addAll(tradeGoodList);
         table.setItems(data);
+        
+        if (!ship.getCargo().isEmpty()) {
+            cargo.add("Ship's Cargo " + "(" + ship.getCargoSize() + "/20)");
+            HashMap<String, Integer> c = ship.getCargo();
+            for (String item : c.keySet()) {
+                cargo.add(item + " " + c.get(item));
+            }
+            cargoData.addAll(cargo);
+            cargoDisplay.setItems(cargoData);
+        } else {
+            cargo.add("Ship's Cargo (0/20)");
+            cargoData.addAll(cargo);
+            cargoDisplay.setItems(cargoData);
+        }
     }
     
     /**
@@ -118,13 +137,24 @@ public class MarketScreenController implements Initializable {
                 int q = selected.getQuantity() - 1;
                 selected.setQuantity(q);
                 
-                System.out.println("==== Cargo ====");
-                for (String s : ship.getCargo().keySet()) {
-                    System.out.println(s + " " + ship.getCargo().get(s));
-                }
-                System.out.println();
+                updateCargoScreen();                
             }
         }
+    }
+    
+    /**
+     * Update the cargo display window in the Market UI.
+     */
+    private void updateCargoScreen() {
+        cargo.clear();
+        cargoData.clear();
+        cargo.add("Ship's Cargo " + "(" + ship.getCargoSize() + "/20)");
+        HashMap<String, Integer> c = ship.getCargo();
+        for (String item : c.keySet()) {
+            cargo.add(item + " " + c.get(item));
+        }
+        cargoData.addAll(cargo);
+        cargoDisplay.setItems(cargoData);
     }
     
     @FXML
@@ -157,7 +187,8 @@ public class MarketScreenController implements Initializable {
             label1.setText("Cash: " + cash);
             int q = selected.getQuantity() + 1;
             selected.setQuantity(q);
-            System.out.println("Remove Successful");
+            
+            updateCargoScreen();
         }
     }   
 

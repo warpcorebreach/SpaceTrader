@@ -117,5 +117,9 @@ public class Ship {
     public int getY() {
         return x;
     }
+    
+    public int getCargoSize() {
+        return size;
+    }
 
 }
