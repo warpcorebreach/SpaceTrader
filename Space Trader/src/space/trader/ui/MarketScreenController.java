@@ -87,13 +87,7 @@ public class MarketScreenController implements Initializable {
         table.setItems(data);
         
         if (!ship.getCargo().isEmpty()) {
-            cargo.add("Ship's Cargo " + "(" + ship.getCargoSize() + "/20)");
-            HashMap<String, Integer> c = ship.getCargo();
-            for (String item : c.keySet()) {
-                cargo.add(item + " " + c.get(item));
-            }
-            cargoData.addAll(cargo);
-            cargoDisplay.setItems(cargoData);
+            updateCargoScreen();
         } else {
             cargo.add("Ship's Cargo (0/20)");
             cargoData.addAll(cargo);
