@@ -84,14 +84,12 @@ public class Market {
      * TechLevel to the good's MTLP
      */
     private void generateGoods() {
-        // Water and Furs can be produced by every planet so we don't need to
-        // compare against the System's TechLevel
-        // only their available quantities will change per System
+        Random r = new Random();
         
         for (TradeGood g : goods) {
             if (sys.getTechLevel().getTechNum() >= g.getMTLP()) {
                 goodsAvailable.add(g);
-                g.setQuantity(10);
+                g.setQuantity(r.nextInt(15));
             }
         }
     }

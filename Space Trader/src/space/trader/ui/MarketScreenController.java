@@ -81,7 +81,7 @@ public class MarketScreenController implements Initializable {
         cashLabel.setText("Cash: " + cash);
         cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/20)");
         cargo = new ArrayList<>();
-        mnn.setText("Welcome to our market, shopper!\nWe have the best prices "
+        mnn.setText("Welcome to our market, friend!\nWe have the best prices "
                 + "in the Galaxy - we made sure of that.");
         
         goodCol.setCellValueFactory (

@@ -21,7 +21,7 @@ public class SolarSystem {
     private final SystemStats.TechLevel techLevel;
     
     private SystemStats.Resources resources;
-    private int x, y;
+    private int x, y, fuelCost;
     private Market market;
     private SimpleStringProperty coords;
     
@@ -38,6 +38,17 @@ public class SolarSystem {
         
         coords = new SimpleStringProperty();
         coords.setValue(x + "," + y);
+    }
+    
+    /**
+     * Set the fuel cost to get to this system from the current one
+     */
+    public void setFuelCost(int c) {
+        fuelCost = c;
+    }
+    
+    public int getFuelCost() {
+        return fuelCost;
     }
     
     /**

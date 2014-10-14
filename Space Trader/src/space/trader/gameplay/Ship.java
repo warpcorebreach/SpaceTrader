@@ -27,7 +27,7 @@ public class Ship {
         x = INITIAL_X;
         y = INITIAL_Y;
         size = 0;
-        fuel = 50;
+        fuel = 100;
         cargo = new HashMap<>();
     }
 

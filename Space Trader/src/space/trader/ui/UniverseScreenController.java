@@ -53,6 +53,8 @@ public class UniverseScreenController implements Initializable {
     @FXML
     private Label fuelLevel;
     @FXML
+    private Label fuelCostLabel;
+    @FXML
     private TableView<SolarSystem> table = new TableView();
     @FXML
     private TableColumn sysCol = new TableColumn();
@@ -106,6 +108,7 @@ public class UniverseScreenController implements Initializable {
         }
         curSysCoords.setText("(" + currentLoc[0] + "," + currentLoc[1] + ")");
         fuelLevel.setText("Fuel Level: "+fuel);
+        fuelCostLabel.setText("Fuel Cost: N/A");
     }  
     
     /**
@@ -120,7 +123,10 @@ public class UniverseScreenController implements Initializable {
         int y1 = currentLoc[1];
         int y2 = sys.getY();
         
-        return (int) Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
+        int cost = (int) Math.sqrt(Math.pow(x2-x1, 2) + Math.pow(y2-y1, 2));
+        cost -= (cost*(3*Data.getPlayer().getPilot())/100);
+        sys.setFuelCost(cost);
+        return cost;
     }
     
     /**
@@ -129,6 +135,7 @@ public class UniverseScreenController implements Initializable {
     @FXML
     public void selection() {
         selected = (SolarSystem)table.getSelectionModel().getSelectedItem();
+        fuelCostLabel.setText("Fuel Cost: " + selected.getFuelCost());
     }
     
     @FXML
