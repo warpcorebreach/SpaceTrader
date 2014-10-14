@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
@@ -64,6 +65,8 @@ public class MarketScreenController implements Initializable {
     private ObservableList<String> cargoData = FXCollections.observableArrayList();
     @FXML
     private ListView<String> cargoDisplay = new ListView<>();
+    @FXML
+    private TextArea mnn = new TextArea();
     
     /**
      * Initializes the controller class.
@@ -78,6 +81,8 @@ public class MarketScreenController implements Initializable {
         cashLabel.setText("Cash: " + cash);
         cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/20)");
         cargo = new ArrayList<>();
+        mnn.setText("Welcome to our market, shopper!\nWe have the best prices "
+                + "in the Galaxy - we made sure of that.");
         
         goodCol.setCellValueFactory (
                 new PropertyValueFactory<>("name"));
@@ -114,15 +119,16 @@ public class MarketScreenController implements Initializable {
         if (selected == null) return;
         if (cash - selected.getPrice() < 0) {
             // out of money error message
-            System.out.println("you don't have enough money");
+            mnn.setText("You can't afford that, trader.");
         } else if (selected.getQuantity() == 0) {
             // none available error message
-            System.out.println("market is out");
+            mnn.setText("Our pirates, er, friendly traders are out acquiring "
+                    + "more.");
         } else {
             boolean buy = ship.addCargo(selected);
             if (buy == false) {
                 // cargo full error message
-                System.out.println("not enough cargo space");
+                mnn.setText("You'll need more cargo space to store that.");
             } else {
                 cash -= selected.getPrice();
                 player.setCash(cash);
@@ -146,9 +152,10 @@ public class MarketScreenController implements Initializable {
         if (selected == null) return;
         int temp = ship.removeCargo(selected);
         if (temp == 0) {
-            System.out.println("Cargo is empty");
+            mnn.setText("You're cargo is empty...");
         } else if (temp == -1) {
-            System.out.println("Cargo does not contain current TradeGood");
+            mnn.setText("You don't have any " + selected.getName() + " to sell.\n"
+                    + "Watch yourself, trader.");
         } else {
             cash = cash + selected.getPrice();
             player.setCash(cash);
@@ -169,7 +176,7 @@ public class MarketScreenController implements Initializable {
         cargoData.clear();
         HashMap<String, Integer> c = ship.getCargo();
         for (String item : c.keySet()) {
-            cargo.add(item + " " + c.get(item));
+            cargo.add(item + " (" + c.get(item) + ")");
         }
         cargoData.addAll(cargo);
         cargoDisplay.setItems(cargoData);
