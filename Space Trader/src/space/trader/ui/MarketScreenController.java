@@ -47,7 +47,9 @@ public class MarketScreenController implements Initializable {
     private Ship ship;
     
     @FXML
-    private Label label1;
+    private Label cashLabel = new Label();
+    @FXML
+    private Label cargoLabel = new Label();
     @FXML
     private TableView<TradeGood> table = new TableView();
     @FXML
@@ -73,7 +75,8 @@ public class MarketScreenController implements Initializable {
         tradeGoodList = market.getGoods();
         cash = player.getCash();
         ship = player.getShip();
-        label1.setText("Cash: " + cash);
+        cashLabel.setText("Cash: " + cash);
+        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/20)");
         cargo = new ArrayList<>();
         
         goodCol.setCellValueFactory (
@@ -88,10 +91,6 @@ public class MarketScreenController implements Initializable {
         
         if (!ship.getCargo().isEmpty()) {
             updateCargoScreen();
-        } else {
-            cargo.add("Ship's Cargo (0/20)");
-            cargoData.addAll(cargo);
-            cargoDisplay.setItems(cargoData);
         }
     }
     
@@ -127,38 +126,13 @@ public class MarketScreenController implements Initializable {
             } else {
                 cash -= selected.getPrice();
                 player.setCash(cash);
-                label1.setText("Cash: " + cash);
+                cashLabel.setText("Cash: " + cash);
                 int q = selected.getQuantity() - 1;
                 selected.setQuantity(q);
                 
                 updateCargoScreen();                
             }
         }
-    }
-    
-    /**
-     * Update the cargo display window in the Market UI.
-     */
-    private void updateCargoScreen() {
-        cargo.clear();
-        cargoData.clear();
-        cargo.add("Ship's Cargo " + "(" + ship.getCargoSize() + "/20)");
-        HashMap<String, Integer> c = ship.getCargo();
-        for (String item : c.keySet()) {
-            cargo.add(item + " " + c.get(item));
-        }
-        cargoData.addAll(cargo);
-        cargoDisplay.setItems(cargoData);
-    }
-    
-    @FXML
-    private void EnterPlanetScreen(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
     
     /**
@@ -178,12 +152,38 @@ public class MarketScreenController implements Initializable {
         } else {
             cash = cash + selected.getPrice();
             player.setCash(cash);
-            label1.setText("Cash: " + cash);
+            cashLabel.setText("Cash: " + cash);
             int q = selected.getQuantity() + 1;
             selected.setQuantity(q);
             
             updateCargoScreen();
         }
-    }   
+    } 
+    
+    /**
+     * Update the cargo display window in the Market UI.
+     */
+    private void updateCargoScreen() {
+        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/20)");
+        cargo.clear();
+        cargoData.clear();
+        HashMap<String, Integer> c = ship.getCargo();
+        for (String item : c.keySet()) {
+            cargo.add(item + " " + c.get(item));
+        }
+        cargoData.addAll(cargo);
+        cargoDisplay.setItems(cargoData);
+    }
+    
+    @FXML
+    private void EnterPlanetScreen(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
 
 }
