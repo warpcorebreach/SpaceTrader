@@ -9,6 +9,7 @@ package space.trader.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -145,13 +146,23 @@ public class UniverseScreenController implements Initializable {
         selected.makeMarket();
         fuel -= getFuelCost(selected);
         Data.getPlayer().getShip().setFuel(fuel);
-       
+        Random r = new Random();
+        int encounterProb = r.nextInt(2);
+        if(encounterProb == 0 && !(selected.equals(currentSys))) {
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("EncounterScreen.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        } else {
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        }
     }
   
 }
