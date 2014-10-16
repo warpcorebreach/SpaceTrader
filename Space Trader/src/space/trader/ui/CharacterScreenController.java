@@ -59,7 +59,7 @@ public class CharacterScreenController implements Initializable {
     @FXML
     private ProgressBar bar;
     
-    public Player p;
+    private Player p;
     
     Stage prevStage;
     

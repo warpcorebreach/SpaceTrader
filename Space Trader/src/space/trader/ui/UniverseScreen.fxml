@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.UniverseScreenController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="633.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="644.0" />
       <Label layoutX="14.0" layoutY="52.0" text="Choose a Destination" textFill="#c4c936">
          <font>
             <Font name="Dyuthi" size="30.0" />

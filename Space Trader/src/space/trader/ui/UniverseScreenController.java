@@ -83,6 +83,7 @@ public class UniverseScreenController implements Initializable {
             currentLoc = INIT_LOC;
         }
         
+        // populate Universe with systems in range
         for (SolarSystem sys : universe.getSystems()) {
             if (getFuelCost(sys) <= fuel) {
                 systems.add(sys);
@@ -149,19 +150,19 @@ public class UniverseScreenController implements Initializable {
         Random r = new Random();
         int encounterProb = r.nextInt(2);
         if(encounterProb == 0 && !(selected.equals(currentSys))) {
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("EncounterScreen.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            Node node=(Node) event.getSource();
+            Stage stage=(Stage) node.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("EncounterScreen.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } else {
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            Node node=(Node) event.getSource();
+            Stage stage=(Stage) node.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
   

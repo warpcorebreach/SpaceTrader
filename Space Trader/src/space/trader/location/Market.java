@@ -29,16 +29,16 @@ public class Market {
     private SolarSystem sys;
     
     // full set of goods available to any Market
-    Water water;
-    Furs furs;
-    Food food;
-    Ore ore;
-    Games games;
-    Firearms arms;
-    Medicine meds;
-    Machines machines;
-    Narcotics narcs;
-    Robots bots;
+    private Water water;
+    private Furs furs;
+    private Food food;
+    private Ore ore;
+    private Games games;
+    private Firearms arms;
+    private Medicine meds;
+    private Machines machines;
+    private Narcotics narcs;
+    private Robots bots;
     
     private ArrayList<TradeGood> goods;
     private ArrayList<TradeGood> goodsAvailable;

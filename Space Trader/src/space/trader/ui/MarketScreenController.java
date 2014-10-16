@@ -103,7 +103,7 @@ public class MarketScreenController implements Initializable {
      * Stores the currently selected good
      */
     @FXML
-    public void selection() {
+    private void selection() {
         selected = (TradeGood)table.getSelectionModel().getSelectedItem();
     }
     
@@ -115,7 +115,7 @@ public class MarketScreenController implements Initializable {
      *                  Player does not have enough money
      */
     @FXML
-    public void purchase() {
+    private void purchase() {
         if (selected == null) return;
         if (cash - selected.getPrice() < 0) {
             // out of money error message
