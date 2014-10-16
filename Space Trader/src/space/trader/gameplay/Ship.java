@@ -5,6 +5,7 @@
  */
 
 package space.trader.gameplay;
+import java.io.Serializable;
 import java.util.HashMap;
 import space.trader.resources.TradeGood;
 
@@ -12,7 +13,7 @@ import space.trader.resources.TradeGood;
  *
  * @author Weiyu
  */
-public class Ship {
+public class Ship implements Serializable {
     
     private final int INITIAL_X = 25;
     private final int INITIAL_Y = 75;

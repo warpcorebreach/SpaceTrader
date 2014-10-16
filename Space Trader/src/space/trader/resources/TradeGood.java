@@ -5,6 +5,7 @@
  */
 package space.trader.resources;
 
+import java.io.Serializable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import space.trader.location.SystemStats.Resources;
@@ -15,7 +16,7 @@ import space.trader.location.SystemStats.Resources;
  * 
  * @author Justin
  */
-public abstract class TradeGood {
+public abstract class TradeGood implements Serializable {
     protected final int MTLP, MTLU, TTP, basePrice, IPL, var;
     protected final Resources CR, ER;
     protected final String name;

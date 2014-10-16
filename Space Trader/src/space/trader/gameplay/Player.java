@@ -6,11 +6,13 @@
 
 package space.trader.gameplay;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Weiyu
  */
-public class Player {
+public class Player implements Serializable{
     private String name;
     private int pilot, fighter, trader, engineer, investor, cash;
     private Ship s;

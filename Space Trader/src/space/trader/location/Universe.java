@@ -5,6 +5,7 @@
  */
 package space.trader.location;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,7 +15,7 @@ import java.util.Random;
  * universe.
  * @author Justin
  */
-public class Universe {
+public class Universe implements Serializable{
     
     private final int MAX_X = 50;
     private final int MAX_Y = 100;

@@ -8,6 +8,15 @@
 
 package space.trader.gameplay;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import space.trader.location.Market;
 import space.trader.location.SolarSystem;
 import space.trader.location.Universe;
@@ -16,7 +25,7 @@ import space.trader.location.Universe;
  *
  * @author JD Arthur
  */
-public class Data {
+public class Data implements Serializable{
     private static Data instance = new Data();
     private static Player currentPlayer;
     private static SolarSystem solarSys;
@@ -30,6 +39,13 @@ public class Data {
      */
     public static Data getInstance() {
         return instance;
+    }
+    
+    public static void setInstance() {
+        instance.setUniverse(getUniverse());
+        instance.setPlayer(getPlayer());
+        instance.setSolarSystem(getSolarSystem());
+        instance.setMarket(getMarket());
     }
     
     public static void setUniverse(Universe u) {
@@ -88,4 +104,6 @@ public class Data {
     public static Market getMarket() {
         return mar;
     }
+    
+
 }

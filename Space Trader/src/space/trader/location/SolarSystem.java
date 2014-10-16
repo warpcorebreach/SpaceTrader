@@ -5,6 +5,7 @@
  */
 package space.trader.location;
 
+import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import space.trader.gameplay.Data;
@@ -15,7 +16,7 @@ import space.trader.gameplay.Data;
  * @author Duc Tran
  */
 
-public class SolarSystem {
+public class SolarSystem implements Serializable{
     
     private final SystemStats.Name name;
     private final SystemStats.TechLevel techLevel;

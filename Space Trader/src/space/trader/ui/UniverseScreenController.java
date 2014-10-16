@@ -26,6 +26,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
+import space.trader.gameplay.Player;
+import space.trader.gameplay.Save;
 import space.trader.location.SolarSystem;
 import space.trader.location.Universe;
 
@@ -163,6 +165,11 @@ public class UniverseScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
         }
+    }
+    @FXML
+    public void saveGame() {
+        Save s = new Save();
+        s.saveModelBinary();
     }
   
 }

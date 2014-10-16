@@ -25,5 +25,6 @@
          </image>
       </ImageView>
       <Button layoutX="252.0" layoutY="342.0" mnemonicParsing="false" onAction="#EnterCreationScreen" text="Enter Game" />
+      <Button layoutX="444.0" layoutY="342.0" mnemonicParsing="false" onAction="#loadGame" text="Load Game" />
     </children>
 </AnchorPane>
