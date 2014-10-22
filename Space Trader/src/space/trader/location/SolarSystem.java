@@ -46,7 +46,7 @@ public class SolarSystem implements Serializable{
     
     public String save() {
         return name+","+techLevel.toString()+","+resources.toString()+","
-                +x+","+y+","+fuelCost+",";
+                +x+","+y+","+fuelCost;
     }
     
     public void setTechLevel(SystemStats.TechLevel t) {

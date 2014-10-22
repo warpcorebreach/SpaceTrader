@@ -51,7 +51,20 @@ public class Save {
     public void saveTextFile() {
         try {
             FileWriter writer = new FileWriter(new File("save.txt"));
-            writer.write(sys.save()+player.save());
+            writer.write(sys.save()+","+player.save());
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("file not found");
+        }
+        
+        try {
+            FileWriter writer = new FileWriter(new File("universe.txt"));
+            ArrayList<SolarSystem> curUni = uni.getSystems();
+            writer.write(""+curUni.size()+",");
+            for (SolarSystem s : curUni.subList(0, curUni.size()-2)) {
+                writer.write(s.save()+",");
+            }
+            writer.write(curUni.get(curUni.size()-1).save());
             writer.close();
         } catch (IOException e) {
             System.out.println("file not found");
@@ -59,6 +72,7 @@ public class Save {
         
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("ship.bin"))) {
             out.writeObject(player.getShip());
+            out.close();
         } catch (IOException e) {
             System.out.println("file not found");
         }
@@ -68,6 +82,7 @@ public class Save {
         try {
             Data.setSolarSystem(new SolarSystem("", 0, 0, null, null));
             sys = Data.getSolarSystem();
+            uni = new Universe();
             Scanner sc = new Scanner(new File("save.txt"));
             String[] saveData = sc.next().split(",");
             
@@ -84,9 +99,26 @@ public class Save {
             player.setCash(Integer.parseInt(saveData[12]));
             Data.setPlayer(player);
             
+            sc = new Scanner(new File("universe.txt"));
+            String[] uniData = sc.next().split(",");
+            ArrayList<SolarSystem> loadedSystems = new ArrayList<>();
+            SolarSystem s;
+            int maxIndex = 5*Integer.parseInt(uniData[0]);
+            int i = 1;
+            while (i < maxIndex) {
+                s = new SolarSystem(uniData[i], Integer.parseInt(uniData[i+3]),
+                    Integer.parseInt(uniData[i+4]),
+                    SystemStats.TechLevel.valueOf(uniData[i+1]),
+                    SystemStats.Resources.valueOf(uniData[i+2]));
+                s.setFuelCost(Integer.parseInt(uniData[i+5]));
+                loadedSystems.add(s);
+                i += 6;
+            }
+            uni.setSystems(loadedSystems);
+            Data.setUniverse(uni);
             
             Data.setSolarSystem(sys);
-            Data.setUniverse(new Universe());
+            sc.close();
         } catch (IOException e) {
             System.out.println("file not found");
         }
