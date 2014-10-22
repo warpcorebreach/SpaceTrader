@@ -5,6 +5,7 @@
  */
 package space.trader.location;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,10 +15,11 @@ import java.util.Random;
  * universe.
  * @author Justin
  */
-public class Universe {
+public class Universe implements Serializable{
     
     private final int MAX_X = 50;
     private final int MAX_Y = 100;
+    private final int MAX_SYSTEMS = 50;
     
     private ArrayList<SolarSystem> systems;
     // An ArrayList of int arrays which represents the x,y coordinates of each planet
@@ -46,7 +48,7 @@ public class Universe {
         ArrayList<Integer> numArray = new ArrayList();
         ArrayList<SolarSystem> universe = new ArrayList();
         // Generate each planet and add it to the array
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < MAX_SYSTEMS; i++) {
             
             // Generate a random unique universe name
             int nextNum = randObject.nextInt(numberOfName);
@@ -86,7 +88,7 @@ public class Universe {
                 map.add(newCoords);
             }
             
-            universe.add(new SolarSystem(systemName, x, y, systemLevel, systemResources));
+            universe.add(new SolarSystem(systemName.toString(), x, y, systemLevel, systemResources));
         }
         return universe;
     }
@@ -97,6 +99,14 @@ public class Universe {
      */
     public ArrayList<SolarSystem> getSystems() {
         return systems;
+    }
+    
+    public void setSystems(ArrayList<SolarSystem> s) {
+        systems = s;
+    }
+    
+    public int getMaxSystems() {
+        return MAX_SYSTEMS;
     }
     
 }

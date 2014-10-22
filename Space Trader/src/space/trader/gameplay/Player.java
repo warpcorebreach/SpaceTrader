@@ -6,11 +6,13 @@
 
 package space.trader.gameplay;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Weiyu
  */
-public class Player {
+public class Player implements Serializable{
     private String name;
     private int pilot, fighter, trader, engineer, investor, cash;
     private Ship s;
@@ -26,6 +28,12 @@ public class Player {
         cash = 10000;
         s = new Ship();
     }
+    
+    public String save() {
+        return name+","+pilot+","+fighter+","+trader+","+engineer+","+investor
+                +","+cash;
+    }
+    
     public int getPilot() {
         return pilot;
     }
@@ -52,6 +60,10 @@ public class Player {
     }
     public Ship getShip() {
         return s;
+    }
+    
+    public void setShip(Ship s) {
+        this.s = s;
     }
 }
 

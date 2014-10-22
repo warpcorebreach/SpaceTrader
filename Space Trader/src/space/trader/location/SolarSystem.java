@@ -5,6 +5,7 @@
  */
 package space.trader.location;
 
+import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import space.trader.gameplay.Data;
@@ -15,20 +16,19 @@ import space.trader.gameplay.Data;
  * @author Duc Tran
  */
 
-public class SolarSystem {
+public class SolarSystem implements Serializable{
     
-    private final SystemStats.Name name;
-    private final SystemStats.TechLevel techLevel;
-    
+    private String name;
+    private SystemStats.TechLevel techLevel;
     private SystemStats.Resources resources;
     private int x, y, fuelCost;
     private Market market;
-    private SimpleStringProperty coords;
+    private SimpleStringProperty coords, nameProp;
     
     /**
      * Constructor of a solar system
      */
-    public SolarSystem(SystemStats.Name name, int x, int y, SystemStats.TechLevel techLevel,
+    public SolarSystem(String name, int x, int y, SystemStats.TechLevel techLevel,
             SystemStats.Resources resources) {
         this.name = name;
         this.x = x;
@@ -38,6 +38,22 @@ public class SolarSystem {
         
         coords = new SimpleStringProperty();
         coords.setValue(x + "," + y);
+        nameProp = new SimpleStringProperty();
+        nameProp.setValue(name);
+        
+    }
+    
+    public String save() {
+        return name+","+techLevel.toString()+","+resources.toString()+","
+                +x+","+y+","+fuelCost;
+    }
+    
+    public void setTechLevel(SystemStats.TechLevel t) {
+        techLevel = t;
+    }
+    
+    public void setResources(SystemStats.Resources r) {
+        resources = r;
     }
     
     /**
@@ -49,6 +65,14 @@ public class SolarSystem {
     
     public int getFuelCost() {
         return fuelCost;
+    }
+    
+    public void setX(int x) {
+        this.x = x;
+    }
+    
+    public void setY(int y) {
+        this.y = y;
     }
     
     /**
@@ -67,7 +91,7 @@ public class SolarSystem {
      * @return: name
      */
     
-    public SystemStats.Name getName() {
+    public String getName() {
         return name;
     }
     /**
@@ -105,6 +129,14 @@ public class SolarSystem {
     
     public StringProperty coordsProperty() {
         return coords;
+    }
+    
+    public StringProperty nameProperty() {
+        return nameProp;
+    }
+    
+    public void setName(String s) {
+        name = s;
     }
     
     public String toString() {

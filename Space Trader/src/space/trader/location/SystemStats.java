@@ -5,11 +5,14 @@
  */
 package space.trader.location;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Justin
  */
 public class SystemStats {
+    private HashMap<String, Name> names;
     
     /**
      * An enum to represent available names for the planet
@@ -33,6 +36,7 @@ public class SystemStats {
         TORIN, TRIACUS, TURKANA, TYRUS, UMBERLEE, UTOPIA, WEIYU_LI,
         VADERA, VAGRA, VANDOR, VENTAX, XENON, XERXES, YEW, YOJIMBO, ZALKON
     }
+    
     /**
      * An enum to represent the available resources characteristic of the planet
      */
