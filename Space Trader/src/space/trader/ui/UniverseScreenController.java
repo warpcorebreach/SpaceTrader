@@ -169,7 +169,7 @@ public class UniverseScreenController implements Initializable {
     @FXML
     public void saveGame() {
         Save s = new Save();
-        s.saveModelBinary();
+        s.saveTextFile();
     }
   
 }

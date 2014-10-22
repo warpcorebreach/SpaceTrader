@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void loadGame(ActionEvent event) throws IOException{
         Save s = new Save();
-        Save.loadModelBinary();
+        s.loadTextFile();
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */

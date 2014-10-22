@@ -28,6 +28,12 @@ public class Player implements Serializable{
         cash = 10000;
         s = new Ship();
     }
+    
+    public String save() {
+        return name+","+pilot+","+fighter+","+trader+","+engineer+","+investor
+                +","+cash;
+    }
+    
     public int getPilot() {
         return pilot;
     }
@@ -54,6 +60,10 @@ public class Player implements Serializable{
     }
     public Ship getShip() {
         return s;
+    }
+    
+    public void setShip(Ship s) {
+        this.s = s;
     }
 }
 

@@ -87,7 +87,7 @@ public class Universe implements Serializable{
                 map.add(newCoords);
             }
             
-            universe.add(new SolarSystem(systemName, x, y, systemLevel, systemResources));
+            universe.add(new SolarSystem(systemName.toString(), x, y, systemLevel, systemResources));
         }
         return universe;
     }
@@ -98,6 +98,10 @@ public class Universe implements Serializable{
      */
     public ArrayList<SolarSystem> getSystems() {
         return systems;
+    }
+    
+    public void setSystems(ArrayList<SolarSystem> s) {
+        systems = s;
     }
     
 }
