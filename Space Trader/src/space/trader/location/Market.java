@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package space.trader.location;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import space.trader.resources.Firearms;
@@ -25,7 +20,7 @@ import space.trader.resources.Water;
  * 
  * @author Justin
  */
-public class Market implements Serializable {
+public class Market {
     private SolarSystem sys;
     
     // full set of goods available to any Market

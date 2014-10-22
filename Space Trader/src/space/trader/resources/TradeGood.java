@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package space.trader.resources;
 
-import java.io.Serializable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import space.trader.location.SystemStats.Resources;
@@ -16,7 +11,7 @@ import space.trader.location.SystemStats.Resources;
  * 
  * @author Justin
  */
-public abstract class TradeGood implements Serializable {
+public abstract class TradeGood {
     protected final int MTLP, MTLU, TTP, basePrice, IPL, var;
     protected final Resources CR, ER;
     protected final String name;

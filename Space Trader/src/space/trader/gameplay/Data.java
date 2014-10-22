@@ -8,7 +8,6 @@
 
 package space.trader.gameplay;
 
-import java.io.Serializable;
 import space.trader.location.Market;
 import space.trader.location.SolarSystem;
 import space.trader.location.Universe;
@@ -17,7 +16,7 @@ import space.trader.location.Universe;
  *
  * @author JD Arthur
  */
-public class Data implements Serializable {
+public class Data {
     private static Data instance = new Data();
     private static Player currentPlayer;
     private static SolarSystem solarSys;
