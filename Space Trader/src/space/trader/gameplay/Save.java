@@ -9,15 +9,12 @@ package space.trader.gameplay;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import space.trader.location.*;
 
 /**
@@ -29,7 +26,6 @@ public class Save {
     private Market market;
     private SolarSystem sys;
     private Universe uni;
-    private Object StandardOpenOptions;
     
     public Save() {
         player = Data.getPlayer();
@@ -38,16 +34,6 @@ public class Save {
         uni = Data.getUniverse();
     }
     
-    /**
-     * TODO
-     * add save() method to each class that needs to be saved
-     * save() should return an ArrayList of Strings of all necessary data
-     * put them into one big ArrayList in saveTextFile() then write this to a file
-     * 
-     * TO LOAD
-     * read Strings from text file, add to an ArrayList
-     * set data in each saved class to data read from file
-     */
     public void saveTextFile() {
         try {
             FileWriter writer = new FileWriter(new File("save.txt"));
@@ -128,52 +114,7 @@ public class Save {
         } catch (IOException e) {
             System.out.println("file not found");
         } catch (ClassNotFoundException ex) {
-            
         }
     }
-     
-    public void saveModelBinary()  {
-        try {
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("player.bin"))) {
-                out.writeObject(player);
-            }
-            //try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("market.bin"))) {
-            //    out.writeObject(market);
-            //}
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("sys.bin"))) {
-                out.writeObject(sys);
-            }
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("uni.bin"))) {
-                out.writeObject(uni);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public void loadModelBinary()  {
-        try {
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("player.bin"))) {
-                player = (Player)in.readObject();
-            }
-            //try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("market.bin"))) {
-            //    market = (Market)in.readObject();
-            //}
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("sys.bin"))) {
-                sys = (SolarSystem)in.readObject();
-            }
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("uni.bin"))) {
-                uni = (Universe)in.readObject();
-            }
-            Data.setPlayer(player);
-            //Data.setMarket(market);
-            Data.setSolarSystem(sys);
-            Data.setUniverse(uni);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Data.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+  
 }

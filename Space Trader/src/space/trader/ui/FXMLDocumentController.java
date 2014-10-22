@@ -18,7 +18,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import space.trader.gameplay.Data;
 import space.trader.gameplay.Save;
 
 public class FXMLDocumentController implements Initializable {

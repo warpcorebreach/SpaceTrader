@@ -6,7 +6,6 @@
 package space.trader.location;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import space.trader.gameplay.Data;

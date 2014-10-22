@@ -8,7 +8,6 @@ package space.trader.location;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
-import space.trader.gameplay.Data;
 import space.trader.resources.Firearms;
 import space.trader.resources.Food;
 import space.trader.resources.Furs;
