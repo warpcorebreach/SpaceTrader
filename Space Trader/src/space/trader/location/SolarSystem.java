@@ -38,6 +38,11 @@ public class SolarSystem {
         
     }
     
+    /**
+     * Produces a comma separated string of data needed to restore the current
+     * SolarSystem at a later time.
+     * @return A string containing the relevant data. 
+     */
     public String save() {
         return name+","+techLevel.toString()+","+resources.toString()+","
                 +x+","+y+","+fuelCost;

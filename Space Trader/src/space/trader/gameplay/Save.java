@@ -13,22 +13,37 @@ import java.util.Scanner;
 import space.trader.location.*;
 
 /**
- *
- * @author Weiyu
+ * This class is used to write the state of the game to the user's disk so that
+ * it can be loaded at a later time.
+ * 
+ * @author Justin
  */
 public class Save {
     private Player player;
-    private Market market;
     private SolarSystem sys;
     private Universe uni;
     
     public Save() {
         player = Data.getPlayer();
-        market = Data.getMarket();
         sys = Data.getSolarSystem();
         uni = Data.getUniverse();
     }
     
+    /**
+     * When called this method writes the state of the game to files which can
+     * be used by the loadTextFile() method to restore a saved game.
+     * 
+     * Saves the current SolarSystem of the Player as well as the Player's
+     * cash and skill points to a text file "save.txt"
+     * Saves the Universe, represented by an ArrayList of SolarSystems, to a
+     * text file "universe.txt"
+     * Data is saved to text files as a string of comma separated values
+     * generated via the saved object's save() methods.
+     * 
+     * Saves the Player's current Ship to a binary file using the Serializable
+     * interface which allows for easy saving and restoring of the TradeGood
+     * objects in the cargo.
+     */
     public void saveTextFile() {
         try {
             FileWriter writer = new FileWriter(new File("save.txt"));
@@ -59,6 +74,12 @@ public class Save {
         }
     }
     
+    /**
+     * Loads a saved game.
+     * Splits the comma separated strings in the text files into an array which
+     * can be indexed to get the desired data.
+     * The binary file is easily loaded through the Serializable interface.
+     */
     public void loadTextFile() {
         try {
             Data.setSolarSystem(new SolarSystem("", 0, 0, null, null));

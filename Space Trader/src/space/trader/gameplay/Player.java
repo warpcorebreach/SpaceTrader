@@ -22,6 +22,11 @@ public class Player {
         s = new Ship();
     }
     
+    /**
+     * Produces a comma separated string of data needed to restore the current
+     * Player at a later time.
+     * @return A string containing the relevant data.
+     */
     public String save() {
         return name+","+pilot+","+fighter+","+trader+","+engineer+","+investor
                 +","+cash;
