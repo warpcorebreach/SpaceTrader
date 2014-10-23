@@ -136,6 +136,15 @@ public class UniverseScreenController implements Initializable {
         fuelCostLabel.setText("Fuel Cost: " + selected.getFuelCost());
     }
     
+    /**
+     * This method controls the appearance of a random event. 
+     * 
+     * It generates a random number, and uses this to determine where to go.
+     * Currently, there is a 50% chance of encounters, so half the time, it
+     * will go to the planet screen, and half the time it will to the encounter
+     * screen. 
+     */
+    
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
         if (selected == null) return;
