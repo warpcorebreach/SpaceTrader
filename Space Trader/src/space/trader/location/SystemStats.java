@@ -39,12 +39,13 @@ public class SystemStats {
     public enum Resources {
     NOSPECIALRESOURCES, MINERALRICH, MINERALPOOR, DESERT,
     LOTSOFWATER, RICHSOIL, POORSOIL, RICHFAUNA, LIFELESS,
-    WEIRDMUSHROOMS, LOTSOFHERBS, ARTISTIC, WARLIKE
+    WEIRDMUSHROOMS, LOTSOFHERBS, ARTISTIC, WARLIKE, NONE
 }
     /**
      * An enum to represent the available resources characteristic of the planet
      */
     public enum TechLevel {
+         NONE (-1),
          PRE_AGRICULTURE (0),
          AGRICULTURE (1),
          MEDIEVAL (2),

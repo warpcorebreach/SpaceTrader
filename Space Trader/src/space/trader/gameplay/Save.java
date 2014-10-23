@@ -47,7 +47,13 @@ public class Save {
     public void saveTextFile() {
         try {
             FileWriter writer = new FileWriter(new File("save.txt"));
-            writer.write(sys.save()+","+player.save());
+            if (sys == null) {
+                String temp = "InSpace"+","+"NONE"+","+"NONE"+","+"25"+","+"75"
+                       +","+"0";
+                writer.write(temp+","+player.save());
+            } else {
+                writer.write(sys.save()+","+player.save());
+            }
             writer.close();
         } catch (IOException e) {
             System.out.println("file not found");
@@ -72,6 +78,7 @@ public class Save {
         } catch (IOException e) {
             System.out.println("file not found");
         }
+        System.out.println("Game saved succesfully!");
     }
     
     /**
