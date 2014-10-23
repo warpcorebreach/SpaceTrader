@@ -1,6 +1,7 @@
 
 package space.trader.ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,15 +36,25 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    /**
+     * Create a new Save object and use that to load a previously saved game.
+     * Prints an error message to the console if no saved game file is found.
+     */
     @FXML
     private void loadGame(ActionEvent event) throws IOException{
-        Save s = new Save();
-        s.loadTextFile();
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        File f = new File("save.txt");
+        if (!f.exists()) {
+            System.out.println("No saved game found. Please start a new game.");
+        } else {
+            Save s = new Save();
+            s.loadTextFile();
+            Node node=(Node) event.getSource();
+            Stage stage=(Stage) node.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 }

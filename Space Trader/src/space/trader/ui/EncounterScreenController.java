@@ -28,6 +28,7 @@ public class EncounterScreenController implements Initializable {
     int cash = Data.getPlayer().getCash();
     /**
      * Initializes the controller class.
+     * Randomly determines which encounter to load
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

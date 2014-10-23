@@ -162,6 +162,10 @@ public class UniverseScreenController implements Initializable {
         }
     }
     @FXML
+    /**
+     * Create a new Save object and use that to save the current state of the
+     * game.
+     */
     public void saveGame() {
         Save s = new Save();
         s.saveTextFile();
