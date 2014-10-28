@@ -9,6 +9,7 @@
 package space.trader.gameplay;
 
 import space.trader.location.Market;
+import space.trader.location.Shipyard;
 import space.trader.location.SolarSystem;
 import space.trader.location.Universe;
 
@@ -22,6 +23,7 @@ public class Data {
     private static SolarSystem solarSys;
     private static Universe universe;
     private static Market mar;
+    private static Shipyard shipyard;
     
     /**
      * This returns a static instance of this class so the data remains 
@@ -91,6 +93,22 @@ public class Data {
      */
     public static Market getMarket() {
         return mar;
+    }
+    
+    /**
+     * Setter method for the current shipyard
+     * @param s the shipyard that you want to set as current
+     */
+    public static void setShipyard(Shipyard s) {
+        shipyard = s;
+    }
+    
+    /**
+     * Getter method for the current shipyard
+     * @return the shipyard the player is currently at
+     */
+    public static Shipyard getShipyard() {
+        return shipyard;
     }
     
 

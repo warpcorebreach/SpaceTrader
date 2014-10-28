@@ -34,6 +34,8 @@ public class PlanetScreenController implements Initializable {
     private Button EnterUniverseScreen;
     @FXML
     private Button EnterMarketScren;
+    @FXML
+    private Button EnterShipyardScreen;
     // Non FXMl variables
     private Player player = Data.getPlayer();
     private SolarSystem planet = Data.getSolarSystem();
@@ -56,6 +58,17 @@ public class PlanetScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    private void EnterShipyardScreen(ActionEvent event) throws IOException {
+        
+        Node node=(Node) event.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ShipyardScreen.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     
     @FXML
     private void EnterUniverseScreen(ActionEvent event) throws IOException {

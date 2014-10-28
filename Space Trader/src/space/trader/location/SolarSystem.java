@@ -18,6 +18,7 @@ public class SolarSystem {
     private SystemStats.Resources resources;
     private int x, y, fuelCost;
     private Market market;
+    private Shipyard shipyard;
     private SimpleStringProperty coords, nameProp;
     
     /**
@@ -82,6 +83,10 @@ public class SolarSystem {
         market = new Market(this);
         Data.setMarket(market);
     }
+    public void makeShipyard() {
+        shipyard = new Shipyard(this);
+        Data.setShipyard(shipyard);
+    }
     
     /**
      * Create getter for each data in the object
@@ -125,6 +130,9 @@ public class SolarSystem {
     
     public Market getMarket() {
         return market;
+    }
+    public Shipyard getShipyard() {
+        return shipyard;
     }
     
     public StringProperty coordsProperty() {

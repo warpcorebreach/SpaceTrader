@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.gameplay.Ship;
-import space.trader.location.Market;
+import space.trader.location.*;
 import space.trader.resources.TradeGood;
 
 /**
@@ -35,12 +35,14 @@ import space.trader.resources.TradeGood;
  */
 public class MarketScreenController implements Initializable {
     private Market market;
+    private Shipyard shipyard;
     private Player player;
     private int cash;
     private ArrayList<TradeGood> tradeGoodList;
     private ArrayList<String> cargo;
     private TradeGood selected;
     private Ship ship;
+    
     
     @FXML
     private Label cashLabel = new Label();
@@ -70,6 +72,12 @@ public class MarketScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         player = Data.getPlayer();
         market = Data.getMarket();
+        shipyard = Data.getShipyard();
+        if (shipyard != null) {
+            System.out.println("Not null1");
+        } else if (shipyard == null){
+            System.out.println("Null");
+        }
         tradeGoodList = market.getGoods();
         cash = player.getCash();
         ship = player.getShip();

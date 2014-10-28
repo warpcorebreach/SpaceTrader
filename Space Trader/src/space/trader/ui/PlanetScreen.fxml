@@ -20,5 +20,6 @@
       <Label fx:id="planetName" layoutX="60.0" layoutY="33.0" text="planetName" textFill="#e4dd14e3" />
       <Label fx:id="planetCoord" layoutX="482.0" layoutY="35.0" text="planetCoord" textFill="#c3dd1a" />
       <Label fx:id="fuelLabel" layoutX="27.0" layoutY="291.0" text="Label" textFill="#d63115" />
+      <Button fx:id="EnterShipyardScreen" layoutX="273.0" layoutY="340.0" mnemonicParsing="false" onAction="#EnterShipyardScreen" text="Enter the shipyard" />
    </children>
 </AnchorPane>
