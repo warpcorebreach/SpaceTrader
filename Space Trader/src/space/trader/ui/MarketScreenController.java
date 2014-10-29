@@ -82,7 +82,7 @@ public class MarketScreenController implements Initializable {
         cash = player.getCash();
         ship = player.getShip();
         cashLabel.setText("Cash: " + cash);
-        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/20)");
+        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/"+ship.getMaxCargo()+")");
         cargo = new ArrayList<>();
         mnn.setText("Welcome to our market, friend!\nWe have the best prices "
                 + "in the Galaxy - we made sure of that.");
@@ -174,7 +174,7 @@ public class MarketScreenController implements Initializable {
      * Update the cargo display window in the Market UI.
      */
     private void updateCargoScreen() {
-        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/20)");
+        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/"+ship.getMaxCargo()+")");
         cargo.clear();
         cargoData.clear();
         HashMap<String, Integer> c = ship.getCargo();

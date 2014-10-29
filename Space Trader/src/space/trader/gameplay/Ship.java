@@ -14,7 +14,7 @@ public class Ship implements Serializable {
     
     private final int INITIAL_X = 25;
     private final int INITIAL_Y = 75;
-    private int size, fuel, x, y;
+    private int size, fuel, x, y, maxCargo;
     private ShipType type;
     // Ship's cargo is represented by a Map from the name of a good to its
     // quantity in the cargo
@@ -26,8 +26,9 @@ public class Ship implements Serializable {
         y = INITIAL_Y;
         cargo = new HashMap<>();
         type = new Gnat();
-        fuel = type.getFuel();
-        size = type.getCargoSize();
+        fuel = 100; //type.getFuel();
+        size = 0; //type.getCargoSize();
+        maxCargo = type.getCargoSize();
     }
 
     /**
@@ -38,7 +39,7 @@ public class Ship implements Serializable {
      * @return true if the good was added, false if cargo is full
      */
     public boolean addCargo(TradeGood good) {
-        if (size < 20) {
+        if (size < maxCargo) {
             Integer q = cargo.get(good.getName());
             if (q == null) {
                 // add good to the map if it is not in it
@@ -51,6 +52,10 @@ public class Ship implements Serializable {
             return true;
         }
         return false;
+    }
+    
+    public int getMaxCargo() {
+        return maxCargo;
     }
     
     /**
