@@ -33,7 +33,7 @@ public class EncounterScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Random r = new Random();
-        int encounterProb = r.nextInt(8);
+        int encounterProb = r.nextInt(5);
         if(encounterProb == 0) {
             encounter.setText("A fuel leak has occured on your ship. You have lost half of your fuels.");
             fuel = fuel/2;
@@ -43,17 +43,17 @@ public class EncounterScreenController implements Initializable {
             cash = 0;
             Data.getPlayer().setCash(cash);
         } else if (encounterProb == 2) {
-            encounter.setText("You have discovered an abandoned SpacedShip with cash and fuel inside.");
+            encounter.setText("You have discovered an abandoned SpaceShip with cash and fuel inside.");
             fuel = fuel + 50;
             cash = cash + 2500;
             Data.getPlayer().setCash(cash);
             Data.getPlayer().getShip().setFuel(fuel);
         } else if (encounterProb == 3) {
-            encounter.setText("Your ship accidently hit an Asteroid, You have to spend half of your cash repairing it.");
+            encounter.setText("You ship accidently hit an Asteroid, You have to spend half of your cash repairing it.");
             cash = cash/2;
             Data.getPlayer().setCash(cash);
         } else if (encounterProb == 4) {
-            encounter.setText("Your have discovered rare minerals on a nearby Asteroid. your cash increases");
+            encounter.setText("You have discovered rare minerals on a nearby Asteroid. your cash increases");
             cash = cash + 10000;
             Data.getPlayer().setCash(cash);
         } else if (encounterProb == 5) {

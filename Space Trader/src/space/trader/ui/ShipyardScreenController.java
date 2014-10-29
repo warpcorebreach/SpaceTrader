@@ -25,7 +25,7 @@ import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.gameplay.Ship;
 import space.trader.location.*;
-import space.trader.resources.ShipType;
+import space.trader.resources.ShipTypes.ShipType;
 
 /**
  * FXML Controller class

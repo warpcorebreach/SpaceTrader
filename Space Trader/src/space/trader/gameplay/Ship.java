@@ -2,9 +2,9 @@
 package space.trader.gameplay;
 import java.io.Serializable;
 import java.util.HashMap;
-import space.trader.resources.Gnat;
-import space.trader.resources.ShipType;
-import space.trader.resources.TradeGood;
+import space.trader.resources.ShipTypes.Gnat;
+import space.trader.resources.ShipTypes.ShipType;
+import space.trader.resources.TradeGoods.TradeGood;
 
 /**
  *

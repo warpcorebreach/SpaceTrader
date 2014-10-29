@@ -1,5 +1,5 @@
 
-package space.trader.resources;
+package space.trader.resources.TradeGoods;
 
 import space.trader.location.SystemStats.Resources;
 
