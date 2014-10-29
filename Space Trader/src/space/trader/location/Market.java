@@ -3,17 +3,17 @@ package space.trader.location;
 
 import java.util.ArrayList;
 import java.util.Random;
-import space.trader.resources.Firearms;
-import space.trader.resources.Food;
-import space.trader.resources.Furs;
-import space.trader.resources.Games;
-import space.trader.resources.Machines;
-import space.trader.resources.Medicine;
-import space.trader.resources.Narcotics;
-import space.trader.resources.Ore;
-import space.trader.resources.Robots;
-import space.trader.resources.TradeGood;
-import space.trader.resources.Water;
+import space.trader.resources.TradeGoods.Firearms;
+import space.trader.resources.TradeGoods.Food;
+import space.trader.resources.TradeGoods.Furs;
+import space.trader.resources.TradeGoods.Games;
+import space.trader.resources.TradeGoods.Machines;
+import space.trader.resources.TradeGoods.Medicine;
+import space.trader.resources.TradeGoods.Narcotics;
+import space.trader.resources.TradeGoods.Ore;
+import space.trader.resources.TradeGoods.Robots;
+import space.trader.resources.TradeGoods.TradeGood;
+import space.trader.resources.TradeGoods.Water;
 
 /**
  * Represents a Marketplace where goods can be bought and sold.

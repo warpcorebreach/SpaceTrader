@@ -26,7 +26,7 @@ import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.gameplay.Ship;
 import space.trader.location.*;
-import space.trader.resources.TradeGood;
+import space.trader.resources.TradeGoods.TradeGood;
 
 /**
  * FXML Controller class
@@ -82,7 +82,7 @@ public class MarketScreenController implements Initializable {
         cash = player.getCash();
         ship = player.getShip();
         cashLabel.setText("Cash: " + cash);
-        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/"+ship.getMaxCargo()+")");
+        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/" + ship.getMaxCargoSize());
         cargo = new ArrayList<>();
         mnn.setText("Welcome to our market, friend!\nWe have the best prices "
                 + "in the Galaxy - we made sure of that.");
@@ -174,7 +174,8 @@ public class MarketScreenController implements Initializable {
      * Update the cargo display window in the Market UI.
      */
     private void updateCargoScreen() {
-        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/"+ship.getMaxCargo()+")");
+
+        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/" + ship.getMaxCargoSize() + ")");
         cargo.clear();
         cargoData.clear();
         HashMap<String, Integer> c = ship.getCargo();

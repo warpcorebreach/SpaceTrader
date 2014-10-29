@@ -1,5 +1,5 @@
 
-package space.trader.resources;
+package space.trader.resources.TradeGoods;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

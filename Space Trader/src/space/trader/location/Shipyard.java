@@ -1,8 +1,13 @@
 package space.trader.location;
+import space.trader.resources.ShipTypes.ShipType;
+import space.trader.resources.ShipTypes.Mosquito;
+import space.trader.resources.ShipTypes.Gnat;
+import space.trader.resources.ShipTypes.Flea;
+import space.trader.resources.ShipTypes.Firefly;
+import space.trader.resources.ShipTypes.BumbleBee;
 import java.util.ArrayList;
 import space.trader.gameplay.Ship;
 import space.trader.gameplay.Player;
-import space.trader.resources.*;
 
 
 /**

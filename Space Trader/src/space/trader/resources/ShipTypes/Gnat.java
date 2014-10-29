@@ -1,5 +1,5 @@
 
-package space.trader.resources;
+package space.trader.resources.ShipTypes;
 
 /**
  *

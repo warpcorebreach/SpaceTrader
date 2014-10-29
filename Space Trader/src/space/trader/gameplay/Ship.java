@@ -2,9 +2,9 @@
 package space.trader.gameplay;
 import java.io.Serializable;
 import java.util.HashMap;
-import space.trader.resources.Gnat;
-import space.trader.resources.ShipType;
-import space.trader.resources.TradeGood;
+import space.trader.resources.ShipTypes.Gnat;
+import space.trader.resources.ShipTypes.ShipType;
+import space.trader.resources.TradeGoods.TradeGood;
 
 /**
  *
@@ -26,9 +26,10 @@ public class Ship implements Serializable {
         y = INITIAL_Y;
         cargo = new HashMap<>();
         type = new Gnat();
-        fuel = 100; //type.getFuel();
-        size = 0; //type.getCargoSize();
-        maxCargo = type.getCargoSize();
+
+        fuel = type.getFuel();
+        //size = type.getCargoSize();
+        size = 0;
     }
 
     /**
@@ -39,7 +40,7 @@ public class Ship implements Serializable {
      * @return true if the good was added, false if cargo is full
      */
     public boolean addCargo(TradeGood good) {
-        if (size < maxCargo) {
+        if (size < getMaxCargoSize()) {
             Integer q = cargo.get(good.getName());
             if (q == null) {
                 // add good to the map if it is not in it
@@ -124,6 +125,10 @@ public class Ship implements Serializable {
     
     public int getCargoSize() {
         return size;
+    }
+    
+    public int getMaxCargoSize() {
+        return type.getCargoSize();
     }
     
     public ShipType getShipType() {
