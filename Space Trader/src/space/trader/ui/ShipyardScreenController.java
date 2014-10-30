@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,6 +80,10 @@ public class ShipyardScreenController implements Initializable {
         
     }
     
+    /**
+     * If the player has enough cash the selected Ship is purchased and
+     * immediately usable by the player.
+     */
     @FXML
     private void purchase() {
         if (selected != null && selected.getPrice() <= player.getCash()) {
@@ -93,6 +96,9 @@ public class ShipyardScreenController implements Initializable {
         }
     }
     
+    /**
+     * Action Event when a Ship Type is selected from the menu.
+     */
     @FXML
     private void select() {
         choice.getSelectionModel().selectedIndexProperty().addListener(

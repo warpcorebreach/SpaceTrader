@@ -134,5 +134,6 @@ public class Ship implements Serializable {
     
     public void setShipType(ShipType t) {
         type = t;
+        fuel = t.getFuel();
     }
 }

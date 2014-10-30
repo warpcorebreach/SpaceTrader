@@ -73,11 +73,6 @@ public class MarketScreenController implements Initializable {
         player = Data.getPlayer();
         market = Data.getMarket();
         shipyard = Data.getShipyard();
-        if (shipyard != null) {
-            System.out.println("Not null1");
-        } else if (shipyard == null){
-            System.out.println("Null");
-        }
         tradeGoodList = market.getGoods();
         cash = player.getCash();
         ship = player.getShip();
