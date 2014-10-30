@@ -1,4 +1,5 @@
 package space.trader.location;
+
 import space.trader.resources.ShipTypes.ShipType;
 import space.trader.resources.ShipTypes.Mosquito;
 import space.trader.resources.ShipTypes.Gnat;
@@ -6,8 +7,6 @@ import space.trader.resources.ShipTypes.Flea;
 import space.trader.resources.ShipTypes.Firefly;
 import space.trader.resources.ShipTypes.BumbleBee;
 import java.util.ArrayList;
-import space.trader.gameplay.Ship;
-import space.trader.gameplay.Player;
 
 
 /**
@@ -31,18 +30,22 @@ public class Shipyard {
         shipList.add(new Mosquito());
         int techLevel = this.sys.getTechLevel().getTechNum();
         // Add only ships with smaller tech level
-        for (ShipType ship: shipList) {
-            if (ship.getMinTech() <= techLevel) {
-                shipsAvailable.add(ship);
+        if (techLevel >= 4) {
+            for (ShipType ship: shipList) {
+                if (ship.getMinTech() <= techLevel) {
+                    shipsAvailable.add(ship);
+                }
             }
         }
     }
+    
     public ArrayList<ShipType> getShips() {
         return shipsAvailable;
     }
      /**
      * @return A string representation of the Shipyard.
      */
+    @Override
     public String toString() {
         String out = "";
         out += sys.getName() + "   " +  sys.getTechLevel().getTechNum() + "\n";

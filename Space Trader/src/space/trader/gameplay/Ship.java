@@ -55,9 +55,6 @@ public class Ship implements Serializable {
         return false;
     }
     
-    public int getMaxCargo() {
-        return maxCargo;
-    }
     
     /**
      * Attempt to remove a TradeGood from the Ship's cargo.

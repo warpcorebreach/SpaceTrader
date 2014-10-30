@@ -186,6 +186,9 @@ public class MarketScreenController implements Initializable {
         cargoDisplay.setItems(cargoData);
     }
     
+    /**
+     * Return to Planet screen 
+     */    
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();

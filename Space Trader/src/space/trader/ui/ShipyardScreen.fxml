@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -8,6 +9,17 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.ShipyardScreenController">
    <children>
-      <Button layoutX="262.0" layoutY="344.0" mnemonicParsing="false" onAction="#showShipList" text="Show Ship List" />
+      <Button fx:id="ret" layoutX="256.0" layoutY="344.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Return to Planet" />
+      <ChoiceBox fx:id="choice" layoutX="36.0" layoutY="100.0" onMouseClicked="#select" prefWidth="150.0" />
+      <TextArea fx:id="txt" layoutX="220.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="buy" layoutX="483.0" layoutY="100.0" mnemonicParsing="false" onAction="#purchase" text="Purchase" />
+      <Label layoutX="270.0" layoutY="14.0" text="Shipyard">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="71.0" text="Available Ships" />
+      <Label fx:id="cur" layoutX="238.0" layoutY="312.0" text="Current Ship: BumbleBee" />
+      <Label fx:id="cash" layoutX="484.0" layoutY="21.0" text="Cash: 20000" />
    </children>
 </AnchorPane>

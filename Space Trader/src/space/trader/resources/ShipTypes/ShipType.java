@@ -1,11 +1,13 @@
 
 package space.trader.resources.ShipTypes;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Weiyu
  */
-public abstract class ShipType {
+public abstract class ShipType implements Serializable {
     protected String name;
     protected int cargoBay;
     protected int weaponSlot;
@@ -36,6 +38,14 @@ public abstract class ShipType {
         occurence = o;
         hullStrength = hs;
     }
+    
+    @Override
+    public String toString() {
+        return name+"\n\n"+"Cost: "+price+"\n\n"+"Cargo Size: "+cargoBay+"\n"
+                +"Fuel: "+fuel+"\n"+"Fuel Cost: "+fuelCost+"\n"+"Gadget Slots: "
+                +gadgetSlot;
+    }
+    
     public String getName() {
         return name;
     }
