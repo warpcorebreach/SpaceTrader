@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/ui/ShipyardScreenController.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/gameplay/Player.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/location/Universe.java</file>
+            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/location/SystemStats.java</file>
             <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/location/Shipyard.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/ui/MarketScreenController.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/ui/PlanetScreenController.java</file>
-            <file>file:/C:/Users/Justin/Documents/GitHub/SpaceTrader/Space%20Trader/src/space/trader/gameplay/Ship.java</file>
         </group>
     </open-files>
 </project-private>

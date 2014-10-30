@@ -52,7 +52,7 @@ public class Universe {
             }
             SystemStats.Name systemName = SystemStats.Name.values()[nextNum];
             // Pick tech level and resources randomly
-            SystemStats.TechLevel systemLevel = SystemStats.TechLevel.values()[randObject.nextInt(8)];
+            SystemStats.TechLevel systemLevel = SystemStats.TechLevel.values()[randObject.nextInt(7)+1];
             SystemStats.Resources systemResources = SystemStats.Resources.values()[randObject.nextInt(13)];
             numArray.add(nextNum);
             
