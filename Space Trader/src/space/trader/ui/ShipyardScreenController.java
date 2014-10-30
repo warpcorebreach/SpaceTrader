@@ -86,11 +86,15 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void purchase() {
-        if (selected != null && selected.getPrice() <= player.getCash()) {
+        if((ship.getShipType().getName().equals(selected.getName()))) {
+            txt.setText("You already have a\n " +ship.getShipType().getName()); 
+                
+        } else if (selected != null && selected.getPrice() <= player.getCash()) {
             ship.setShipType(selected);
             cur.setText("Current Ship: "+ship.getShipType().getName());
             player.setCash(player.getCash()-ship.getShipType().getPrice());
             cash.setText("Cash: "+player.getCash());
+            
         } else if (selected.getPrice() > player.getCash()) {
             txt.setText("Sorry trader, you can't\nafford that.");
         }
