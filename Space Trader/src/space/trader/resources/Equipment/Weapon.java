@@ -1,5 +1,5 @@
 
-package space.trader.resources.Equiptment;
+package space.trader.resources.Equipment;
 
 /**
  *
