@@ -128,7 +128,7 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void purchase() {
-        if((ship.getShipType().getName().equals(selected.getName()))) {
+            if((ship.getShipType().getName().equals(selected.getName()))) {
             txt.setText("You already have a\n " +ship.getShipType().getName()); 
                 
         } else if (selected != null && selected.getPrice() <= player.getCash()) {
@@ -139,6 +139,41 @@ public class ShipyardScreenController implements Initializable {
             
         } else if (selected.getPrice() > player.getCash()) {
             txt.setText("Sorry trader, you can't\nafford that.");
+        }
+    }
+    /**
+     * If the player has enough cash and Player's ship has weapon slot avaliable then the selected Weapon is purchased and
+     * immediately usable by the player.
+     */
+    @FXML
+    private void purchaseWeapon() {
+        if (selectedWeapon != null && selectedWeapon.getCost() <= player.getCash() && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
+            ship.addWeapon(selectedWeapon);
+            player.setCash(player.getCash()-selectedWeapon.getCost());
+            cash.setText("Cash: "+player.getCash());
+            
+        } else if (selectedWeapon.getCost() > player.getCash()) {
+            txt2.setText("Sorry trader, you can't\nafford that.");
+        } else if (ship.getWeaponsSize() >= ship.getShipType().getWeaponSlot()) {
+            txt2.setText("Sorry trader, your \nship doesn't have \nenough WeaponSlots.");
+        }
+    }
+    
+    /**
+     * If the player has enough cash and Player's ship has shield slot avaliable then the selected Shield is purchased and
+     * immediately usable by the player.
+     */
+    @FXML
+    private void purchaseShield() {
+        if (selectedShield != null && selectedShield.getCost() <= player.getCash() && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
+            ship.addShield(selectedShield);
+            player.setCash(player.getCash()-selectedShield.getCost());
+            cash.setText("Cash: "+player.getCash());
+            
+        } else if (selectedShield.getCost() > player.getCash()) {
+            txt2.setText("Sorry trader, you can't\nafford that.");
+        } else if (ship.getShieldsSize() >= ship.getShipType().getShieldSlot()) {
+            txt2.setText("Sorry trader, your \nship doesn't have \nenough ShieldSlots.");
         }
     }
     
@@ -196,7 +231,8 @@ public class ShipyardScreenController implements Initializable {
          fuelLabel.setText("Refuel Successfully.");
          player.setCash(player.getCash() - fuelcost);
          fuelcost = (ship.getShipType().getFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
-         refuelCost.setText("Refuel Cost: " + fuelcost);         
+         refuelCost.setText("Refuel Cost: " + fuelcost);
+         cash.setText("Cash: " + player.getCash());
      }
     }
     

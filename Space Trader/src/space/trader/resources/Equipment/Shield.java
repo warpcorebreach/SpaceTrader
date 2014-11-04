@@ -32,6 +32,6 @@ public class Shield {
     }
     @Override
     public String toString() {
-        return "shield name: " + name + "\nShield power: " + shieldPower + "\ncost: " + cost;
+        return "Shield name: " + name + "\nShield power: " + shieldPower + "\nCost: " + cost;
     }    
 }

@@ -1,7 +1,10 @@
 
 package space.trader.gameplay;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import space.trader.resources.Equipment.Shield;
+import space.trader.resources.Equipment.Weapon;
 import space.trader.resources.ShipTypes.Gnat;
 import space.trader.resources.ShipTypes.ShipType;
 import space.trader.resources.TradeGoods.TradeGood;
@@ -16,6 +19,8 @@ public class Ship implements Serializable {
     private final int INITIAL_Y = 75;
     private int size, fuel, x, y, maxCargo;
     private ShipType type;
+    private ArrayList<Weapon> weapons;
+    private ArrayList<Shield> shields;
     // Ship's cargo is represented by a Map from the name of a good to its
     // quantity in the cargo
     private HashMap<String, Integer> cargo;
@@ -26,7 +31,8 @@ public class Ship implements Serializable {
         y = INITIAL_Y;
         cargo = new HashMap<>();
         type = new Gnat();
-
+        shields = new ArrayList();
+        weapons = new ArrayList();
         fuel = type.getFuel();
         //size = type.getCargoSize();
         size = 0;
@@ -140,5 +146,17 @@ public class Ship implements Serializable {
     public void setShipType(ShipType t) {
         type = t;
         fuel = t.getFuel();
+    }
+    public void addWeapon(Weapon w) {
+        weapons.add(w);
+    }
+    public void addShield(Shield w) {
+        shields.add(w);
+    }
+    public int getShieldsSize() {
+        return shields.size();
+    }
+    public int getWeaponsSize() {
+        return weapons.size();
     }
 }

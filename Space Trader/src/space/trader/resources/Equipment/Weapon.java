@@ -47,6 +47,6 @@ public class Weapon {
     }
     @Override
     public String toString() {
-        return "weapon name: " + weaponName + "\npower: " + power + "\ncharges: " + charges + "\ncost: " + cost;
+        return "Weapon name: " + weaponName + "\nPower: " + power + "\nCharges: " + charges + "\nCost: " + cost;
     }
 }
