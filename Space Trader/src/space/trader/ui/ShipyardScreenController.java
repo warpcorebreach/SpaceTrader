@@ -23,6 +23,8 @@ import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.gameplay.Ship;
 import space.trader.location.*;
+import space.trader.resources.Equipment.Shield;
+import space.trader.resources.Equipment.Weapon;
 import space.trader.resources.ShipTypes.ShipType;
 
 /**
@@ -39,14 +41,26 @@ public class ShipyardScreenController implements Initializable {
     private SolarSystem sol;
     private Player player;
     private ArrayList<ShipType> shipsAvailable;
+    private ArrayList<Weapon> weaponAvailable;
+    private ArrayList<Shield> shieldAvailable;
     private ArrayList<String> names;
+    private ArrayList<String> weaponNames;
+    private ArrayList<String> shieldNames;
     private Ship ship;
     private ShipType selected;
+    private Weapon selectedWeapon;
+    private Shield selectedShield;
         
     @FXML
     private TextArea txt = new TextArea();
     @FXML
     private ChoiceBox choice = new ChoiceBox();
+    @FXML
+    private ChoiceBox choice2 = new ChoiceBox();
+    @FXML
+    private ChoiceBox choice3 = new ChoiceBox();
+    @FXML
+    private TextArea txt2 = new TextArea();
     @FXML
     private Button ret = new Button();
     @FXML
@@ -68,23 +82,44 @@ public class ShipyardScreenController implements Initializable {
         sol = Data.getSolarSystem();
         shipyard = new Shipyard(sol);
         shipsAvailable = shipyard.getShips();
+        weaponAvailable = shipyard.getWeapons();
+        shieldAvailable = shipyard.getShields();
         ship = player.getShip();
         names = new ArrayList<>();
+        shieldNames = new ArrayList<>();
+        weaponNames = new ArrayList<>();
         cur.setText("Current Ship: "+ship.getShipType().getName());
         cash.setText("Cash: "+player.getCash());
         fuelcost = (ship.getShipType().getFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
         refuelCost.setText("Refuel Cost: " + fuelcost);
         
         if (shipsAvailable.isEmpty()) {
-            txt.setText("Sorry, no ships are available\nat this time.");
+            txt.setText("Sorry, no ships \nare available\nat this time.");
         } else {
             for (ShipType s : shipsAvailable) {
                 names.add(s.getName());
             }
             choice.setItems(FXCollections.observableArrayList(names));
         }
-        
-        
+        if (weaponAvailable.isEmpty()) {
+            txt2.setText("Sorry, no weapons \nare available\nat this time.");
+        } else {
+            for (Weapon w : weaponAvailable) {
+                weaponNames.add(w.getName());
+            }
+            choice2.setItems(FXCollections.observableArrayList(weaponNames));
+        }        
+        if (shieldAvailable.isEmpty()) {
+            txt2.setText("Sorry, no shields \nare available \nat this time.");
+        } else {
+            for (Shield s : shieldAvailable) {
+                shieldNames.add(s.getName());
+            }
+            choice3.setItems(FXCollections.observableArrayList(shieldNames));
+        }
+        if (shieldAvailable.isEmpty() && weaponAvailable.isEmpty()) {
+            txt2.setText("Sorry, no shields or \nweapons are available\nat this time.");
+        }
     }
     
     /**
@@ -121,7 +156,34 @@ public class ShipyardScreenController implements Initializable {
                 }
             });
     }
-    
+    /**
+     * Action Event when a weapon is selected from the menu.
+     */
+    @FXML
+    private void selectWeapon() {
+        choice2.getSelectionModel().selectedIndexProperty().addListener(
+            new ChangeListener<Number>() {
+                public void changed(ObservableValue v, Number val, Number new_val) {
+                    Weapon w = weaponAvailable.get(new_val.intValue());
+                    txt2.setText(w.toString());
+                    selectedWeapon = w;
+                }
+            });
+    }
+    /**
+     * Action Event when a Shield is selected from the menu.
+     */
+    @FXML
+    private void selectShield() {
+        choice3.getSelectionModel().selectedIndexProperty().addListener(
+            new ChangeListener<Number>() {
+                public void changed(ObservableValue v, Number val, Number new_val) {
+                    Shield s = shieldAvailable.get(new_val.intValue());
+                    txt2.setText(s.toString());
+                    selectedShield = s;
+                }
+            });
+    }
     /**
      * Refuel the ship
      */

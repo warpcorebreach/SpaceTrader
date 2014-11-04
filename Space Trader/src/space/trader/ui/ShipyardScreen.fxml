@@ -7,22 +7,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.ShipyardScreenController">
+<AnchorPane id="AnchorPane" prefHeight="425.0" prefWidth="1125.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.ShipyardScreenController">
    <children>
       <Button fx:id="ret" layoutX="256.0" layoutY="344.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Return to Planet" />
       <ChoiceBox fx:id="choice" layoutX="36.0" layoutY="100.0" onMouseClicked="#select" prefWidth="150.0" />
-      <TextArea fx:id="txt" layoutX="220.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="buy" layoutX="483.0" layoutY="100.0" mnemonicParsing="false" onAction="#purchase" text="Purchase" />
+      <TextArea fx:id="txt" layoutX="192.0" layoutY="106.0" prefHeight="200.0" prefWidth="280.0" />
+      <Button fx:id="buy" layoutX="476.0" layoutY="100.0" mnemonicParsing="false" onAction="#purchase" text="PurchaseShip" />
       <Label layoutX="270.0" layoutY="14.0" text="Shipyard">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="71.0" text="Available Ships" />
+      <Label layoutX="36.0" layoutY="72.0" text="Available Ships" />
       <Label fx:id="cur" layoutX="238.0" layoutY="312.0" text="Current Ship: BumbleBee" />
       <Label fx:id="cash" layoutX="484.0" layoutY="21.0" text="Cash: 20000" />
       <Button layoutX="45.0" layoutY="287.0" mnemonicParsing="false" onAction="#refuel" text="Refuel" />
-      <Label fx:id="refuelCost" layoutX="66.0" layoutY="243.0" text="Label" />
+      <Label fx:id="refuelCost" layoutX="8.0" layoutY="243.0" text="Label" />
       <Label fx:id="fuelLabel" layoutX="27.0" layoutY="352.0" prefHeight="35.0" prefWidth="211.0" />
+      <ChoiceBox fx:id="choice2" layoutX="664.0" layoutY="100.0" onMouseClicked="#selectWeapon" prefWidth="150.0" />
+      <TextArea fx:id="txt2" layoutX="839.0" layoutY="106.0" prefHeight="200.0" prefWidth="280.0" />
+      <Button layoutX="839.0" layoutY="344.0" mnemonicParsing="false" text="PurchaseWeapon" />
+      <ChoiceBox fx:id="choice3" layoutX="664.0" layoutY="235.0" onMouseClicked="#selectShield" prefWidth="150.0" />
+      <Label layoutX="653.0" layoutY="54.0" text="Available Weapons" />
+      <Button layoutX="643.0" layoutY="344.0" mnemonicParsing="false" text="PurchaseShield" />
+      <Label layoutX="651.0" layoutY="189.0" text="Available Shields" />
    </children>
 </AnchorPane>
