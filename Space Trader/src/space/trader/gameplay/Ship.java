@@ -30,6 +30,7 @@ public class Ship implements Serializable {
         fuel = type.getFuel();
         //size = type.getCargoSize();
         size = 0;
+        maxCargo = type.getCargoSize();
     }
 
     /**
@@ -125,7 +126,11 @@ public class Ship implements Serializable {
     }
     
     public int getMaxCargoSize() {
-        return type.getCargoSize();
+        return maxCargo;
+    }
+    
+    public void setMaxCargoSize(int newMaxCargoSize) {
+        this.maxCargo = newMaxCargoSize;
     }
     
     public ShipType getShipType() {
