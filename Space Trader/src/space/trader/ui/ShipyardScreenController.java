@@ -55,6 +55,11 @@ public class ShipyardScreenController implements Initializable {
     private Label cur = new Label();
     @FXML
     private Label cash = new Label();
+    @FXML 
+    private Label refuelCost = new Label();
+    @FXML
+    private Label fuelLabel = new Label();
+    private int fuelcost;
     
     
     @Override
@@ -67,6 +72,8 @@ public class ShipyardScreenController implements Initializable {
         names = new ArrayList<>();
         cur.setText("Current Ship: "+ship.getShipType().getName());
         cash.setText("Cash: "+player.getCash());
+        fuelcost = (ship.getShipType().getFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+        refuelCost.setText("Refuel Cost: " + fuelcost);
         
         if (shipsAvailable.isEmpty()) {
             txt.setText("Sorry, no ships are available\nat this time.");
@@ -115,6 +122,21 @@ public class ShipyardScreenController implements Initializable {
             });
     }
     
+    /**
+     * Refuel the ship
+     */
+    @FXML
+    private void refuel() {
+     if(fuelcost>player.getCash()) {
+         fuelLabel.setText("Not enough Money.");
+     } else {
+         ship.setFuel(ship.getShipType().getFuel());
+         fuelLabel.setText("Refuel Successfully.");
+         player.setCash(player.getCash() - fuelcost);
+         fuelcost = (ship.getShipType().getFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+         refuelCost.setText("Refuel Cost: " + fuelcost);         
+     }
+    }
     
     /**
      * Return to Planet screen 
