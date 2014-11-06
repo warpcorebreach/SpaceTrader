@@ -129,9 +129,11 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void purchase() {
-            if((ship.getShipType().getName().equals(selected.getName()))) {
+        if((ship.getShipType().getName().equals(selected.getName()))) {
             txt.setText("You already have a\n " +ship.getShipType().getName()); 
                 
+        } else if(selected ==  null) {
+            txt.setText("Please select a ship.");
         } else if (selected != null && selected.getPrice() <= player.getCash()) {
             ship.setShipType(selected);
             cur.setText("Current Ship: "+ship.getShipType().getName());
@@ -148,7 +150,9 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void purchaseWeapon() {
-        if (selectedWeapon != null && selectedWeapon.getCost() <= player.getCash() && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
+        if(selectedWeapon == null) {
+            txt2.setText("Please select a weapon.");
+        } else if (selectedWeapon != null && selectedWeapon.getCost() <= player.getCash() && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
             ship.addWeapon(selectedWeapon);
             player.setCash(player.getCash()-selectedWeapon.getCost());
             cash.setText("Cash: "+player.getCash());
@@ -166,7 +170,9 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void purchaseShield() {
-        if (selectedShield != null && selectedShield.getCost() <= player.getCash() && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
+        if(selectedShield == null) {
+           txt2.setText("Please select a shield.");
+        } else if (selectedShield != null && selectedShield.getCost() <= player.getCash() && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
             ship.addShield(selectedShield);
             player.setCash(player.getCash()-selectedShield.getCost());
             cash.setText("Cash: "+player.getCash());
@@ -249,6 +255,8 @@ public class ShipyardScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    //hideUpgrades();
     
 }
 
