@@ -90,7 +90,8 @@ public class ShipyardScreenController implements Initializable {
         weaponNames = new ArrayList<>();
         cur.setText("Current Ship: "+ship.getShipType().getName());
         cash.setText("Cash: "+player.getCash());
-        fuelcost = (ship.getShipType().getFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+        fuelcost = (ship.getShipType().getMaxFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+        
         refuelCost.setText("Refuel Cost: " + fuelcost);
         
         if (shipsAvailable.isEmpty()) {
@@ -230,7 +231,7 @@ public class ShipyardScreenController implements Initializable {
          ship.setFuel(ship.getShipType().getFuel());
          fuelLabel.setText("Refuel Successfully.");
          player.setCash(player.getCash() - fuelcost);
-         fuelcost = (ship.getShipType().getFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+         fuelcost = (ship.getShipType().getMaxFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
          refuelCost.setText("Refuel Cost: " + fuelcost);
          cash.setText("Cash: " + player.getCash());
      }

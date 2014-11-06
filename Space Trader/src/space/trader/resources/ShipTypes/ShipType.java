@@ -22,6 +22,8 @@ public abstract class ShipType implements Serializable {
     protected int bounty;
     protected int occurence;
     protected int hullStrength;
+    protected final int MAX_FUEL;
+    
     public ShipType(String n, int c, int ws, int ss, int gs, int cr, int f, int mt, int fc, int p, int rc, int b, int o, int hs) {
         name = n;
         cargoBay = c;
@@ -37,6 +39,7 @@ public abstract class ShipType implements Serializable {
         bounty = b;
         occurence = o;
         hullStrength = hs;
+        MAX_FUEL = f;
     }
     
     @Override
@@ -46,6 +49,9 @@ public abstract class ShipType implements Serializable {
                 +gadgetSlot;
     }
     
+    public int getMaxFuel() {
+        return MAX_FUEL;
+    }
     public String getName() {
         return name;
     }

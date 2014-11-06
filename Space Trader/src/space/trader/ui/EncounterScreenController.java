@@ -44,7 +44,7 @@ public class EncounterScreenController implements Initializable {
             Data.getPlayer().setCash(cash);
         } else if (encounterProb == 2) {
             encounter.setText("You have discovered an abandoned spaceship with cash and fuel inside!");
-            fuel = fuel + 50;
+            fuel = Data.getPlayer().getShip().getShipType().getMaxFuel();
             cash = cash + 2500;
             Data.getPlayer().setCash(cash);
             Data.getPlayer().getShip().setFuel(fuel);
