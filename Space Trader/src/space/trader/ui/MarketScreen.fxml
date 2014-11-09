@@ -22,7 +22,7 @@
         </columns>
       </TableView>
       <Button layoutX="375.0" layoutY="24.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Back To Planet" />
-      <ListView fx:id="cargoDisplay" layoutX="600.0" layoutY="34.0" prefHeight="354.0" prefWidth="159.0" />
+      <ListView fx:id="cargoDisplay" layoutX="600.0" layoutY="34.0" mouseTransparent="true" prefHeight="354.0" prefWidth="159.0" />
       <Label fx:id="cargoLabel" layoutX="595.0" layoutY="5.0" text="Ship's Cargo (20/20)">
          <font>
             <Font name="System Bold" size="15.0" />
