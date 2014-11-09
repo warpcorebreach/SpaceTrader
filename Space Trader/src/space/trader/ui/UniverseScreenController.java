@@ -4,6 +4,7 @@ package space.trader.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -16,12 +17,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
+import space.trader.gameplay.Player;
 import space.trader.gameplay.Save;
+import space.trader.gameplay.Ship;
 import space.trader.location.SolarSystem;
 import space.trader.location.Universe;
 
@@ -61,6 +66,25 @@ public class UniverseScreenController implements Initializable {
     private TableColumn techCol = new TableColumn();
     @FXML
     private ObservableList<SolarSystem> data = FXCollections.observableArrayList();
+    
+    @FXML
+    private ObservableList<String> shipCargoData = FXCollections.observableArrayList();
+    @FXML
+    private ListView<String> ShipCargo = new ListView<>();
+    @FXML
+    private Label universeShipCargoLabel;
+    @FXML
+    private Label weaponsLabel;
+    @FXML
+    private Label shieldsLabel;
+    @FXML
+    private Label shipTypeLabel;
+    @FXML
+    private Label fuelLabel;
+    @FXML
+    private TextArea weaponsArea;
+    @FXML
+    private TextArea shieldsArea;
     
     /*
      * Initializes the controller class.
@@ -107,6 +131,8 @@ public class UniverseScreenController implements Initializable {
         curSysCoords.setText("(" + currentLoc[0] + "," + currentLoc[1] + ")");
         fuelLevel.setText("Fuel Level: "+fuel);
         fuelCostLabel.setText("Fuel Cost: N/A");
+        showCargo();
+        showShipAttributes();
     }  
     
     /**
@@ -178,6 +204,58 @@ public class UniverseScreenController implements Initializable {
     public void saveGame() {
         Save s = new Save();
         s.saveTextFile();
+    }
+    
+    private void showCargo() {
+        ArrayList<String> cargo = new ArrayList<>();
+        Player player = Data.getPlayer();
+        Ship ship = player.getShip();
+        universeShipCargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/" + ship.getMaxCargoSize() + ")");
+        if(ship.getCargoSize() == 0) {
+            shipCargoData.clear();
+            shipCargoData.add("You don't have any\ntrade goods.");
+            ShipCargo.setItems(shipCargoData);
+        } else {
+            shipCargoData.clear();
+            HashMap<String, Integer> c = ship.getCargo();
+            for (String item : c.keySet()) {
+                cargo.add(item + " (" + c.get(item) + ")");
+            }
+            shipCargoData.addAll(cargo);
+            ShipCargo.setItems(shipCargoData);
+        }
+    }
+    
+    private void showShipAttributes() {
+        ArrayList<String> cargo = new ArrayList<>();
+        Player player = Data.getPlayer();
+        Ship ship = player.getShip();
+        weaponsLabel.setText("Weapons: " + "(" + ship.getWeaponsSize() + "/"
+                + ship.getShipType().getWeaponSlot() + ")");
+        shieldsLabel.setText("Shields: " + "(" + ship.getShieldsSize() + "/"
+                + ship.getShipType().getShieldSlot() + ")");
+        shipTypeLabel.setText("Ship Type: " + ship.getShipType().getName());
+        fuelLabel.setText("Fuel Remaining: " + ship.getFuel());
+        
+        if(ship.getWeaponsSize() == 0) {
+            weaponsArea.setText("You don't have any weapons.");
+        } else {
+            //TO DO: show weapons
+            //...
+            //...
+        } if(ship.getShieldsSize() == 0) {
+            shieldsArea.setText("You don't have any shields.");
+        } else {
+            //TO DO: show shields
+            //...
+            //...
+        }
+    }
+    
+    private void showCharacterAttributes() {
+        //TO DO
+        //...
+        //...
     }
   
 }

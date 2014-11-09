@@ -23,17 +23,17 @@
       </TableView>
       <Button layoutX="375.0" layoutY="24.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Back To Planet" />
       <ListView fx:id="cargoDisplay" layoutX="600.0" layoutY="34.0" prefHeight="354.0" prefWidth="159.0" />
-      <Label fx:id="cargoLabel" layoutX="607.0" layoutY="8.0" text="Ship's Cargo (20/20)">
+      <Label fx:id="cargoLabel" layoutX="595.0" layoutY="5.0" text="Ship's Cargo (20/20)">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
       <TextArea fx:id="mnn" layoutX="221.0" layoutY="403.0" prefHeight="79.0" prefWidth="537.0" />
-      <Label layoutX="40.0" layoutY="403.0" text="Market News Network">
+      <Label layoutX="28.0" layoutY="403.0" text="Market News Network">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="98.0" layoutY="424.0" text="(MNN)">
+      <Label layoutX="98.0" layoutY="422.0" text="(MNN)">
          <font>
             <Font name="System Italic" size="15.0" />
          </font>

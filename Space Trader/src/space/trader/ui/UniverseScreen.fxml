@@ -13,54 +13,86 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.UniverseScreenController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="400.0" stroke="BLACK" strokeType="INSIDE" width="661.0" />
-      <Label layoutX="14.0" layoutY="52.0" text="Choose a Destination" textFill="#c4c936">
-         <font>
-            <Font name="Dyuthi" size="30.0" />
-         </font>
-      </Label>
-      <TableView fx:id="table" layoutX="14.0" layoutY="104.0" onMouseClicked="#selection" prefHeight="282.0" prefWidth="456.0">
-        <columns>
-          <TableColumn fx:id="sysCol" prefWidth="151.0" text="System" />
-          <TableColumn fx:id="coordCol" prefWidth="151.0" text="Coordinates" />
-          <TableColumn fx:id="techCol" prefWidth="153.0" text="Tech Level" />
-        </columns>
-      </TableView>
-      <Button layoutX="396.0" layoutY="59.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Engage!" />
-      <Label fx:id="fuelLevel" blendMode="EXCLUSION" layoutX="476.0" layoutY="231.0" text="Fuel Level:" textFill="RED">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="477.0" layoutY="104.0" text="Current System" textFill="#c4c936" underline="true">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="curSysName" blendMode="EXCLUSION" layoutX="477.0" layoutY="136.0" text="JUSTIN_COATES" textFill="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="curSysCoords" blendMode="EXCLUSION" layoutX="477.0" layoutY="166.0" text="(75, 64)" textFill="WHITE">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="curTechLevel" blendMode="EXCLUSION" layoutX="477.0" layoutY="200.0" text="EARLY_INDUSTRIAL" textFill="WHITE" wrapText="true">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="playerName" layoutX="14.0" layoutY="14.0" text="Welcome to the Universe, Player" textFill="#c4c936">
+      <TabPane prefHeight="400.0" prefWidth="661.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Travel">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="480.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Current System" textFill="#c4c936" underline="true">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="curSysCoords" blendMode="EXCLUSION" layoutY="60.0" text="(75, 64)" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="curTechLevel" blendMode="EXCLUSION" layoutY="90.0" text="EARLY_INDUSTRIAL" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="fuelCostLabel" blendMode="EXCLUSION" layoutY="120.0" text="Fuel Cost:" textFill="RED">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="curSysName" blendMode="EXCLUSION" layoutY="30.0" text="JUSTIN_COATES" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <TableView fx:id="table" layoutX="14.0" layoutY="71.0" onMouseClicked="#selection" prefHeight="282.0" prefWidth="456.0">
+                          <columns>
+                            <TableColumn fx:id="sysCol" prefWidth="151.0" text="System" />
+                            <TableColumn fx:id="coordCol" prefWidth="151.0" text="Coordinates" />
+                            <TableColumn fx:id="techCol" prefWidth="153.0" text="Tech Level" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="14.0" layoutY="25.0" text="Choose a Destination" textFill="#c4c936">
+                           <font>
+                              <Font name="Dyuthi" size="30.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="397.0" layoutY="30.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Engage!" />
+                        <Label fx:id="fuelLevel" blendMode="EXCLUSION" layoutX="480.0" layoutY="320.0" text="Fuel Level:" textFill="RED">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+          <Tab text="Character">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="597.0" layoutY="14.0" mnemonicParsing="false" onAction="#saveGame" text="Save" />
+                        <ListView id="ShipCargo" fx:id="ShipCargo" layoutX="432.0" layoutY="47.0" prefHeight="300.0" prefWidth="150.0" />
+                        <Label fx:id="universeShipCargoLabel" layoutX="431.0" layoutY="27.0" text="Cargo:" textFill="#c9bb39" />
+                        <TextArea fx:id="weaponsArea" layoutX="220.0" layoutY="47.0" prefHeight="100.0" prefWidth="150.0" wrapText="true" />
+                        <TextArea fx:id="shieldsArea" layoutX="220.0" layoutY="173.0" prefHeight="100.0" prefWidth="150.0" wrapText="true" />
+                        <Label fx:id="weaponsLabel" layoutX="220.0" layoutY="27.0" text="Weapons:" textFill="#c9bb39" />
+                        <Label fx:id="shieldsLabel" layoutX="220.0" layoutY="155.0" text="Shields:" textFill="#c9bb39" />
+                        <Label fx:id="shipTypeLabel" layoutX="220.0" layoutY="285.0" text="Ship Type:" textFill="#c9bb39" />
+                        <Label fx:id="fuelLabel" layoutX="220.0" layoutY="314.0" text="Fuel Remaining:" textFill="#c9bb39" />
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="playerName" text="Welcome to the Universe, Player" textAlignment="CENTER" textFill="#32322b" translateX="200.0" translateY="3.0">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="fuelCostLabel" blendMode="EXCLUSION" layoutX="476.0" layoutY="358.0" text="Fuel Cost:" textFill="RED">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="522.0" layoutY="59.0" mnemonicParsing="false" onAction="#saveGame" text="Save" />
    </children>
 </AnchorPane>
