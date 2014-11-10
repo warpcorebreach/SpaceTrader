@@ -19,7 +19,7 @@
                <content>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Pane layoutX="480.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0">
+                        <Pane layoutX="478.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0">
                            <children>
                               <Label text="Current System" textFill="#c4c936" underline="true">
                                  <font>
@@ -83,6 +83,14 @@
                         <Label fx:id="shieldsLabel" layoutX="220.0" layoutY="155.0" text="Shields:" textFill="#c9bb39" />
                         <Label fx:id="shipTypeLabel" layoutX="220.0" layoutY="285.0" text="Ship Type:" textFill="#c9bb39" />
                         <Label fx:id="fuelLabel" layoutX="220.0" layoutY="314.0" text="Fuel Remaining:" textFill="#c9bb39" />
+                        <Label fx:id="characterLabel" layoutX="21.0" layoutY="27.0" text="Character:" textFill="#c9bb39" />
+                        <Label fx:id="cashLabel" layoutX="19.0" layoutY="314.0" text="Cash: " textFill="#c9bb39" />
+                        <Label layoutX="21.0" layoutY="58.0" text="Skills:" textFill="#c9bb39" />
+                        <Label fx:id="pilotLabel" layoutX="39.0" layoutY="89.0" text="Pilot:" textFill="#c9bb39" />
+                        <Label fx:id="fighterLabel" layoutX="39.0" layoutY="112.0" text="Fighter:" textFill="#c9bb39" />
+                        <Label fx:id="traderLabel" layoutX="39.0" layoutY="135.0" text="Trader:" textFill="#c9bb39" />
+                        <Label fx:id="engineerLabel" layoutX="39.0" layoutY="158.0" text="Engineer:" textFill="#c9bb39" />
+                        <Label fx:id="investorLabel" layoutX="39.0" layoutY="181.0" text="Investor:" textFill="#c9bb39" />
                      </children>
                   </Pane>
                </content>

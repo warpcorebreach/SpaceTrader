@@ -85,6 +85,22 @@ public class UniverseScreenController implements Initializable {
     private TextArea weaponsArea;
     @FXML
     private TextArea shieldsArea;
+    @FXML
+    private Label characterLabel;
+    @FXML
+    private Label pilotLabel;
+    @FXML
+    private Label fighterLabel;
+    @FXML
+    private Label traderLabel;
+    @FXML
+    private Label engineerLabel;
+    @FXML
+    private Label investorLabel;
+    @FXML
+    private Label cashLabel;
+    
+    
     
     /*
      * Initializes the controller class.
@@ -133,6 +149,7 @@ public class UniverseScreenController implements Initializable {
         fuelCostLabel.setText("Fuel Cost: N/A");
         showCargo();
         showShipAttributes();
+        showCharacterAttributes();
     }  
     
     /**
@@ -227,7 +244,6 @@ public class UniverseScreenController implements Initializable {
     }
     
     private void showShipAttributes() {
-        ArrayList<String> cargo = new ArrayList<>();
         Player player = Data.getPlayer();
         Ship ship = player.getShip();
         weaponsLabel.setText("Weapons: " + "(" + ship.getWeaponsSize() + "/"
@@ -240,22 +256,32 @@ public class UniverseScreenController implements Initializable {
         if(ship.getWeaponsSize() == 0) {
             weaponsArea.setText("You don't have any weapons.");
         } else {
-            //TO DO: show weapons
-            //...
-            //...
+            String weaponsOut = "";
+            for(int i =0; i < ship.getWeapons().size(); i++) {
+                weaponsOut += ship.getWeapons().get(i);
+            }
+            weaponsArea.setText(weaponsOut);
         } if(ship.getShieldsSize() == 0) {
             shieldsArea.setText("You don't have any shields.");
         } else {
-            //TO DO: show shields
-            //...
-            //...
+            String shieldsOut = "";
+            for(int i =0; i < ship.getShields().size(); i++) {
+                shieldsOut += ship.getShields().get(i);
+            }
+            weaponsArea.setText(shieldsOut);
         }
     }
     
     private void showCharacterAttributes() {
-        //TO DO
-        //...
-        //...
+        Player player = Data.getPlayer();
+        characterLabel.setText("Character: " + player.getName());
+        pilotLabel.setText("Pilot: " + player.getPilot());
+        fighterLabel.setText("Fighter: " + player.getFighter());
+        traderLabel.setText("Trader: " + player.getTrader());
+        engineerLabel.setText("Engineer: " + player.getEngineer());
+        investorLabel.setText("Investor: " + player.getInvestor());
+        cashLabel.setText("Cash: " + player.getCash());
+        
     }
   
 }

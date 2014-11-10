@@ -159,4 +159,10 @@ public class Ship implements Serializable {
     public int getWeaponsSize() {
         return weapons.size();
     }
+    public ArrayList<Shield> getShields() {
+        return shields;
+    }
+    public ArrayList<Weapon> getWeapons() {
+        return weapons;
+    }
 }
