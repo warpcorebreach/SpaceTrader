@@ -62,10 +62,6 @@ public class ShipyardScreenController implements Initializable {
     @FXML
     private TextArea txt2 = new TextArea();
     @FXML
-    private Button ret = new Button();
-    @FXML
-    private Button buy = new Button();
-    @FXML
     private Label cur = new Label();
     @FXML
     private Label cash = new Label();
@@ -151,7 +147,7 @@ public class ShipyardScreenController implements Initializable {
     private void purchaseWeapon() {
         if(selectedWeapon == null) {
             txt2.setText("Please select a weapon.");
-        } else if (selectedWeapon != null && selectedWeapon.getCost() <= player.getCash() && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
+        } else if (selectedWeapon.getCost() <= player.getCash() && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
             ship.addWeapon(selectedWeapon);
             player.setCash(player.getCash()-selectedWeapon.getCost());
             cash.setText("Cash: "+player.getCash());
@@ -171,7 +167,7 @@ public class ShipyardScreenController implements Initializable {
     private void purchaseShield() {
         if(selectedShield == null) {
            txt2.setText("Please select a shield.");
-        } else if (selectedShield != null && selectedShield.getCost() <= player.getCash() && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
+        } else if (selectedShield.getCost() <= player.getCash() && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
             ship.addShield(selectedShield);
             player.setCash(player.getCash()-selectedShield.getCost());
             cash.setText("Cash: "+player.getCash());

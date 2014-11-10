@@ -224,7 +224,6 @@ public class UniverseScreenController implements Initializable {
     }
     
     private void showCargo() {
-        ArrayList<String> cargo = new ArrayList<>();
         Player player = Data.getPlayer();
         Ship ship = player.getShip();
         universeShipCargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/" + ship.getMaxCargoSize() + ")");
@@ -233,6 +232,7 @@ public class UniverseScreenController implements Initializable {
             shipCargoData.add("You don't have any\ntrade goods.");
             ShipCargo.setItems(shipCargoData);
         } else {
+            ArrayList<String> cargo = new ArrayList<>();
             shipCargoData.clear();
             HashMap<String, Integer> c = ship.getCargo();
             for (String item : c.keySet()) {
@@ -256,18 +256,20 @@ public class UniverseScreenController implements Initializable {
         if(ship.getWeaponsSize() == 0) {
             weaponsArea.setText("You don't have any weapons.");
         } else {
-            String weaponsOut = "";
+            StringBuffer buf = new StringBuffer();
             for(int i =0; i < ship.getWeapons().size(); i++) {
-                weaponsOut += ship.getWeapons().get(i);
+                buf.append(ship.getWeapons().get(i));
             }
+            String weaponsOut = buf.toString();
             weaponsArea.setText(weaponsOut);
         } if(ship.getShieldsSize() == 0) {
             shieldsArea.setText("You don't have any shields.");
         } else {
-            String shieldsOut = "";
+            StringBuffer buf = new StringBuffer();
             for(int i =0; i < ship.getShields().size(); i++) {
-                shieldsOut += ship.getShields().get(i);
+                buf.append(ship.getShields().get(i));
             }
+            String shieldsOut = buf.toString();
             weaponsArea.setText(shieldsOut);
         }
     }

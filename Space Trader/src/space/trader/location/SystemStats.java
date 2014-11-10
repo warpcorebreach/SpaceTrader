@@ -8,7 +8,7 @@ import java.util.HashMap;
  * @author Justin
  */
 public class SystemStats {
-    private HashMap<String, Name> names;
+    //private HashMap<String, Name> names;
     
     /**
      * An enum to represent available names for the planet

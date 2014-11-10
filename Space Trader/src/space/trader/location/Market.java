@@ -120,7 +120,7 @@ public class Market {
     /**
      * @return A string representation of the Market.
      */
-    public String toString() {
+    /*public String toString() {
         String out = "";
         out += sys.getName() + "\n";
         for (TradeGood good : goodsAvailable) {
@@ -129,7 +129,7 @@ public class Market {
             out += "Availability: " + good.getQuantity() + "\n" + "\n";
         }
         return out;
-    }
+    }*/
     
     /**
      * @return An ArrayList of the available goods in the System

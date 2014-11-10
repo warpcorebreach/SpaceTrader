@@ -56,11 +56,11 @@ public class CharacterScreenController implements Initializable {
     
     private Player p;
     
-    Stage prevStage;
+ /*   Stage prevStage;
     
     public void setPrevStage(Stage stage){
          this.prevStage = stage;
-    }
+    }*/
         @FXML
     private void PilotAdd(ActionEvent event) {
         if((add+add1+add2+add3+add4)<15) {

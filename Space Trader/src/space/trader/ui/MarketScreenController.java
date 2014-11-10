@@ -35,7 +35,6 @@ import space.trader.resources.TradeGoods.TradeGood;
  */
 public class MarketScreenController implements Initializable {
     private Market market;
-    private Shipyard shipyard;
     private Player player;
     private int cash;
     private ArrayList<TradeGood> tradeGoodList;
@@ -72,7 +71,6 @@ public class MarketScreenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         player = Data.getPlayer();
         market = Data.getMarket();
-        shipyard = Data.getShipyard();
         tradeGoodList = market.getGoods();
         cash = player.getCash();
         ship = player.getShip();
