@@ -15,8 +15,8 @@ import space.trader.resources.TradeGoods.TradeGood;
  */
 public class Ship implements Serializable {
     
-    private final int INITIAL_X = 25;
-    private final int INITIAL_Y = 75;
+    private final static int INITIAL_X = 25;
+    private final static int INITIAL_Y = 75;
     private int size, fuel, x, y, maxCargo;
     private ShipType type;
     private ArrayList<Weapon> weapons;

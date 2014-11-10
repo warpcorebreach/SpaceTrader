@@ -1,11 +1,13 @@
 
 package space.trader.resources.Equipment;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Weiyu
  */
-public class Shield {
+public class Shield implements Serializable {
     private String name;
     private int shieldPower;
     private int cost;

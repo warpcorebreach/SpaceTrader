@@ -1,11 +1,13 @@
 
 package space.trader.resources.Equipment;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Weiyu
  */
-public class Weapon {
+public class Weapon implements Serializable{
     private String weaponName;
     private int power;
     private int charges;

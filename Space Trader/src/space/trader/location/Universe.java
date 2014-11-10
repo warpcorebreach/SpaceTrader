@@ -12,9 +12,9 @@ import java.util.Random;
  */
 public class Universe {
     
-    private final int MAX_X = 50;
-    private final int MAX_Y = 100;
-    private final int MAX_SYSTEMS = 50;
+    private final static int MAX_X = 50;
+    private final static int MAX_Y = 100;
+    private final static int MAX_SYSTEMS = 50;
     
     private ArrayList<SolarSystem> systems;
     // An ArrayList of int arrays which represents the x,y coordinates of each planet
