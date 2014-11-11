@@ -4,7 +4,7 @@ package space.trader.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,8 +41,8 @@ public class MarketScreenController implements Initializable {
     private ArrayList<String> cargo;
     private TradeGood selected;
     private Ship ship;
-    
-    
+
+
     @FXML
     private Label cashLabel = new Label();
     @FXML
@@ -63,7 +63,7 @@ public class MarketScreenController implements Initializable {
     private ListView<String> cargoDisplay = new ListView<>();
     @FXML
     private TextArea mnn = new TextArea();
-    
+
     /**
      * Initializes the controller class.
      */
@@ -79,22 +79,22 @@ public class MarketScreenController implements Initializable {
         cargo = new ArrayList<>();
         mnn.setText("Welcome to our market, friend!\nWe have the best prices "
                 + "in the Galaxy - we made sure of that.");
-        
+
         goodCol.setCellValueFactory (
                 new PropertyValueFactory<>("name"));
         priceCol.setCellValueFactory (
                 new PropertyValueFactory<>("price"));
         quantCol.setCellValueFactory (
                 new PropertyValueFactory<>("quant"));
-        
+
         data.addAll(tradeGoodList);
         table.setItems(data);
-        
+
         if (!ship.getCargo().isEmpty()) {
             updateCargoScreen();
         }
     }
-    
+
     /**
      * Stores the currently selected good
      */
@@ -102,7 +102,7 @@ public class MarketScreenController implements Initializable {
     private void selection() {
         selected = (TradeGood)table.getSelectionModel().getSelectedItem();
     }
-    
+
     /**
      * Purchase the selected good from the market and add it to the ship's cargo.
      * Prints the ships cargo after the purchase to the console
@@ -131,12 +131,12 @@ public class MarketScreenController implements Initializable {
                 cashLabel.setText("Cash: " + cash);
                 int q = selected.getQuantity() - 1;
                 selected.setQuantity(q);
-                
-                updateCargoScreen();                
+
+                updateCargoScreen();
             }
         }
     }
-    
+
     /**
      * Sell the currently selected good for the price listed in the Market
      * window. Removes the good from the ship's cargo.
@@ -158,11 +158,11 @@ public class MarketScreenController implements Initializable {
             cashLabel.setText("Cash: " + cash);
             int q = selected.getQuantity() + 1;
             selected.setQuantity(q);
-            
+
             updateCargoScreen();
         }
-    } 
-    
+    }
+
     /**
      * Update the cargo display window in the Market UI.
      */
@@ -171,17 +171,17 @@ public class MarketScreenController implements Initializable {
         cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/" + ship.getMaxCargoSize() + ")");
         cargo.clear();
         cargoData.clear();
-        HashMap<String, Integer> c = ship.getCargo();
-        for (String item : c.keySet()) {
-            cargo.add(item + " (" + c.get(item) + ")");
+        Map<String, Integer> c = ship.getCargo();
+        for (Map.Entry e : c.entrySet()) {
+            cargo.add(e.getKey() + " (" + e.getValue() + ")");
         }
         cargoData.addAll(cargo);
         cargoDisplay.setItems(cargoData);
     }
-    
+
     /**
-     * Return to Planet screen 
-     */    
+     * Return to Planet screen
+     */
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
@@ -191,6 +191,6 @@ public class MarketScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+
 
 }

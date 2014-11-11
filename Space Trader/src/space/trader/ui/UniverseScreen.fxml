@@ -60,7 +60,7 @@
                               <Font name="Dyuthi" size="30.0" />
                            </font>
                         </Label>
-                        <Button layoutX="397.0" layoutY="30.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Engage!" />
+                        <Button layoutX="397.0" layoutY="30.0" mnemonicParsing="false" onAction="#enterPlanetScreen" text="Engage!" />
                         <Label fx:id="fuelLevel" blendMode="EXCLUSION" layoutX="480.0" layoutY="320.0" text="Fuel Level:" textFill="RED">
                            <font>
                               <Font size="20.0" />
