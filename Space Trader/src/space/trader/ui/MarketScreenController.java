@@ -28,9 +28,8 @@ import space.trader.gameplay.Ship;
 import space.trader.location.*;
 import space.trader.resources.TradeGoods.TradeGood;
 
-/**
- * FXML Controller class
- *
+/** MarketScreen Controller class.
+ * Control UI of Market
  * @author Weiyu
  */
 public class MarketScreenController implements Initializable {
@@ -56,9 +55,11 @@ public class MarketScreenController implements Initializable {
     @FXML
     private TableColumn quantCol = new TableColumn();
     @FXML
-    private ObservableList<TradeGood> data = FXCollections.observableArrayList();
+    private ObservableList<TradeGood> data
+            = FXCollections.observableArrayList();
     @FXML
-    private ObservableList<String> cargoData = FXCollections.observableArrayList();
+    private ObservableList<String> cargoData
+            = FXCollections.observableArrayList();
     @FXML
     private ListView<String> cargoDisplay = new ListView<>();
     @FXML
@@ -66,25 +67,28 @@ public class MarketScreenController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param  url URL input for the initialize
+     * @param rb resourceBundle for initialize
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(final URL url , final ResourceBundle rb) {
         player = Data.getPlayer();
         market = Data.getMarket();
         tradeGoodList = market.getGoods();
         cash = player.getCash();
         ship = player.getShip();
         cashLabel.setText("Cash: " + cash);
-        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize() + "/" + ship.getMaxCargoSize());
+        cargoLabel.setText("Ship's Cargo (" + ship.getCargoSize()
+                + "/" + ship.getMaxCargoSize());
         cargo = new ArrayList<>();
         mnn.setText("Welcome to our market, friend!\nWe have the best prices "
                 + "in the Galaxy - we made sure of that.");
 
-        goodCol.setCellValueFactory (
+        goodCol.setCellValueFactory(
                 new PropertyValueFactory<>("name"));
-        priceCol.setCellValueFactory (
+        priceCol.setCellValueFactory(
                 new PropertyValueFactory<>("price"));
-        quantCol.setCellValueFactory (
+        quantCol.setCellValueFactory(
                 new PropertyValueFactory<>("quant"));
 
         data.addAll(tradeGoodList);
@@ -95,16 +99,16 @@ public class MarketScreenController implements Initializable {
         }
     }
 
-    /**
+    /**selects from table.
      * Stores the currently selected good
      */
     @FXML
     private void selection() {
-        selected = (TradeGood)table.getSelectionModel().getSelectedItem();
+        selected = (TradeGood) table.getSelectionModel().getSelectedItem();
     }
 
-    /**
-     * Purchase the selected good from the market and add it to the ship's cargo.
+    /** add to Ship's cargo.
+     * Purchase the selected good from the market
      * Prints the ships cargo after the purchase to the console
      * Possible errors: Market is out of the item
      *                  Player's cargo is full
@@ -112,7 +116,9 @@ public class MarketScreenController implements Initializable {
      */
     @FXML
     private void purchase() {
-        if (selected == null) return;
+        if (selected == null) {
+            return;
+        }
         if (cash - selected.getPrice() < 0) {
             // out of money error message
             mnn.setText("You can't afford that, trader.");
@@ -122,7 +128,7 @@ public class MarketScreenController implements Initializable {
                     + "more.");
         } else {
             boolean buy = ship.addCargo(selected);
-            if (buy == false) {
+            if (!buy) {
                 // cargo full error message
                 mnn.setText("You'll need more cargo space to store that.");
             } else {
@@ -145,12 +151,15 @@ public class MarketScreenController implements Initializable {
      */
     @FXML
     private void sell() {
-        if (selected == null) return;
+        if (selected == null) {
+            return;
+        }
         int temp = ship.removeCargo(selected);
         if (temp == 0) {
             mnn.setText("You're cargo is empty...");
         } else if (temp == -1) {
-            mnn.setText("You don't have any " + selected.getName() + " to sell.\n"
+            mnn.setText("You don't have any " + selected.getName()
+                    + " to sell.\n"
                     + "Watch yourself, trader.");
         } else {
             cash = cash + selected.getPrice();
@@ -168,7 +177,8 @@ public class MarketScreenController implements Initializable {
      */
     private void updateCargoScreen() {
 
-        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize() + "/" + ship.getMaxCargoSize() + ")");
+        cargoLabel.setText("Ship's Cargo " + "(" + ship.getCargoSize()
+                + "/" + ship.getMaxCargoSize() + ")");
         cargo.clear();
         cargoData.clear();
         Map<String, Integer> c = ship.getCargo();
@@ -179,14 +189,17 @@ public class MarketScreenController implements Initializable {
         cargoDisplay.setItems(cargoData);
     }
 
-    /**
+    /** Change Screen.
      * Return to Planet screen
+     * @param event the action click by user
+     * @throws IOException from user
      */
     @FXML
-    private void EnterPlanetScreen(ActionEvent event) throws IOException {
+    private void enterPlanetScreen(final ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
