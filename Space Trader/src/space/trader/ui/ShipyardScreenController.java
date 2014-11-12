@@ -3,6 +3,7 @@ package space.trader.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -14,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -40,17 +40,17 @@ public class ShipyardScreenController implements Initializable {
     private Shipyard shipyard;
     private SolarSystem sol;
     private Player player;
-    private ArrayList<ShipType> shipsAvailable;
-    private ArrayList<Weapon> weaponAvailable;
-    private ArrayList<Shield> shieldAvailable;
-    private ArrayList<String> names;
-    private ArrayList<String> weaponNames;
-    private ArrayList<String> shieldNames;
+    private List<ShipType> shipsAvailable;
+    private List<Weapon> weaponAvailable;
+    private List<Shield> shieldAvailable;
+    private List<String> names;
+    private List<String> weaponNames;
+    private List<String> shieldNames;
     private Ship ship;
     private ShipType selected;
     private Weapon selectedWeapon;
     private Shield selectedShield;
-        
+
     @FXML
     private TextArea txt = new TextArea();
     @FXML
@@ -65,13 +65,13 @@ public class ShipyardScreenController implements Initializable {
     private Label cur = new Label();
     @FXML
     private Label cash = new Label();
-    @FXML 
+    @FXML
     private Label refuelCost = new Label();
     @FXML
     private Label fuelLabel = new Label();
     private int fuelcost;
-    
-    
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         player = Data.getPlayer();
@@ -87,9 +87,9 @@ public class ShipyardScreenController implements Initializable {
         cur.setText("Current Ship: "+ship.getShipType().getName());
         cash.setText("Cash: "+player.getCash());
         fuelcost = (ship.getShipType().getMaxFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
-        
+
         refuelCost.setText("Refuel Cost: " + fuelcost);
-        
+
         if (shipsAvailable.isEmpty()) {
             txt.setText("Sorry, no ships \nare available\nat this time.");
         } else {
@@ -105,7 +105,7 @@ public class ShipyardScreenController implements Initializable {
                 weaponNames.add(w.getName());
             }
             choice2.setItems(FXCollections.observableArrayList(weaponNames));
-        }        
+        }
         if (shieldAvailable.isEmpty()) {
             txt2.setText("Sorry, no shields \nare available \nat this time.");
         } else {
@@ -118,7 +118,7 @@ public class ShipyardScreenController implements Initializable {
             txt2.setText("Sorry, no shields or \nweapons are available\nat this time.");
         }
     }
-    
+
     /**
      * If the player has enough cash the selected Ship is purchased and
      * immediately usable by the player.
@@ -128,13 +128,13 @@ public class ShipyardScreenController implements Initializable {
         if(selected ==  null) {
             txt.setText("Please select a ship.");
         } else if((ship.getShipType().getName().equals(selected.getName()))) {
-            txt.setText("You already have a\n " +ship.getShipType().getName()); 
+            txt.setText("You already have a\n " +ship.getShipType().getName());
         } else if (selected.getPrice() <= player.getCash()) {
             ship.setShipType(selected);
             cur.setText("Current Ship: "+ship.getShipType().getName());
             player.setCash(player.getCash()-ship.getShipType().getPrice());
             cash.setText("Cash: "+player.getCash());
-            
+
         } else if (selected.getPrice() > player.getCash()) {
             txt.setText("Sorry trader, you can't\nafford that.");
         }
@@ -151,14 +151,14 @@ public class ShipyardScreenController implements Initializable {
             ship.addWeapon(selectedWeapon);
             player.setCash(player.getCash()-selectedWeapon.getCost());
             cash.setText("Cash: "+player.getCash());
-            
+
         } else if (selectedWeapon.getCost() > player.getCash()) {
             txt2.setText("Sorry trader, you can't\nafford that.");
         } else if (ship.getWeaponsSize() >= ship.getShipType().getWeaponSlot()) {
             txt2.setText("Sorry trader, your \nship doesn't have \nenough WeaponSlots.");
         }
     }
-    
+
     /**
      * If the player has enough cash and Player's ship has shield slot avaliable then the selected Shield is purchased and
      * immediately usable by the player.
@@ -171,14 +171,14 @@ public class ShipyardScreenController implements Initializable {
             ship.addShield(selectedShield);
             player.setCash(player.getCash()-selectedShield.getCost());
             cash.setText("Cash: "+player.getCash());
-            
+
         } else if (selectedShield.getCost() > player.getCash()) {
             txt2.setText("Sorry trader, you can't\nafford that.");
         } else if (ship.getShieldsSize() >= ship.getShipType().getShieldSlot()) {
             txt2.setText("Sorry trader, your \nship doesn't have \nenough ShieldSlots.");
         }
     }
-    
+
     /**
      * Action Event when a Ship Type is selected from the menu.
      */
@@ -237,10 +237,10 @@ public class ShipyardScreenController implements Initializable {
          cash.setText("Cash: " + player.getCash());
      }
     }
-    
+
     /**
-     * Return to Planet screen 
-     */    
+     * Return to Planet screen
+     */
     @FXML
     private void EnterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
@@ -250,8 +250,8 @@ public class ShipyardScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+
     //hideUpgrades();
-    
+
 }
 
