@@ -49,8 +49,8 @@ public class PlanetScreenController implements Initializable {
         fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel());
     }
     @FXML
-    private void EnterMarketScreen(ActionEvent event) throws IOException {
-        
+    private void enterMarketScreen(ActionEvent event) throws IOException {
+
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));/* Exception */
@@ -59,8 +59,8 @@ public class PlanetScreenController implements Initializable {
         stage.show();
     }
     @FXML
-    private void EnterShipyardScreen(ActionEvent event) throws IOException {
-        
+    private void enterShipyardScreen(ActionEvent event) throws IOException {
+
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("ShipyardScreen.fxml"));/* Exception */
@@ -69,10 +69,10 @@ public class PlanetScreenController implements Initializable {
         stage.show();
     }
 
-    
+
     @FXML
-    private void EnterUniverseScreen(ActionEvent event) throws IOException {
-        
+    private void enterUniverseScreen(ActionEvent event) throws IOException {
+
         Node node=(Node) event.getSource();
         Stage stage=(Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
@@ -80,5 +80,5 @@ public class PlanetScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+
 }
