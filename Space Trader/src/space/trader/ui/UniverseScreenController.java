@@ -65,10 +65,11 @@ public class UniverseScreenController implements Initializable {
     @FXML
     private TableColumn techCol = new TableColumn();
     @FXML
-    private ObservableList<SolarSystem> data = FXCollections.observableArrayList();
-
+    private ObservableList<SolarSystem> data
+            = FXCollections.observableArrayList();
     @FXML
-    private ObservableList<String> shipCargoData = FXCollections.observableArrayList();
+    private ObservableList<String> shipCargoData
+            = FXCollections.observableArrayList();
     @FXML
     private ListView<String> ShipCargo = new ListView<>();
     @FXML
@@ -248,9 +249,8 @@ public class UniverseScreenController implements Initializable {
         } else {
             ArrayList<String> cargo = new ArrayList<>();
             shipCargoData.clear();
-            Map<String, Integer> c = ship.getCargo();
-            for (String item : c.keySet()) {
-                cargo.add(item + " (" + c.get(item) + ")");
+            for (Map.Entry item : ship.getCargo().entrySet()) {
+                cargo.add(item.getKey() + " (" + item.getValue() + ")");
             }
             shipCargoData.addAll(cargo);
             ShipCargo.setItems(shipCargoData);

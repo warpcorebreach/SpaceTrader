@@ -6,9 +6,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 import space.trader.location.SystemStats.Resources;
 
 /**
- * Represents a generic TradeGood object
+ * Represents a generic TradeGood object.
  * Contains all the fields and methods a TradeGood should have
- * 
+ *
  * @author Justin
  */
 public abstract class TradeGood {
@@ -27,7 +27,7 @@ public abstract class TradeGood {
      * @param var
      * @param CR
      * @param ER
-     * @param name 
+     * @param name
      */
     public TradeGood(int MTLP, int MTLU, int TTP, int basePrice,
             int IPL, int var,
@@ -98,7 +98,7 @@ public abstract class TradeGood {
     public Resources getCR() {
         return CR;
     }
-    
+
     /** Getter for ER.
      *
      * @return The good's ER

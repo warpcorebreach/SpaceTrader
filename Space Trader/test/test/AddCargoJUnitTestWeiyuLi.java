@@ -25,8 +25,8 @@ public class AddCargoJUnitTestWeiyuLi {
         answer.add(new Furs());
         answer.add(new Furs());
         answer.add(new Furs());
-        for (int i = 0; i < 20; i++) {
             answer2.add(new Furs());
+        for (int i = 0; i < 20; i++) {
         }
     }
     @Test

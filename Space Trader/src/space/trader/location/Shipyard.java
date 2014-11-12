@@ -1,6 +1,7 @@
 package space.trader.location;
 
 import java.util.ArrayList;
+import java.util.List;
 import space.trader.resources.Equipment.Shield;
 import space.trader.resources.Equipment.Weapon;
 import space.trader.resources.ShipTypes.BumbleBee;
@@ -12,23 +13,35 @@ import space.trader.resources.ShipTypes.ShipType;
 
 
 /**
- * Represent a ship yard for player to buy and sell ship
+ * Represent a ship yard for player to buy and sell ship.
  * @author trananhduc1004
  */
 public class Shipyard {
-    private SolarSystem sys;
-    private ArrayList<ShipType> shipList = new ArrayList();
-    private ArrayList<ShipType> shipsAvailable = new ArrayList();
-    private ArrayList<Weapon> weaponList = new ArrayList();
-    private ArrayList<Shield> shieldList = new ArrayList();
-    private ArrayList<Shield> shieldAvailable = new ArrayList();
-    private ArrayList<Weapon> weaponAvailable = new ArrayList();
+    private final SolarSystem sys;
+    private final List<ShipType> shipList = new ArrayList();
+    private final List<Weapon> weaponList = new ArrayList();
+    private final List<Shield> shieldList = new ArrayList();
+
     /**
-     * Constructor to initialize the ship yard
-     * Add all the types of ship into the shipList
+     * List of Ships available to purchase at the Shipyard.
      */
-    public Shipyard(SolarSystem sys) {
-        this.sys = sys;
+    private final List<ShipType> shipsAvailable = new ArrayList();
+    /**
+     * List of Shields available to purchase at the Shipyard.
+     */
+    private final List<Shield> shieldAvailable = new ArrayList();
+    /**
+     * List of Weapons available to purchase at the Shipyard.
+     */
+    private final List<Weapon> weaponAvailable = new ArrayList();
+
+    /**
+     * Constructor to initialize the ship yard.
+     * Add all the types of ship into the shipList
+     * @param p_sys the current SolarSystem the Player is at
+     */
+    public Shipyard(SolarSystem p_sys) {
+        this.sys = p_sys;
         shipList.add(new BumbleBee());
         shipList.add(new Firefly());
         shipList.add(new Flea());
@@ -61,16 +74,16 @@ public class Shipyard {
             weaponAvailable.add(weaponList.get(3));
             shieldAvailable.add(shieldList.get(1));
         }
-        
+
     }
-    
-    public ArrayList<ShipType> getShips() {
+
+    public List<ShipType> getShips() {
         return shipsAvailable;
     }
-    public ArrayList<Weapon> getWeapons() {
+    public List<Weapon> getWeapons() {
         return weaponAvailable;
     }
-    public ArrayList<Shield> getShields() {
+    public List<Shield> getShields() {
         return shieldAvailable;
     }
      /**
@@ -81,7 +94,8 @@ public class Shipyard {
         String out = "";
         out += sys.getName() + "   " +  sys.getTechLevel().getTechNum() + "\n";
         for (ShipType ship : shipsAvailable) {
-            out += ship.getName() + " MIn Tech Level: " + ship.getMinTech() + "\n";
+            out += ship.getName() + " MIn Tech Level: " + ship.getMinTech()
+                    + "\n";
             out += "Price: " + ship.getPrice();
             out += " Fuel price " + ship.getFuelCost();
             out += " Repair " + ship.getRepairCost() + "\n";
