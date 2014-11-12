@@ -19,7 +19,7 @@ import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.location.Universe;
 
-/**
+/**.
  * FXML Controller class
  *
  * @author Weiyu
@@ -61,51 +61,51 @@ public class CharacterScreenController implements Initializable {
     public void setPrevStage(Stage stage){
          this.prevStage = stage;
     }*/
-        @FXML
+    @FXML
     private void PilotAdd(ActionEvent event) {
-        if((add+add1+add2+add3+add4)<15) {
-        add++;
-        label1.setText(String.valueOf(add));
-        bar.setProgress((add+add1+add2+add3+add4)/(double)15);
+        if ((add + add1 + add2 + add3 + add4) < 15) {
+            add++;
+            label1.setText(String.valueOf(add));
+            bar.setProgress((add + add1 + add2 + add3 + add4) / (double) 15);
         }
     }
     @FXML
     private void FighterAdd(ActionEvent event) {
-        if((add+add1+add2+add3+add4)<15) {
-        add1++;
-        label2.setText(String.valueOf(add1));
-         bar.setProgress((add+add1+add2+add3+add4)/(double)15);
+        if ((add + add1 + add2 + add3 + add4) < 15) {
+            add1++;
+            label2.setText(String.valueOf(add1));
+            bar.setProgress((add + add1 + add2 + add3 + add4) / (double) 15);
         }
     }
     @FXML
     private void TraderAdd(ActionEvent event) {
-        if((add+add1+add2+add3+add4)<15) {
-        add2++;
-        label3.setText(String.valueOf(add2));
-         bar.setProgress((add+add1+add2+add3+add4)/(double)15);
+        if ((add + add1 + add2 + add3 + add4) < 15) {
+            add2++;
+            label3.setText(String.valueOf(add2));
+            bar.setProgress((add + add1 + add2 + add3 + add4) / (double) 15);
         }
     }
     @FXML
     private void EngineerAdd(ActionEvent event) {
-        if((add+add1+add2+add3+add4)<15) {
-        add3++;
-        label4.setText(String.valueOf(add3));
-         bar.setProgress((add+add1+add2+add3+add4)/(double)15);
+        if ((add + add1 + add2 + add3 + add4) < 15) {
+            add3++;
+            label4.setText(String.valueOf(add3));
+            bar.setProgress((add + add1 + add2 + add3 + add4) / (double) 15);
         }
     }
     @FXML
     private void InvestorAdd(ActionEvent event) {
-        if((add+add1+add2+add3+add4)<15) {
-        add4++;
-        label5.setText(String.valueOf(add4));
-         bar.setProgress((add+add1+add2+add3+add4)/(double)15);
+        if ((add + add1 + add2 + add3 + add4) < 15) {
+            add4++;
+            label5.setText(String.valueOf(add4));
+            bar.setProgress((add + add1 + add2 + add3 + add4) / (double) 15);
         }
     }
 
     @FXML
     private void Done(ActionEvent event) throws IOException {
-        if(user.getText() != null && !user.getText().isEmpty()) {
-            if((add+add1+add2+add3+add4) < 15) {
+        if (user.getText() != null && !user.getText().isEmpty()) {
+            if ((add + add1 + add2 + add3 + add4) < 15) {
                 label6.setText("Please allocate all character points.");
             } else {
                 // create the game universe
@@ -116,12 +116,13 @@ public class CharacterScreenController implements Initializable {
                 user.clear();
                 user.setVisible(false);
                 label6.setText("Character Created");
-                p = new Player(name.getText(),add,add1,add2,add3,add4);
+                p = new Player(name.getText(), add, add1, add2, add3, add4);
                 Data.setPlayer(p);
                 
-                Node node=(Node) event.getSource();
-                Stage stage=(Stage) node.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));
+                // Exception 
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -132,11 +133,12 @@ public class CharacterScreenController implements Initializable {
         }
     }
     @FXML
-    private void ReturnToMainMenu(ActionEvent event) throws IOException{
-         Node node=(Node) event.getSource();
-         Stage stage=(Stage) node.getScene().getWindow();
-      //  Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));/* Exception */
+    private void ReturnToMainMenu(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        // Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        // Exception
         Scene scene = new Scene(root);
     
         stage.setScene(scene);
@@ -150,6 +152,5 @@ public class CharacterScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }       
 }
