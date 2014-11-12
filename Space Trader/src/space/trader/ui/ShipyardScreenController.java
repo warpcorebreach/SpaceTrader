@@ -27,7 +27,7 @@ import space.trader.resources.Equipment.Shield;
 import space.trader.resources.Equipment.Weapon;
 import space.trader.resources.ShipTypes.ShipType;
 
-/**
+/*
  * FXML Controller class
  *
  * @author trananhduc1004
@@ -84,9 +84,10 @@ public class ShipyardScreenController implements Initializable {
         names = new ArrayList<>();
         shieldNames = new ArrayList<>();
         weaponNames = new ArrayList<>();
-        cur.setText("Current Ship: "+ship.getShipType().getName());
-        cash.setText("Cash: "+player.getCash());
-        fuelcost = (ship.getShipType().getMaxFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+        cur.setText("Current Ship: " + ship.getShipType().getName());
+        cash.setText("Cash: " + player.getCash());
+        fuelcost = (ship.getShipType().getMaxFuel() - ship.getFuel())
+                * 50 * ship.getShipType().getFuelCost();
 
         refuelCost.setText("Refuel Cost: " + fuelcost);
 
@@ -115,7 +116,8 @@ public class ShipyardScreenController implements Initializable {
             choice3.setItems(FXCollections.observableArrayList(shieldNames));
         }
         if (shieldAvailable.isEmpty() && weaponAvailable.isEmpty()) {
-            txt2.setText("Sorry, no shields or \nweapons are available\nat this time.");
+            txt2.setText("Sorry, no shields or \nweapons are "
+                          + "available\nat this time.");
         }
     }
 
@@ -125,57 +127,65 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void purchase() {
-        if(selected ==  null) {
+        if (selected ==  null) {
             txt.setText("Please select a ship.");
-        } else if((ship.getShipType().getName().equals(selected.getName()))) {
-            txt.setText("You already have a\n " +ship.getShipType().getName());
+        } else if ((ship.getShipType().getName().equals(selected.getName()))) {
+            txt.setText("You already have a\n " + ship.getShipType().getName());
         } else if (selected.getPrice() <= player.getCash()) {
             ship.setShipType(selected);
-            cur.setText("Current Ship: "+ship.getShipType().getName());
-            player.setCash(player.getCash()-ship.getShipType().getPrice());
-            cash.setText("Cash: "+player.getCash());
+            cur.setText("Current Ship: " + ship.getShipType().getName());
+            player.setCash(player.getCash() - ship.getShipType().getPrice());
+            cash.setText("Cash: " + player.getCash());
 
         } else if (selected.getPrice() > player.getCash()) {
             txt.setText("Sorry trader, you can't\nafford that.");
         }
     }
     /**
-     * If the player has enough cash and Player's ship has weapon slot avaliable then the selected Weapon is purchased and
-     * immediately usable by the player.
+     * If the player has enough cash and Player's ship has weapon slot
+     * avaliable then the selected Weapon is purchased and immediately usable
+     * by the player.
      */
     @FXML
     private void purchaseWeapon() {
-        if(selectedWeapon == null) {
+        if (selectedWeapon == null) {
             txt2.setText("Please select a weapon.");
-        } else if (selectedWeapon.getCost() <= player.getCash() && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
+        } else if (selectedWeapon.getCost() <= player.getCash()
+                && ship.getWeaponsSize() < ship.getShipType().getWeaponSlot()) {
             ship.addWeapon(selectedWeapon);
-            player.setCash(player.getCash()-selectedWeapon.getCost());
-            cash.setText("Cash: "+player.getCash());
+            player.setCash(player.getCash() - selectedWeapon.getCost());
+            cash.setText("Cash: " + player.getCash());
 
         } else if (selectedWeapon.getCost() > player.getCash()) {
             txt2.setText("Sorry trader, you can't\nafford that.");
-        } else if (ship.getWeaponsSize() >= ship.getShipType().getWeaponSlot()) {
-            txt2.setText("Sorry trader, your \nship doesn't have \nenough WeaponSlots.");
+        } else if (ship.getWeaponsSize()
+                >= ship.getShipType().getWeaponSlot()) {
+            txt2.setText("Sorry trader, your \nship doesn't have"
+                          + " \nenough WeaponSlots.");
         }
     }
 
     /**
-     * If the player has enough cash and Player's ship has shield slot avaliable then the selected Shield is purchased and
+     * If the player has enough cash and Player's ship has shield slot
+     * avaliable then the selected Shield is purchased and
      * immediately usable by the player.
      */
     @FXML
     private void purchaseShield() {
-        if(selectedShield == null) {
+        if (selectedShield == null) {
            txt2.setText("Please select a shield.");
-        } else if (selectedShield.getCost() <= player.getCash() && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
+        } else if (selectedShield.getCost() <= player.getCash()
+                && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
             ship.addShield(selectedShield);
-            player.setCash(player.getCash()-selectedShield.getCost());
-            cash.setText("Cash: "+player.getCash());
+            player.setCash(player.getCash() - selectedShield.getCost());
+            cash.setText("Cash: " + player.getCash());
 
         } else if (selectedShield.getCost() > player.getCash()) {
             txt2.setText("Sorry trader, you can't\nafford that.");
-        } else if (ship.getShieldsSize() >= ship.getShipType().getShieldSlot()) {
-            txt2.setText("Sorry trader, your \nship doesn't have \nenough ShieldSlots.");
+        } else if (ship.getShieldsSize()
+                >= ship.getShipType().getShieldSlot()) {
+            txt2.setText("Sorry trader, your \nship doesn't have"
+                          + " \nenough ShieldSlots.");
         }
     }
 
@@ -221,37 +231,36 @@ public class ShipyardScreenController implements Initializable {
                 }
             });
     }
-    /**
+    /*
      * Refuel the ship
      */
     @FXML
     private void refuel() {
-     if(fuelcost>player.getCash()) {
+     if (fuelcost > player.getCash()) {
          fuelLabel.setText("Not enough Money.");
      } else {
          ship.setFuel(ship.getShipType().getFuel());
          fuelLabel.setText("Refuel Successfully.");
          player.setCash(player.getCash() - fuelcost);
-         fuelcost = (ship.getShipType().getMaxFuel() - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
+         fuelcost = (ship.getShipType().getMaxFuel()
+                 - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
          refuelCost.setText("Refuel Cost: " + fuelcost);
          cash.setText("Cash: " + player.getCash());
      }
     }
 
-    /**
+    /*
      * Return to Planet screen
      */
     @FXML
-    private void EnterPlanetScreen(ActionEvent event) throws IOException {
+    private void enterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("PlanetScreen.fxml"));
+        Parent root = FXMLLoader.load(
+                           getClass().getResource("PlanetScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    //hideUpgrades();
-
 }
-

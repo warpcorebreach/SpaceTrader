@@ -24,7 +24,8 @@ public abstract class ShipType implements Serializable {
     protected int hullStrength;
     protected final int MAX_FUEL;
     
-    public ShipType(String n, int c, int ws, int ss, int gs, int cr, int f, int mt, int fc, int p, int rc, int b, int o, int hs) {
+    public ShipType(String n, int c, int ws, int ss, int gs, int cr, int f,
+                    int mt, int fc, int p, int rc, int b, int o, int hs) {
         name = n;
         cargoBay = c;
         weaponSlot = ws;
@@ -41,14 +42,14 @@ public abstract class ShipType implements Serializable {
         hullStrength = hs;
         MAX_FUEL = f;
     }
-    
+
     @Override
     public String toString() {
-        return name+"\n\n"+"Cost: "+price+"\n\n"+"Cargo Size: "+cargoBay+"\n"
-                +"Fuel: "+fuel+"\n"+"Fuel Cost: "+fuelCost+"\n"+"Gadget Slots: "
-                +gadgetSlot;
+        return name + "\n\n" + "Cost: " + price + "\n\n" + "Cargo Size: "
+                + cargoBay + "\n" + "Fuel: " + fuel + "\n" + "Fuel Cost: "
+                + fuelCost + "\n" + "Gadget Slots: " + gadgetSlot;
     }
-    
+
     public int getMaxFuel() {
         return MAX_FUEL;
     }
@@ -94,7 +95,5 @@ public abstract class ShipType implements Serializable {
     public int getHullStrength() {
         return hullStrength;
     }
-    
-   
-    
+
 }
