@@ -14,18 +14,20 @@ import space.trader.resources.TradeGoods.TradeGood;
  * @author Weiyu
  */
 public class Ship implements Serializable {
-    
     private final static int INITIAL_X = 25;
     private final static int INITIAL_Y = 75;
     private int size, fuel, x, y, maxCargo;
     private ShipType type;
     private ArrayList<Weapon> weapons;
     private ArrayList<Shield> shields;
-    // Ship's cargo is represented by a Map from the name of a good to its
-    // quantity in the cargo
+    /**
+     * Ship's cargo is represented by a Map from the name of a good to its
+     * quantity in the cargo
+     */
     private HashMap<String, Integer> cargo;
-    
-    
+    /**
+     * Ship constructor with default ship Gnat.
+     */
     public Ship() {
         x = INITIAL_X;
         y = INITIAL_Y;
@@ -42,7 +44,7 @@ public class Ship implements Serializable {
     /**
      * Add a TradeGood to the Ship's cargo.
      * Returns true if cargo was successfully added, false otherwise
-     * 
+     *
      * @param good The TradeGood to add
      * @return true if the good was added, false if cargo is full
      */
@@ -61,8 +63,6 @@ public class Ship implements Serializable {
         }
         return false;
     }
-    
-    
     /**
      * Attempt to remove a TradeGood from the Ship's cargo.
      * Returns: 0 if the cargo is empty
@@ -94,11 +94,9 @@ public class Ship implements Serializable {
             return 1;
         }
     }
-    
     public HashMap<String, Integer> getCargo() {
         return cargo;
     }
-    
     public void setCargo(HashMap<String, Integer> c) {
         cargo = c;
     }
@@ -106,7 +104,7 @@ public class Ship implements Serializable {
     public int getFuel() {
         return fuel;
     }
-    
+
     public void setFuel(int f) {
         fuel = f;
     }
@@ -114,35 +112,35 @@ public class Ship implements Serializable {
     public void setX(int x) {
         this.x = x;
     }
-    
+
     public void setY(int y) {
         this.y = y;
     }
-    
+
     public int getX() {
         return x;
     }
-    
+
     public int getY() {
         return x;
     }
-    
+
     public int getCargoSize() {
         return size;
     }
-    
+
     public int getMaxCargoSize() {
         return maxCargo;
     }
-    
+
     public void setMaxCargoSize(int newMaxCargoSize) {
         this.maxCargo = newMaxCargoSize;
     }
-    
+
     public ShipType getShipType() {
         return type;
     }
-    
+
     public void setShipType(ShipType t) {
         type = t;
         fuel = t.getFuel();
