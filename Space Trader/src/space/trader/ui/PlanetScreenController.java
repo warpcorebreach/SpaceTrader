@@ -18,26 +18,50 @@ import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.location.SolarSystem;
 
-/**
+/**.
  * FXML Controller class
  *
  * @author trananhduc1004
  */
 public class PlanetScreenController implements Initializable {
+    /**.
+     * Label for planet name
+     */
     @FXML
     private Label planetName;
+    /**.
+     * Label for planet Coordination
+     */
     @FXML
     private Label planetCoord;
+    /**.
+     * Label for Fuel
+     */
     @FXML
     private Label fuelLabel;
+    /**.
+     * Button to enter the universe
+     */
     @FXML
-    private Button EnterUniverseScreen;
+    private Button enterUniverseScreen;
+    /**.
+     * Button to enter the market
+     */
     @FXML
-    private Button EnterMarketScren;
+    private Button enterMarketScren;
+    /**.
+     * Button to enter the shipyard
+     */
     @FXML
-    private Button EnterShipyardScreen;
+    private Button enterShipyardScreen;
     // Non FXMl variables
+    /**.
+     * The player
+     */
     private Player player = Data.getPlayer();
+    /**.
+     * The current planet
+     */
     private SolarSystem planet = Data.getSolarSystem();
     /**
      * Initializes the controller class.
@@ -48,37 +72,52 @@ public class PlanetScreenController implements Initializable {
         planetCoord.setText("Coordinates\n" + "X: " + planet.getX() + "  " + "Y: " + planet.getY());
         fuelLabel.setText("Current Fuel Level: " + player.getShip().getFuel());
     }
+    /**.
+     * Method to enter the market screen
+     * @param event the click event
+     * @throws IOException 
+     */
     @FXML
-    private void EnterMarketScreen(ActionEvent event) throws IOException {
+    private void enterMarketScreen(ActionEvent event) throws IOException {
         
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));/* Exception */
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("MarketScreen.fxml"));
+        /* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+        /**.
+     * Method to enter the shipyard screen
+     * @param event the click event
+     * @throws IOException 
+     */
     @FXML
-    private void EnterShipyardScreen(ActionEvent event) throws IOException {
+    private void enterShipyardScreen(ActionEvent event) throws IOException {
         
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("ShipyardScreen.fxml"));/* Exception */
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("ShipyardScreen.fxml"));
+        /* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-    
+        /**.
+     * Method to enter the universe screen
+     * @param event the click event
+     * @throws IOException 
+     */
     @FXML
-    private void EnterUniverseScreen(ActionEvent event) throws IOException {
+    private void enterUniverseScreen(ActionEvent event) throws IOException {
         
-        Node node=(Node) event.getSource();
-        Stage stage=(Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));/* Exception */
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));
+        /* Exception */
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    
 }
