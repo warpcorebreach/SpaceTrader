@@ -153,7 +153,11 @@ public class Ship implements Serializable {
         weapons.add(w);
     }
     public void addShield(Shield w) {
-        shields.add(w);
+        if (w != null) {
+            if (getShieldsSize() < getShipType().getWeaponSlot()) {
+                shields.add(w);
+            }
+        }
     }
     public int getShieldsSize() {
         return shields.size();
