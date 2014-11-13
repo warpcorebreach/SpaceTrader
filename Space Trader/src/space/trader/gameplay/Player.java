@@ -9,8 +9,10 @@ public class Player {
     private String name;
     private int pilot, fighter, trader, engineer, investor, cash;
     private Ship s;
-    
-    
+
+    /*  Initializes the current player
+     *
+     */
     public Player(String name, int p, int f, int t, int e, int i) {
         pilot = p;
         fighter = f;
@@ -21,17 +23,17 @@ public class Player {
         cash = 10000;
         s = new Ship();
     }
-    
+
     /**
      * Produces a comma separated string of data needed to restore the current
      * Player at a later time.
      * @return A string containing the relevant data.
      */
     public String save() {
-        return name+","+pilot+","+fighter+","+trader+","+engineer+","+investor
-                +","+cash;
+        return name + "," + pilot+"," + fighter + "," + trader + "," + engineer
+                + "," + investor + "," + cash;
     }
-    
+
     public int getPilot() {
         return pilot;
     }
@@ -59,7 +61,7 @@ public class Player {
     public Ship getShip() {
         return s;
     }
-    
+
     public void setShip(Ship s) {
         this.s = s;
     }

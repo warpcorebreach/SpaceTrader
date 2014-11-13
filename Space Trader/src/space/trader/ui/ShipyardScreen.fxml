@@ -41,7 +41,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="ret" layoutX="493.0" layoutY="343.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Return to Planet" />
+      <Button fx:id="ret" layoutX="493.0" layoutY="343.0" mnemonicParsing="false" onAction="#enterPlanetScreen" text="Return to Planet" />
       <Label fx:id="cash" layoutX="514.0" layoutY="77.0" text="Cash: 20000" textAlignment="CENTER" />
       <Button layoutX="525.0" layoutY="218.0" mnemonicParsing="false" onAction="#refuel" text="Refuel" />
       <Label fx:id="fuelLabel" layoutX="450.0" layoutY="251.0" prefHeight="35.0" prefWidth="211.0" />

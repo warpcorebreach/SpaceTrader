@@ -9,20 +9,20 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.CharacterScreenController">
    <children>
       <TextField fx:id="user" layoutX="22.0" layoutY="85.0" />
-      <Button layoutX="519.0" layoutY="86.0" mnemonicParsing="false" onAction="#Done" text="Done" />
-      <Button layoutX="600.0" layoutY="85.0" mnemonicParsing="false" onAction="#ReturnToMainMenu" text="Cancel" />
+      <Button layoutX="519.0" layoutY="86.0" mnemonicParsing="false" onAction="#done" text="Done" />
+      <Button layoutX="600.0" layoutY="85.0" mnemonicParsing="false" onAction="#returnToMainMenu" text="Cancel" />
       <ProgressBar fx:id="bar" layoutX="324.0" layoutY="85.0" prefHeight="36.0" prefWidth="172.0" progress="0.0" />
-      <Button layoutX="324.0" layoutY="145.0" mnemonicParsing="false" onAction="#PilotAdd" text="Add" />
-      <Button layoutX="324.0" layoutY="194.0" mnemonicParsing="false" onAction="#FighterAdd" text="Add" />
-      <Button layoutX="324.0" layoutY="247.0" mnemonicParsing="false" onAction="#TraderAdd" text="Add" />
-      <Button layoutX="324.0" layoutY="298.0" mnemonicParsing="false" onAction="#EngineerAdd" text="Add" />
-      <Button layoutX="324.0" layoutY="349.0" mnemonicParsing="false" onAction="#InvestorAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="145.0" mnemonicParsing="false" onAction="#pilotAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="194.0" mnemonicParsing="false" onAction="#fighterAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="247.0" mnemonicParsing="false" onAction="#traderAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="298.0" mnemonicParsing="false" onAction="#engineerAdd" text="Add" />
+      <Button layoutX="324.0" layoutY="349.0" mnemonicParsing="false" onAction="#investorAdd" text="Add" />
       <Label fx:id="label1" layoutX="410.0" layoutY="150.0" text="0" />
       <Label fx:id="label2" layoutX="410.0" layoutY="201.0" text="0" />
       <Label fx:id="label3" layoutX="410.0" layoutY="252.0" text="0" />
       <Label fx:id="label4" layoutX="410.0" layoutY="303.0" text="0" />
       <Label fx:id="label5" layoutX="410.0" layoutY="354.0" text="0" />
-      <Label fx:id="label6" layoutX="22.0" layoutY="26.0" prefHeight="35.0" prefWidth="671.0" text="Please Enter Your Name and Selelct Skill Points" />
+      <Label fx:id="label6" layoutX="22.0" layoutY="26.0" prefHeight="35.0" prefWidth="671.0" text="Please Enter Your Name and Select Skill Points" />
       <Label layoutX="22.0" layoutY="150.0" text="Pilot" />
       <Label layoutX="22.0" layoutY="199.0" text="Fighter" />
       <Label layoutX="22.0" layoutY="252.0" text="Trader" />

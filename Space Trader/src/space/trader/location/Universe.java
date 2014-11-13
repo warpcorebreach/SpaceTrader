@@ -15,9 +15,11 @@ public class Universe {
     private final static int MAX_X = 50;
     private final static int MAX_Y = 100;
     private final static int MAX_SYSTEMS = 50;
+    private final static int TECHLEVEL_RANDMAX = 7;
+    private final static int RESOURCES_RANDMAX = 13;
 
     private ArrayList<SolarSystem> systems;
-    // An ArrayList of int arrays which represents the x,y coordinates of each planet
+    // An ArrayList of int arrays representing the x,y coords of each planet
     // in the solar system
     private ArrayList<int[]> map;
 
@@ -28,12 +30,12 @@ public class Universe {
 
     /**
      * Generates 50 solar systems in the game universe.
-     * Each solar system contains one planet, each with its own set of resources,
+     * Each solar system contains 1 planet, each with its own set of resources,
      * a given technology level, and a unique (x,y) location in the universe.
      * Resources, tech levels, and coordinates are randomly generated for each
      * solar system upon creation of a new Universe object.
      *
-     * @return universe An ArrayList containing the solar systems in the universe.
+     * @return universe ArrayList containing the solar systems in the universe.
      */
     private ArrayList<SolarSystem> universeGenerate() {
         // Get number of available system names
@@ -52,13 +54,17 @@ public class Universe {
             }
             SystemStats.Name systemName = SystemStats.Name.values()[nextNum];
             // Pick tech level and resources randomly
-            SystemStats.TechLevel systemLevel = SystemStats.TechLevel.values()[randObject.nextInt(7)+1];
-            SystemStats.Resources systemResources = SystemStats.Resources.values()[randObject.nextInt(13)];
+            SystemStats.TechLevel systemLevel =
+                    SystemStats.TechLevel.values()
+                        [randObject.nextInt(TECHLEVEL_RANDMAX) + 1];
+            SystemStats.Resources systemResources =
+                    SystemStats.Resources.values()
+                        [randObject.nextInt(RESOURCES_RANDMAX)];
             numArray.add(nextNum);
 
             // Generate a random set of x,y coordinates for the current planet,
             // then iterate through the list of coordinates to ensure the new
-            // set is unique. If not generate a new set of coords and check again
+            // set is unique. If not generate a new set of coords & check again
             int x = Math.abs(randObject.nextInt(Integer.MAX_VALUE)) % MAX_X;
             int y = Math.abs(randObject.nextInt(Integer.MAX_VALUE)) % MAX_Y;
             int[] newCoords = {x, y};
@@ -69,8 +75,10 @@ public class Universe {
                 do {
                     for (int[] coords : map) {
                         if (coords[0] == x && coords[1] == y) {
-                            x = Math.abs(randObject.nextInt(Integer.MAX_VALUE)) % MAX_X;
-                            y = Math.abs(randObject.nextInt(Integer.MAX_VALUE)) % MAX_Y;
+                            x = Math.abs(randObject.nextInt(Integer.MAX_VALUE))
+                                    % MAX_X;
+                            y = Math.abs(randObject.nextInt(Integer.MAX_VALUE))
+                                    % MAX_Y;
                             invalidCoords = true;
                         } else {
                             invalidCoords = false;
@@ -83,7 +91,8 @@ public class Universe {
                 map.add(newCoords);
             }
 
-            universe.add(new SolarSystem(systemName.toString(), x, y, systemLevel, systemResources));
+            universe.add(new SolarSystem(systemName.toString(),
+                                         x, y, systemLevel, systemResources));
         }
         return universe;
     }
