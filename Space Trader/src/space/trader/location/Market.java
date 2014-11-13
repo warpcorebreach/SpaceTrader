@@ -21,32 +21,44 @@ import space.trader.resources.TradeGoods.Water;
  * @author Justin
  */
 public class Market {
-    private SolarSystem sys;
-    private final int RAND_MAX = 15;
-    private final double RAND_MAX_DOUBLE = 0.5;
+    /**
+     * Current SolarSystem.
+     */
+    private final SolarSystem sys;
+
+    /**
+     * Max value for randomly generated Good quantity.
+     */
+    private static final int RAND_MAX = 15;
+
+    /**
+     * Constant used to do coin-toss calculation for determining variance in
+     * Good price.
+     */
+    private static final double RAND_MAX_DOUBLE = 0.5;
 
     // full set of goods available to any Market
-    private Water water;
-    private Furs furs;
-    private Food food;
-    private Ore ore;
-    private Games games;
-    private Firearms arms;
-    private Medicine meds;
-    private Machines machines;
-    private Narcotics narcs;
-    private Robots bots;
+    private final Water water;
+    private final Furs furs;
+    private final Food food;
+    private final Ore ore;
+    private final Games games;
+    private final Firearms arms;
+    private final Medicine meds;
+    private final Machines machines;
+    private final Narcotics narcs;
+    private final Robots bots;
 
-    private ArrayList<TradeGood> goods;
-    private ArrayList<TradeGood> goodsAvailable;
+    private final ArrayList<TradeGood> goods;
+    private final ArrayList<TradeGood> goodsAvailable;
 
     /**
      * Takes in a SolarSystem object and instantiates TradeGood objects.
      *
-     * @param sys The location of the Market
+     * @param psys The location of the Market
      */
-    public Market(SolarSystem sys) {
-        this.sys = sys;
+    public Market(SolarSystem psys) {
+        this.sys = psys;
 
         furs = new Furs();
         water = new Water();
@@ -76,8 +88,8 @@ public class Market {
         generatePrices();
     }
 
-    /*
-     * Determine which goods are available in the current System by comparing
+    /**
+     * Determine which goods are available in the current System by comparing.
      * its TechLevel to the good's MTLP.
      */
     private void generateGoods() {
@@ -91,8 +103,8 @@ public class Market {
         }
     }
 
-    /*
-     * Generate prices for goods available in the current System
+    /**
+     * Generate prices for goods available in the current System.
      */
     private void generatePrices() {
         for (TradeGood good : goodsAvailable) {
@@ -100,7 +112,7 @@ public class Market {
         }
     }
 
-    /*
+    /**
      * Takes in a TradeGood and returns its randomly generated price on the
      * current System, according to the formula:
      * (the base price) + (the IPL * (Planet Tech Level - MTLP)) + (variance)
