@@ -36,6 +36,10 @@ import space.trader.location.Universe;
  * @author jd
  */
 public class UniverseScreenController implements Initializable {
+
+    /**
+     * The Player's initial (x,y) coordinates in the Universe.
+     */
     private final int[] INIT_LOC = {25, 75};
 
     private Universe universe;

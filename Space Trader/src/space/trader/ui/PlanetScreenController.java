@@ -11,7 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
@@ -39,22 +38,7 @@ public class PlanetScreenController implements Initializable {
      */
     @FXML
     private Label fuelLabel;
-    /**
-     * Button to enter the universe.
-     */
-    @FXML
-    private Button enterUniverseScreen;
-    /**
-     * Button to enter the market.
-     */
-    @FXML
-    private Button enterMarketScren;
-    /**
-     * Button to enter the shipyard.
-     */
-    @FXML
-    private Button enterShipyardScreen;
-    // Non FXMl variables
+
     /**
      * The player.
      */
