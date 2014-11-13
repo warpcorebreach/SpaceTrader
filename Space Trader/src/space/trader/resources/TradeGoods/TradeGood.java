@@ -12,52 +12,60 @@ import space.trader.location.SystemStats.Resources;
  * @author Justin
  */
 public abstract class TradeGood {
-    protected final int MTLP, MTLU, TTP, basePrice, IPL, var;
-    protected final Resources CR, ER;
+    protected final int mtlp;
+    protected final int mtlu;
+    protected final int ttp;
+    protected final int basePrice;
+    protected final int ipl;
+    protected final int var;
+    protected final Resources cr;
+    protected final Resources er;
     protected final String name;
-    protected int price, quant;
-    protected SimpleIntegerProperty p_prop, q_prop;
-    /** TradeGoods for trading
+    protected int price;
+    protected int quant;
+    protected SimpleIntegerProperty pprop;
+    protected SimpleIntegerProperty qprop;
+    /** TradeGoods for trading.
      * create a trade good depending on inputs
-     * @param MTLP
-     * @param MTLU
-     * @param TTP
-     * @param basePrice
-     * @param IPL
-     * @param var
-     * @param CR
-     * @param ER
-     * @param name
+     * @param mtlp1 min tech level to produce
+     * @param mtlu1 min tech level to use
+     * @param ttp1 tech level that produces most of the items
+     * @param basePrice1 base price of good
+     * @param ipl1 price increase per tech level
+     * @param var1 percent that can vary for base price
+     * @param cr1 price is low condition
+     * @param er1 price is high condition
+     * @param name1 name of the good
      */
-    public TradeGood(int MTLP, int MTLU, int TTP, int basePrice,
-            int IPL, int var,
-                Resources CR, Resources ER, String name) {
-            this.MTLP = MTLP;   // min tech level to produce
-            this.MTLU = MTLU;   // min tech level for system to use
-            this.TTP = TTP;
-            this.basePrice = basePrice;
-            this.IPL = IPL;
-            this.var = var;
-            this.CR = CR;
-            this.ER = ER;
-            this.name = name;
-            price = quant = 0;
-            p_prop = new SimpleIntegerProperty();
-            q_prop = new SimpleIntegerProperty();
+    public TradeGood(int mtlp1, int mtlu1, int ttp1, int basePrice1,
+            int ipl1, int var1,
+                Resources cr1, Resources er1, String name1) {
+        mtlp = mtlp1;   // min tech level to produce
+        mtlu = mtlu1;   // min tech level for system to use
+        ttp = ttp1;
+        basePrice = basePrice1;
+        ipl = ipl1;
+        var = var1;
+        cr = cr1;
+        er = er1;
+        name = name1;
+        price = quant = 0;
+        pprop = new SimpleIntegerProperty();
+        qprop = new SimpleIntegerProperty();
     }
     /**Getter for MTLP.
      *
      * @return The good's MTLP
      */
     public int getMTLP() {
-        return MTLP;
+        return mtlp;
     }
     /**Getter for MTLU.
      *
      * @return The good's MTLU
      */
     public int getMTLU() {
-        return MTLU;
+        return mtlu;
     }
 
     /** Getter for TTP.
@@ -65,7 +73,7 @@ public abstract class TradeGood {
      * @return The good's TTP
      */
     public int getTTP() {
-        return TTP;
+        return ttp;
     }
 
     /** Getter for basePrice.
@@ -81,12 +89,12 @@ public abstract class TradeGood {
      * @return The good's IPL
      */
     public int getIPL() {
-        return IPL;
+        return ipl;
     }
 
-    /** Getter for var.
+    /** Getter for variance.
      *
-     * @return The good's var
+     * @return The good's variance
      */
     public int getVar() {
         return var;
@@ -96,7 +104,7 @@ public abstract class TradeGood {
      * @return The good's CR
      */
     public Resources getCR() {
-        return CR;
+        return cr;
     }
 
     /** Getter for ER.
@@ -104,7 +112,7 @@ public abstract class TradeGood {
      * @return The good's ER
      */
     public Resources getER() {
-        return ER;
+        return er;
     }
 
     /** Getter for name.
@@ -125,19 +133,19 @@ public abstract class TradeGood {
 
     public void setPrice(int p) {
         price = p;
-        p_prop.setValue(price);
+        pprop.setValue(price);
     }
 
     public void setQuantity(int q) {
         quant = q;
-        q_prop.setValue(quant);
+        qprop.setValue(quant);
     }
 
     public final IntegerProperty priceProperty() {
-        return p_prop;
+        return pprop;
     }
 
     public final IntegerProperty quantProperty() {
-        return q_prop;
+        return qprop;
     }
 }

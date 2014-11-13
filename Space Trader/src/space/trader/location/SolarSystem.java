@@ -16,10 +16,13 @@ public class SolarSystem {
     private String name;
     private SystemStats.TechLevel techLevel;
     private SystemStats.Resources resources;
-    private int x, y, fuelCost;
+    private int x;
+    private int y;
+    private int fuelCost;
     private Market market;
     private Shipyard shipyard;
-    private SimpleStringProperty coords, nameProp;
+    private SimpleStringProperty coords;
+    private SimpleStringProperty nameProp;
 
     /** Solar System constructor.
      * Constructor of a solar system
@@ -74,12 +77,12 @@ public class SolarSystem {
         return fuelCost;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int x1) {
+        this.x = x1;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int y1) {
+        this.y = y1;
     }
 
     /** Market for solarSystem.
@@ -108,7 +111,7 @@ public class SolarSystem {
         return name;
     }
     /**
-     * Return the horizontal location
+     * Return the horizontal location.
      * @return  x
      */
     public int getX() {

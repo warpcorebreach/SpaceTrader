@@ -14,14 +14,18 @@ import space.trader.resources.TradeGoods.TradeGood;
  * @author Weiyu
  */
 public class Ship implements Serializable {
-    private final static int INITIAL_X = 25;
-    private final static int INITIAL_Y = 75;
-    private int size, fuel, x, y, maxCargo;
+    private static final int INITIAL_X = 25;
+    private static final int INITIAL_Y = 75;
+    private int size;
+    private int fuel;
+    private int x;
+    private int y;
+    private int maxCargo;
     private ShipType type;
     private ArrayList<Weapon> weapons;
     private ArrayList<Shield> shields;
     /**
-     * Ship's cargo is represented by a Map from the name of a good to its
+     * Ship's cargo is represented by a Map from the name of a good to its.
      * quantity in the cargo
      */
     private HashMap<String, Integer> cargo;
@@ -109,12 +113,12 @@ public class Ship implements Serializable {
         fuel = f;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int x1) {
+        this.x = x1;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int y1) {
+        this.y = y1;
     }
 
     public int getX() {

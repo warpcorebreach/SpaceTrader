@@ -12,18 +12,18 @@ public class Weapon implements Serializable {
     private int power;
     private int charges;
     private int cost;
-    private static final int pulsePower = 10;
-    private static final int pulseCharge = 30;
-    private static final int pulseCost = 2000;
-    private static final int beamPower = 15;
-    private static final int beamCharge = 25;
-    private static final int beamCost = 2950;
-    private static final int militaryPower = 25;
-    private static final int militaryCharge = 30;
-    private static final int militaryCost = 4250;
-    private static final int superPower = 55;
-    private static final int superCharge = 10;
-    private static final int superCost = 5550;
+    private static final int PULSE_POWER = 10;
+    private static final int PULSE_CHARGE = 30;
+    private static final int PULSE_COST = 2000;
+    private static final int BEAM_POWER = 15;
+    private static final int BEAM_CHARGE = 25;
+    private static final int BEAM_COST = 2950;
+    private static final int MILITARY_POWER = 25;
+    private static final int MILITARY_CHARGE = 30;
+    private static final int MILITARY_COST = 4250;
+    private static final int SUPER_POWER = 55;
+    private static final int SUPER_CHARGE = 10;
+    private static final int SUPER_COST = 5550;
     /** Weapon for Ship.
      * Depend on input create a new weapon
      * @param s the name of the weapon
@@ -31,24 +31,24 @@ public class Weapon implements Serializable {
     public Weapon(final String s) {
         weaponName = s;
         if (weaponName.equals("Pulse Laser")) {
-            power = pulsePower;
-            charges = pulseCharge;
-            cost = pulseCost;
+            power = PULSE_POWER;
+            charges = PULSE_CHARGE;
+            cost = PULSE_COST;
         }
         if (weaponName.equals("Beam Laser")) {
-            power = beamPower;
-            charges = beamCharge;
-            cost = beamCost;
+            power = BEAM_POWER;
+            charges = BEAM_CHARGE;
+            cost = BEAM_COST;
         }
         if (weaponName.equals("Military Laser")) {
-            power = militaryPower;
-            charges = militaryCharge;
-            cost = militaryCost;
+            power = MILITARY_POWER;
+            charges = MILITARY_CHARGE;
+            cost = MILITARY_COST;
         }
         if (weaponName.equals("Super Laser")) {
-            power = superPower;
-            charges = superCharge;
-            cost = superCost;
+            power = SUPER_POWER;
+            charges = SUPER_CHARGE;
+            cost = SUPER_COST;
         }
     }
     public int getPower() {

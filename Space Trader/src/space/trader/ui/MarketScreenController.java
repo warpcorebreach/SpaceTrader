@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
 import space.trader.gameplay.Ship;
-import space.trader.location.*;
+import space.trader.location.Market;
 import space.trader.resources.TradeGoods.TradeGood;
 
 /** MarketScreen Controller class.
