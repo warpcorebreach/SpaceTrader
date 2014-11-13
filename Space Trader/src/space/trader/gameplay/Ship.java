@@ -150,11 +150,15 @@ public class Ship implements Serializable {
         fuel = t.getFuel();
     }
     public void addWeapon(Weapon w) {
-        weapons.add(w);
+        if (w != null) {
+            if (getWeaponsSize() < getShipType().getWeaponSlot()) {
+                weapons.add(w);
+            }
+        }
     }
     public void addShield(Shield w) {
         if (w != null) {
-            if (getShieldsSize() < getShipType().getWeaponSlot()) {
+            if (getShieldsSize() < getShipType().getShieldSlot()) {
                 shields.add(w);
             }
         }
