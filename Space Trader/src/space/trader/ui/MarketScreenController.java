@@ -4,6 +4,7 @@ package space.trader.ui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -36,7 +37,7 @@ public class MarketScreenController implements Initializable {
     private Market market;
     private Player player;
     private int cash;
-    private ArrayList<TradeGood> tradeGoodList;
+    private List<TradeGood> tradeGoodList;
     private ArrayList<String> cargo;
     private TradeGood selected;
     private Ship ship;

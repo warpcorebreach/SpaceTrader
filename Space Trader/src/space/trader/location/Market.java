@@ -2,6 +2,7 @@
 package space.trader.location;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import space.trader.resources.TradeGoods.Firearms;
 import space.trader.resources.TradeGoods.Food;
@@ -49,8 +50,14 @@ public class Market {
     private final Narcotics narcs;
     private final Robots bots;
 
-    private final ArrayList<TradeGood> goods;
-    private final ArrayList<TradeGood> goodsAvailable;
+    /**
+     * A list of all the TradeGoods that can be purchased.
+     */
+    private final List<TradeGood> goods;
+    /**
+     * Contains the TradeGoods that this system has the TechLevel to support.
+     */
+    private final List<TradeGood> goodsAvailable;
 
     /**
      * Takes in a SolarSystem object and instantiates TradeGood objects.
@@ -149,7 +156,7 @@ public class Market {
     /**
      * @return An ArrayList of the available goods in the System
      */
-    public ArrayList<TradeGood> getGoods() {
+    public List<TradeGood> getGoods() {
         return goodsAvailable;
     }
 
