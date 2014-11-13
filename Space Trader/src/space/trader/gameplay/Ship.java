@@ -149,6 +149,13 @@ public class Ship implements Serializable {
         type = t;
         fuel = t.getFuel();
     }
+    
+    /**
+     * Add a Weapon to the ship.
+     * If param is null, or ship is out of slots, it is not added
+     * 
+     * @param w The Weapon to add
+     */
     public void addWeapon(Weapon w) {
         if (w != null) {
             if (getWeaponsSize() < getShipType().getWeaponSlot()) {
@@ -156,6 +163,13 @@ public class Ship implements Serializable {
             }
         }
     }
+    
+    /**
+     * Add a Shield to the ship.
+     * If param is null, or ship is out of slots, it is not added
+     * 
+     * @param w The Shield to add
+     */
     public void addShield(Shield w) {
         if (w != null) {
             if (getShieldsSize() < getShipType().getShieldSlot()) {
