@@ -28,7 +28,7 @@ public class EncounterScreenController implements Initializable {
     private Label encounter = new Label();
     int fuel = Data.getPlayer().getShip().getFuel();
     int cash = Data.getPlayer().getCash();
-    private final static int ENCOUNTER_RANDMAX = 8;
+    private static final int ENCOUNTER_RANDMAX = 8;
     /**
      * Initializes the controller class.
      * Randomly determines which encounter to load

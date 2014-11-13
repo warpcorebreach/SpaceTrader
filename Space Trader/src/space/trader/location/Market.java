@@ -122,7 +122,7 @@ public class Market {
     /**
      * Takes in a TradeGood and returns its randomly generated price on the
      * current System, according to the formula:
-     * (the base price) + (the IPL * (Planet Tech Level - MTLP)) + (variance)
+     * (the base price) + (the IPL * (Planet Tech Level - MTLP)) + (variance).
      *
      * @param good The TradeGood to calculate the price for
      * @return The good's price in the System

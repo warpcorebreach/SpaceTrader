@@ -173,7 +173,7 @@ public class ShipyardScreenController implements Initializable {
     @FXML
     private void purchaseShield() {
         if (selectedShield == null) {
-           txt2.setText("Please select a shield.");
+            txt2.setText("Please select a shield.");
         } else if (selectedShield.getCost() <= player.getCash()
                 && ship.getShieldsSize() < ship.getShipType().getShieldSlot()) {
             ship.addShield(selectedShield);
@@ -196,8 +196,8 @@ public class ShipyardScreenController implements Initializable {
     private void select() {
         choice.getSelectionModel().selectedIndexProperty().addListener(
             new ChangeListener<Number>() {
-                public void changed(ObservableValue v, Number val, Number new_val) {
-                    ShipType s = shipsAvailable.get(new_val.intValue());
+                public void changed(ObservableValue v, Number val, Number newVal) {
+                    ShipType s = shipsAvailable.get(newVal.intValue());
                     txt.setText(s.toString());
                     selected = s;
                 }
@@ -210,8 +210,8 @@ public class ShipyardScreenController implements Initializable {
     private void selectWeapon() {
         choice2.getSelectionModel().selectedIndexProperty().addListener(
             new ChangeListener<Number>() {
-                public void changed(ObservableValue v, Number val, Number new_val) {
-                    Weapon w = weaponAvailable.get(new_val.intValue());
+                public void changed(ObservableValue v, Number val, Number newVal) {
+                    Weapon w = weaponAvailable.get(newVal.intValue());
                     txt2.setText(w.toString());
                     selectedWeapon = w;
                 }
@@ -224,8 +224,8 @@ public class ShipyardScreenController implements Initializable {
     private void selectShield() {
         choice3.getSelectionModel().selectedIndexProperty().addListener(
             new ChangeListener<Number>() {
-                public void changed(ObservableValue v, Number val, Number new_val) {
-                    Shield s = shieldAvailable.get(new_val.intValue());
+                public void changed(ObservableValue v, Number val, Number newVal) {
+                    Shield s = shieldAvailable.get(newVal.intValue());
                     txt2.setText(s.toString());
                     selectedShield = s;
                 }
@@ -236,17 +236,17 @@ public class ShipyardScreenController implements Initializable {
      */
     @FXML
     private void refuel() {
-     if (fuelcost > player.getCash()) {
-         fuelLabel.setText("Not enough Money.");
-     } else {
-         ship.setFuel(ship.getShipType().getFuel());
-         fuelLabel.setText("Refuel Successfully.");
-         player.setCash(player.getCash() - fuelcost);
-         fuelcost = (ship.getShipType().getMaxFuel()
+        if (fuelcost > player.getCash()) {
+            fuelLabel.setText("Not enough Money.");
+        } else {
+            ship.setFuel(ship.getShipType().getFuel());
+            fuelLabel.setText("Refuel Successfully.");
+            player.setCash(player.getCash() - fuelcost);
+            fuelcost = (ship.getShipType().getMaxFuel()
                  - ship.getFuel()) * 50 * ship.getShipType().getFuelCost();
-         refuelCost.setText("Refuel Cost: " + fuelcost);
-         cash.setText("Cash: " + player.getCash());
-     }
+            refuelCost.setText("Refuel Cost: " + fuelcost);
+            cash.setText("Cash: " + player.getCash());
+        }
     }
 
     /*

@@ -38,10 +38,10 @@ public class Shipyard {
     /**
      * Constructor to initialize the ship yard.
      * Add all the types of ship into the shipList
-     * @param p_sys the current SolarSystem the Player is at
+     * @param pSys the current SolarSystem the Player is at
      */
-    public Shipyard(SolarSystem p_sys) {
-        this.sys = p_sys;
+    public Shipyard(SolarSystem pSys) {
+        this.sys = pSys;
         shipList.add(new BumbleBee());
         shipList.add(new Firefly());
         shipList.add(new Flea());
