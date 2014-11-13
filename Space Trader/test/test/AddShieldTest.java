@@ -45,8 +45,8 @@ public class AddShieldTest {
     
     @Test
     public void addShieldNotAvailable() {
-        for(int i = 0; i < ship.getShipType().getShieldSlot(); i++) {
-           ship.addShield(new Shield("Energy Shield"));
+        for (int i = 0; i < ship.getShipType().getShieldSlot(); i++) {
+            ship.addShield(new Shield("Energy Shield"));
         }
         int size = ship.getShieldsSize();
         ship.addShield(new Shield("Energy Shield"));
