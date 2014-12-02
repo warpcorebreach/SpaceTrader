@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.EncounterPiratesController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/pirates.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="427.0" layoutY="327.0" mnemonicParsing="false" onAction="#runtoPlanet" text="Run back to Planet" />
+      <Button layoutX="59.0" layoutY="327.0" mnemonicParsing="false" onAction="#attackPirate" text="Attack the pirate" />
+      <Label fx:id="warningLabel" layoutX="20.0" layoutY="21.0" text="If you choose to fight the bad pirate, you can either win 5000 or lose half your money" textFill="#e3e034" />
+   </children>
+</AnchorPane>

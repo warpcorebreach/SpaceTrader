@@ -28,7 +28,8 @@ public class EncounterScreenController implements Initializable {
     private Label encounter = new Label();
     int fuel = Data.getPlayer().getShip().getFuel();
     int cash = Data.getPlayer().getCash();
-    private static final int ENCOUNTER_RANDMAX = 8;
+    private static final int ENCOUNTER_RANDMAX = 20;
+    String nextScreentoEnter = "PlanetScreen.fxml";
     /**
      * Initializes the controller class.
      * Randomly determines which encounter to load
@@ -64,22 +65,26 @@ public class EncounterScreenController implements Initializable {
                                + " nearby asteroid. Your cash increases!");
             cash = cash + 10000;
             Data.getPlayer().setCash(cash);
-        } else if (encounterProb == 5) {
-            encounter.setText("Reserved for Pirates");
-        } else if (encounterProb == 6) {
-            encounter.setText("Reseved for Police");
-        } else if (encounterProb == 7) {
-            encounter.setText("Reserved for Merchant");
+        } else if (encounterProb < 10) {
+            encounter.setText("Oh NO. You have encountered a Pirates");
+            nextScreentoEnter = "EncounterPirates.fxml"; 
+        } else if (encounterProb < 15) {
+            encounter.setText("You have met a Policeman");
+            nextScreentoEnter = "EncounterPirates.fxml"; 
+        } else if (encounterProb < 20) {
+            encounter.setText("You met another trader");
+            nextScreentoEnter = "EncounterPirates.fxml"; 
         }
     }
+    
     @FXML
     private void enterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass()
-                    .getResource("PlanetScreen.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass()
+                    .getResource(nextScreentoEnter));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
