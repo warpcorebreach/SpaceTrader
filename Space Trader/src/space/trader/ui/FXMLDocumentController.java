@@ -12,7 +12,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
 import javafx.stage.Stage;
+import javafx.scene.media.MediaPlayer;
 import space.trader.gameplay.Save;
 
 /**
@@ -43,6 +45,9 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(final URL url, final ResourceBundle rb) {
         // TODO
+            MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File("src/space/trader/music/a.mp3").toURI().toString()));
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.play();
     }
 
     /**
