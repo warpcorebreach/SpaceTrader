@@ -1,6 +1,7 @@
 
 package space.trader.ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import space.trader.gameplay.Data;
 import space.trader.gameplay.Player;
@@ -99,7 +102,7 @@ public class CharacterScreenController implements Initializable {
      * The player
      */
     private Player p;
-    
+    MediaPlayer mediaPlayer;
  /*   Stage prevStage;
     
     public void setPrevStage(Stage stage){
@@ -215,7 +218,7 @@ public class CharacterScreenController implements Initializable {
         Scene scene = new Scene(root);
     
         stage.setScene(scene);
-        
+        mediaPlayer.stop();
         stage.show();
     }
     
@@ -224,6 +227,9 @@ public class CharacterScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+            mediaPlayer = new MediaPlayer(new Media(new File("src/space/trader/music/b.mp3").toURI().toString()));
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.play();
         // TODO
     }       
 }
