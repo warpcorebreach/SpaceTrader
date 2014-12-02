@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="space.trader.ui.EncounterPolicesController">
+   <children>
+      <ImageView fx:id="warningLabel" fitHeight="394.0" fitWidth="600.0" layoutX="3.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/polices.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="422.0" layoutY="352.0" mnemonicParsing="false" onAction="#payFee" text="Pay fee" />
+      <Button layoutX="97.0" layoutY="352.0" mnemonicParsing="false" onAction="#runFromPolice" text="Run From the Police" />
+      <Label fx:id="warning" layoutX="97.0" layoutY="14.0" text="You either pay fee (500) or run. If we catch, the fee is 2/3 your cash" textFill="#9ecd29" />
+   </children>
+</AnchorPane>

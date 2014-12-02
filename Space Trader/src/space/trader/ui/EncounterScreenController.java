@@ -67,13 +67,13 @@ public class EncounterScreenController implements Initializable {
             Data.getPlayer().setCash(cash);
         } else if (encounterProb < 10) {
             encounter.setText("Oh NO. You have encountered a Pirates");
-            nextScreentoEnter = "EncounterPirates.fxml"; 
+            nextScreentoEnter = "EncounterPolices.fxml"; 
         } else if (encounterProb < 15) {
             encounter.setText("You have met a Policeman");
-            nextScreentoEnter = "EncounterPirates.fxml"; 
+            nextScreentoEnter = "EncounterPolices.fxml"; 
         } else if (encounterProb < 20) {
             encounter.setText("You met another trader");
-            nextScreentoEnter = "EncounterPirates.fxml"; 
+            nextScreentoEnter = "EncounterPolices.fxml"; 
         }
     }
     
