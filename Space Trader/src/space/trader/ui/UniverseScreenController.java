@@ -208,8 +208,9 @@ public class UniverseScreenController implements Initializable {
         fuel -= getFuelCost(selected);
         Data.getPlayer().getShip().setFuel(fuel);
         Random r = new Random();
-        int encounterProb = r.nextInt(2);
-        if (encounterProb == 0 && !(selected.equals(currentSys))) {
+        //if (encounterProb == 0 ) && !(selected.equals(currentSys))
+        int encounterProb = r.nextInt(4);
+        if (encounterProb < 3 ) {
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass()

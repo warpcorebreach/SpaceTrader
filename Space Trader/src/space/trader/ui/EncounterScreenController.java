@@ -72,15 +72,14 @@ public class EncounterScreenController implements Initializable {
             encounter.setText("Reserved for Merchant");
         }
     }
-
     @FXML
     private void enterPlanetScreen(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource(
-                "PlanetScreen.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            Stage stage = (Stage) node.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass()
+                    .getResource("PlanetScreen.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
     }
 }

@@ -14,7 +14,7 @@
             <Image url="@../images/starfield.png" />
          </image>
       </ImageView>
-      <Button layoutX="254.0" layoutY="293.0" mnemonicParsing="false" onAction="#EnterPlanetScreen" text="Continue to Planet" />
+      <Button layoutX="254.0" layoutY="293.0" mnemonicParsing="false" onAction="#enterPlanetScreen" text="Continue to Planet" />
       <Label fx:id="encounter" alignment="CENTER" layoutX="7.0" layoutY="71.0" prefHeight="200.0" prefWidth="640.0" text="Encounter Text" textFill="RED" />
    </children>
 </AnchorPane>
