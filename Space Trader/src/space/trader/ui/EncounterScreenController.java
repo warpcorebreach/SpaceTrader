@@ -45,8 +45,8 @@ public class EncounterScreenController implements Initializable {
             Data.getPlayer().getShip().setFuel(fuel);
         } else if (encounterProb == 1) {
             encounter.setText("You got robbed by bandits and have "
-                               + "lost all of your cash.");
-            cash = 0;
+                               + "lost half of your cash.");
+            cash = cash / 2;
             Data.getPlayer().setCash(cash);
         } else if (encounterProb == 2) {
             encounter.setText("You have discovered an abandoned spaceship"
@@ -67,13 +67,13 @@ public class EncounterScreenController implements Initializable {
             Data.getPlayer().setCash(cash);
         } else if (encounterProb < 10) {
             encounter.setText("Oh NO. You have encountered a Pirates");
-            nextScreentoEnter = "EncounterPolices.fxml"; 
+            nextScreentoEnter = "EncounterPirates.fxml"; 
         } else if (encounterProb < 15) {
             encounter.setText("You have met a Policeman");
             nextScreentoEnter = "EncounterPolices.fxml"; 
         } else if (encounterProb < 20) {
             encounter.setText("You met another trader");
-            nextScreentoEnter = "EncounterPolices.fxml"; 
+            nextScreentoEnter = "EncounterTraders.fxml"; 
         }
     }
     

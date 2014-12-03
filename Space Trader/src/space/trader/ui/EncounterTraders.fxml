@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="364.0" prefWidth="589.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="space.trader.ui.EncounterTradersController">
+   <children>
+      <ImageView fitHeight="392.0" fitWidth="594.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/traders.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="infoLabel" layoutX="52.0" layoutY="14.0" text="The trader want to play rock paper scissors with you and bet half your cash" textFill="#e8e414" />
+      <Button fx:id="scissors" layoutX="31.0" layoutY="289.0" mnemonicParsing="false" onAction="#giveScissors" text="Scissor" />
+      <Button fx:id="rock" layoutX="31.0" layoutY="138.0" mnemonicParsing="false" onAction="#giveRock" text="Rock" />
+      <Button fx:id="paper" layoutX="31.0" layoutY="214.0" mnemonicParsing="false" onAction="#givePaper" text="Paper" />
+      <Button layoutX="448.0" layoutY="97.0" mnemonicParsing="false" onAction="#backToPlanet" text="Back to planet" />
+   </children>
+</AnchorPane>
