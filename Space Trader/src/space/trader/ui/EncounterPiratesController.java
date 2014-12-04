@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import space.trader.gameplay.Data;
 import java.util.Random;
 import javafx.scene.control.Label;
+import space.trader.gameplay.Player;
 
 /**
  * FXML Controller class
@@ -23,13 +24,28 @@ import javafx.scene.control.Label;
 public class EncounterPiratesController implements Initializable {
     @FXML
     private Label warningLabel = new Label();
-    int cash = Data.getPlayer().getCash();
+
+    @FXML
+    private Label pirateLabel = new Label();
+
+    @FXML
+    private Label playerLabel = new Label();
+
+    private Player player;
+    private int cash, playerPower, piratePower;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        player = Data.getPlayer();
+        cash = player.getCash();
+
+        Random rand = new Random();
+        playerPower = player.getShip().getWeaponPower() + player.getFighter();
+        piratePower = rand.nextInt(65);
+        pirateLabel.setText("" + piratePower);
+        playerLabel.setText("" + playerPower);
     }
      @FXML
     private void runtoPlanet(ActionEvent event) throws IOException {
@@ -43,8 +59,9 @@ public class EncounterPiratesController implements Initializable {
     }
      @FXML
     private void attackPirate(ActionEvent event) throws IOException {
-        // Random event to win or lose
-        boolean playerWin = (new Random()).nextBoolean();
+        // if player's weapon power >= pirate's power the player will
+        // defeat the pirates
+        boolean playerWin = playerPower >= piratePower;
         if (playerWin) {
            Data.getPlayer().setCash(cash + 5000);
            warningLabel.setText("You win and get 5000");
@@ -52,7 +69,7 @@ public class EncounterPiratesController implements Initializable {
             Data.getPlayer().setCash(cash / 2);
             warningLabel.setText("You lose and lost half of you cash");
         }
-        
+
         Node node = (Node) event.getSource();
         node.setDisable(true);
     }

@@ -18,5 +18,17 @@
       <Button layoutX="427.0" layoutY="327.0" mnemonicParsing="false" onAction="#runtoPlanet" text="Run back to Planet" />
       <Button layoutX="59.0" layoutY="327.0" mnemonicParsing="false" onAction="#attackPirate" text="Attack the pirate" />
       <Label fx:id="warningLabel" layoutX="20.0" layoutY="21.0" text="If you choose to fight the bad pirate, you can either win 5000 or lose half your money" textFill="#e3e034" />
+      <Label fx:id="warningLabel1" layoutX="14.0" layoutY="188.0" text="Pirate Weapon Power" textFill="#e3e034" />
+      <Label fx:id="warningLabel11" layoutX="449.0" layoutY="188.0" text="Your Weapon Power" textFill="#e3e034" />
+      <Label fx:id="pirateLabel" layoutX="75.0" layoutY="209.0" text="65" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerLabel" layoutX="507.0" layoutY="209.0" text="55" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
