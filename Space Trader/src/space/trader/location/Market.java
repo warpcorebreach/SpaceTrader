@@ -4,6 +4,8 @@ package space.trader.location;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import space.trader.gameplay.Data;
+import space.trader.gameplay.Player;
 import space.trader.resources.TradeGoods.Firearms;
 import space.trader.resources.TradeGoods.Food;
 import space.trader.resources.TradeGoods.Furs;
@@ -115,7 +117,10 @@ public class Market {
      */
     private void generatePrices() {
         for (TradeGood good : goodsAvailable) {
-            good.setPrice(getPrice(good));
+            Player p = Data.getPlayer();
+            int price = getPrice(good);
+            price -= price * ((double) p.getTrader() / 100);
+            good.setPrice(price);
         }
     }
 

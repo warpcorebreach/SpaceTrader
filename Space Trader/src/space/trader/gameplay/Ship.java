@@ -190,6 +190,17 @@ public class Ship implements Serializable {
         return weapons;
     }
 
+    public int getShieldPower() {
+        if (shields.isEmpty()) {
+            return 0;
+        }
+        int power = 0;
+        for (Shield s : shields) {
+            power += s.getShieldPower();
+        }
+        return power/4;
+    }
+
     public int getWeaponPower() {
         if (weapons.isEmpty()) {
             return 0;

@@ -43,7 +43,8 @@ public class EncounterPiratesController implements Initializable {
 
         Random rand = new Random();
         playerPower = player.getShip().getWeaponPower() + player.getFighter();
-        piratePower = rand.nextInt(65);
+        piratePower = Math.abs(rand.nextInt(65)
+                - player.getShip().getShieldPower());
         pirateLabel.setText("" + piratePower);
         playerLabel.setText("" + playerPower);
     }
