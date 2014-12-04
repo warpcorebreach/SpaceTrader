@@ -72,9 +72,9 @@ public class Ship implements Serializable {
      * Returns: 0 if the cargo is empty
      *          -1 if the cargo does not contain the given TradeGood
      *          1 if the remove is successful
-     * 
+     *
      * If removing a good would set its quantity to 0, the mapping is deleted
-     * 
+     *
      * @param good The good to remove.
      * @return 0 if the cargo is empty, -1 if cargo does not contain good, 1 if
      * the remove is successful
@@ -149,11 +149,11 @@ public class Ship implements Serializable {
         type = t;
         fuel = t.getFuel();
     }
-    
+
     /**
      * Add a Weapon to the ship.
      * If param is null, or ship is out of slots, it is not added
-     * 
+     *
      * @param w The Weapon to add
      */
     public void addWeapon(Weapon w) {
@@ -163,11 +163,11 @@ public class Ship implements Serializable {
             }
         }
     }
-    
+
     /**
      * Add a Shield to the ship.
      * If param is null, or ship is out of slots, it is not added
-     * 
+     *
      * @param w The Shield to add
      */
     public void addShield(Shield w) {
@@ -188,5 +188,27 @@ public class Ship implements Serializable {
     }
     public ArrayList<Weapon> getWeapons() {
         return weapons;
+    }
+
+    public int getShieldPower() {
+        if (shields.isEmpty()) {
+            return 0;
+        }
+        int power = 0;
+        for (Shield s : shields) {
+            power += s.getShieldPower();
+        }
+        return power/4;
+    }
+
+    public int getWeaponPower() {
+        if (weapons.isEmpty()) {
+            return 0;
+        }
+        int power = 0;
+        for (Weapon w : weapons) {
+            power += w.getPower();
+        }
+        return power;
     }
 }

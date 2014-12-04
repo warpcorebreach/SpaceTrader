@@ -1,0 +1,3 @@
+pirate encounter uses weapon power, shield power, and player's fighter skill
+universe screen uses player's pilot skill to calculate solar system fuel prices
+market reduces price of trade goods by 1% for each point in the trader skill

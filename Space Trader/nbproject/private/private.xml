@@ -2,10 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/home/trananhduc1004/git/SpaceTrader/Space%20Trader/src/space/trader/ui/FXMLDocumentController.java</file>
             <file>file:/home/trananhduc1004/git/SpaceTrader/Space%20Trader/src/space/trader/ui/Animation.fxml</file>
             <file>file:/home/trananhduc1004/git/SpaceTrader/Space%20Trader/src/space/trader/ui/AnimationController.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 23f583b270ae7d4691eaeaf69700dd2b5f7d3f7e
     </open-files>
 </project-private>
