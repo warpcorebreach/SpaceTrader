@@ -192,7 +192,7 @@ public class CharacterScreenController implements Initializable {
                 
                 Node node = (Node) event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
-                Parent root = FXMLLoader.load(getClass().getResource("UniverseScreen.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("Animation.fxml"));
                 // Exception 
                 Scene scene = new Scene(root);
                 stage.setScene(scene);

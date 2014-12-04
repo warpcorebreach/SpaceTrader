@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="365.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="space.trader.ui.AnimationController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/starfield.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="215.0" layoutY="321.0" mnemonicParsing="false" onAction="#startAnimation" text="Enter the Universe" textFill="#0a0a0a" />
+      <Label fx:id="topScreenLabel" layoutX="165.0" layoutY="72.0" text="Welcome" textFill="#aedd13" />
+   </children>
+</AnchorPane>
